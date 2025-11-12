@@ -1,86 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aggie's Foundation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script defer src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Aggie's Foundation</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <img src="logo.PNG" alt="Aggie's Foundation logo">
-      <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
-</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.PNG" alt="Aggie's Foundation logo">
+        <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
+      </a>
 
-<nav id="nav" class="nav">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
-  <a href="donate.html" class="pill-donate">Donate</a>
-  <a href="contact.html">Contact</a>
-</nav>
-    <button aria-label="Toggle menu" class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+      <nav id="nav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="donate.html" class="pill-donate">Donate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <h1>About us</h1>
-        <p class="lead">We remove cost barriers so children can stay in school — starting with tuition and essentials.</p>
-</section>
+      <button aria-label="Toggle menu" class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-<section class="grid-2">
-  <div>
-      <h2>Our approach</h2>
-      <p>We work directly with schools and communities. Donations are routed through our foundation to the school, not to individuals. This keeps administration light and the impact real.</p>
-      <ul class="checklist">
-        <li>Direct-to-school funding</li>
-        <li>Clear, simple reporting</li>
-        <li>Local builders for classrooms</li>
-      </ul>
+  <!-- Page hero (narrow + centered) -->
+  <section class="page-hero">
+    <div class="container-narrow">
+      <h1>About us</h1>
+      <p class="lead">
+        We remove cost barriers so children can stay in school — starting with tuition and essentials.
+      </p>
     </div>
-    <div class="card">
-      <img alt="Volunteer helping student" src="assets/placeholder-about.jpg" />
-      <div class="caption">Local partners, lasting change.</div>
-    </div>
-</section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="logo">Aggie's <span>Foundation</span></div>
-      <p>We open doors to education by funding tuition, books, and safe classrooms.</p>
-      <p class="copyright">© 2025 Aggie's Foundation</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul class="linklist">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Stay in touch</h4>
-      <form class="inline-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');">
-        <input type="email" placeholder="Email address" required />
-        <button class="btn primary">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</footer>
+  </section>
 
+  <!-- Our approach (narrow, centered two-column card) -->
+  <section class="about-approach">
+    <div class="container-narrow">
+      <div class="about-card">
+        <div class="about-grid">
+          <div class="about-copy">
+            <h2>Our approach</h2>
+            <p>
+              We work directly with schools and communities. Donations are routed through our foundation to
+              the school, not to individuals. This keeps administration light and the impact real.
+            </p>
+            <ul class="checklist">
+              <li>Direct-to-school funding</li>
+              <li>Clear, simple reporting</li>
+              <li>Local builders for classrooms</li>
+            </ul>
+          </div>
+
+          <div class="about-media">
+            <!-- Use your requested image here -->
+            <img src="bg-hero.png" alt="Local partners and students" />
+            <div class="caption">Local partners, lasting change.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">Aggie's <span>Foundation</span></div>
+        <p>We open doors to education by funding tuition, books, and safe classrooms.</p>
+        <p class="copyright">© 2025 Aggie's Foundation</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="linklist">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Stay in touch</h4>
+        <form class="inline-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');">
+          <input type="email" placeholder="Email address" required />
+          <button class="btn primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
