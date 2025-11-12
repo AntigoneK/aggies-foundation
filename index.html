@@ -1,133 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aggie's Foundation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script defer src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aggie's Foundation</title>
 
-<meta name="description" content="Aggie's Foundation supports students with tuition, books, and safe classrooms. Join us to create lasting change." />
+  <!-- Inter for UI; Playfair loaded via local @font-face in styles.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+
+  <meta name="description" content="Aggie's Foundation supports students with tuition, books, and safe classrooms. Join us to create lasting change.">
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <img src="logo.PNG" alt="Aggie's Foundation logo">
-      <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
-</a>
 
-<nav id="nav" class="nav">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
-  <a href="donate.html" class="pill-donate">Donate</a>
-  <a href="contact.html">Contact</a>
-</nav>
-    <button aria-label="Toggle menu" class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  <!-- Header (white bar with rounded corners) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.PNG" alt="Aggie's Foundation logo">
+        <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
+      </a>
 
-<main>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <h1>Education changes everything.</h1>
-        <p>Every €7 sponsors a child’s tuition, books, and pens for a year. Your gift goes directly to schools through our foundation.</p>
-        <div class="actions">
-          <a href="donate.html" class="btn primary">Donate now</a>
-          <a href="projects.html" class="btn ghost">See our projects</a>
+      <nav id="nav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="donate.html" class="pill-donate">Donate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button aria-label="Toggle menu" class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <!-- Left copy -->
+        <div class="hero-copy">
+          <h1>Education changes<br>everything.</h1>
+          <p>
+            Every €7 sponsors a child’s tuition, books, and pens for a year.
+            Your gift goes directly to schools through our foundation.
+          </p>
+
+          <div class="actions">
+            <a href="donate.html" class="btn contrast">Donate now</a>
+            <a href="projects.html" class="btn">See our projects</a>
+          </div>
+
+          <!-- stats chips -->
+          <ul class="stats">
+            <li><span>588</span> students supported last year</li>
+            <li><span>100%</span> of donations go to schools</li>
+            <li><span>7€</span> covers one year of essentials</li>
+          </ul>
         </div>
-        <ul class="stats">
-          <li><span>588</span> students supported last year</li>
-          <li><span>100%</span> of donations go to schools</li>
-          <li><span>7€</span> covers one year of essentials</li>
+
+        <!-- Right image card -->
+        <div class="hero-card">
+          <div class="card">
+            <!-- flat repo path (no assets/) -->
+            <img src="placeholder-hero.jpg" alt="Students in a classroom">
+            <div class="caption">Help us build bright futures, one classroom at a time.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features container">
+      <div class="section-head">
+        <h2>What your donation does</h2>
+        <p class="muted">Transparent, practical impact—focused on access to education.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card feature">
+          <h3>Tuition covered</h3>
+          <p>We pay school fees directly to partner schools for verified students.</p>
+        </div>
+
+        <div class="card feature">
+          <h3>Books &amp; supplies</h3>
+          <p>Every child receives the materials they need to learn confidently.</p>
+        </div>
+
+        <div class="card feature">
+          <h3>Classrooms built</h3>
+          <p>Beyond fees, we invest in safe learning spaces with local builders.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA strip -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <h2>Be the reason a child stays in school this year.</h2>
+        <a href="donate.html" class="btn contrast">Give €7</a>
+      </div>
+    </section>
+
+    <!-- Quotes -->
+    <section class="container testimonials">
+      <div class="section-head">
+        <h2>From our partners</h2>
+      </div>
+
+      <div class="grid-2">
+        <blockquote class="card quote">
+          <p>“Support from Aggie’s Foundation kept our most vulnerable students in class all year.”</p>
+          <cite>— School Director, Partner School</cite>
+        </blockquote>
+
+        <blockquote class="card quote">
+          <p>“The new classroom doubled our capacity and reduced dropouts.”</p>
+          <cite>— Teacher, Community School</cite>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">Aggie's <span>Foundation</span></div>
+        <p>We open doors to education by funding tuition, books, and safe classrooms.</p>
+        <p class="copyright">© 2025 Aggie's Foundation</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="linklist">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div class="hero-card">
-        <div class="card">
-          <img alt="Students in a classroom" src="assets/placeholder-hero.jpg" />
-          <div class="caption">Help us build bright futures, one classroom at a time.</div>
-        </div>
+
+      <div>
+        <h4>Stay in touch</h4>
+        <form class="inline-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');">
+          <input type="email" placeholder="Email address" required />
+          <button class="btn primary">Subscribe</button>
+        </form>
       </div>
     </div>
-  </section>
-
-  <section class="features container">
-    <div class="section-head">
-      <h2>What your donation does</h2>
-      <p class="ink-card">Transparent, practical impact—focused on access to education.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card feature">
-        <h3>Tuition covered</h3>
-        <p>We pay school fees directly to partner schools for verified students.</p>
-      </div>
-      <div class="card feature">
-        <h3>Books & supplies</h3>
-        <p>Every child receives the materials they need to learn confidently.</p>
-      </div>
-      <div class="card feature">
-        <h3>Classrooms built</h3>
-        <p>Beyond fees, we invest in safe learning spaces with local builders.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <div class="container cta-inner">
-      <h2>Be the reason a child stays in school this year.</h2>
-      <a href="donate.html" class="btn contrast">Give €7</a>
-    </div>
-  </section>
-
-  <section class="container testimonials">
-    <div class="section-head">
-      <h2>From our partners</h2>
-    </div>
-    <div class="grid-2">
-      <blockquote class="card quote">
-        <p>“Support from Aggie’s Foundation kept our most vulnerable students in class all year.”</p>
-        <cite>— School Director, Partner School</cite>
-      </blockquote>
-      <blockquote class="card quote">
-        <p>“The new classroom doubled our capacity and reduced dropouts.”</p>
-        <cite>— Teacher, Community School</cite>
-      </blockquote>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <div>
-      <div class="logo">Aggie's <span>Foundation</span></div>
-      <p>We open doors to education by funding tuition, books, and safe classrooms.</p>
-      <p class="copyright">© 2025 Aggie's Foundation</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <ul class="linklist">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="donate.html">Donate</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Stay in touch</h4>
-      <form class="inline-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');">
-        <input type="email" placeholder="Email address" required />
-        <button class="btn primary">Subscribe</button>
-      </form>
-    </div>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>
