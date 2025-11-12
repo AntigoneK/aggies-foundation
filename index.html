@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aggie's Foundation</title>
+  <title>About • Aggie's Foundation</title>
 
-  <!-- Inter (UI) via Google; Playfair is loaded locally in CSS -->
+  <!-- Inter (UI) via Google; local ElmsSans loaded in CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Aggie's Foundation empowers education through tuition, supplies, and safe classrooms in Kumi." />
+  <script defer src="main.js"></script>
 </head>
+
 <body>
-  <!-- thin green seam like the mock -->
+  <!-- thin green seam like your home page -->
   <div class="top-strip"></div>
 
   <!-- HEADER -->
@@ -40,116 +40,44 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero hero-split">
-      <div class="container hero-frame">
-        <div class="hero-split-grid">
+    <!-- TOP HERO (narrow + centered) -->
+    <section class="page-hero">
+      <div class="container-narrow">
+        <h1>About us</h1>
+        <p class="lead">
+          We remove cost barriers so children can stay in school — starting with tuition and essentials.
+        </p>
+      </div>
+    </section>
+
+    <!-- OUR APPROACH (white rounded card, centered) -->
+    <section class="about-approach">
+      <div class="about-card">
+        <div class="about-grid">
           <!-- Left copy -->
-          <div class="hero-left">
-            <h1>Education changes<br>everything.</h1>
-            <p class="sub">Every €7 sponsors a child's tuition, books, and pens for a year. Your donation goes directly to schools through our foundation.</p>
-
-            <div class="cta-row">
-              <a href="donate.html" class="btn hero-donate">Donate Now</a>
-              <a href="projects.html" class="btn hero-impact">See Our Impact</a>
-            </div>
-
-            <ul class="facts">
-              <li class="fact">
-                <div class="fact-circle">
-                  <div class="fact-number">588</div>
-                  <div class="fact-label">Kids supported</div>
-                  <div class="fact-label">last year</div>
-                </div>
-              </li>
-              <li class="fact">
-                <div class="fact-circle ring">
-                  <div class="fact-number">€7 = 1</div>
-                  <div class="fact-label">Year of</div>
-                  <div class="fact-label">essentials</div>
-                </div>
-              </li>
-              <li class="fact">
-                <div class="fact-circle ring">
-                  <div class="fact-number">100%</div>
-                  <div class="fact-label">To Schools</div>
-                </div>
-              </li>
+          <div class="about-copy">
+            <h2>Our approach</h2>
+            <p>
+              We work directly with schools and communities. Donations are routed through our foundation to the school,
+              not to individuals. This keeps administration light and the impact real.
+            </p>
+            <ul class="checklist">
+              <li>Direct-to-school funding</li>
+              <li>Clear, simple reporting</li>
+              <li>Local builders for classrooms</li>
             </ul>
           </div>
 
-          <!-- Right hero image -->
-          <div class="hero-right">
-            <!-- REPLACE with your real hero photo file -->
-            <img src="bg-hero(1).jpeg" alt="Students smiling in class" />
+          <!-- Right media -->
+          <div class="about-media">
+            <!-- Use your actual image file path -->
+            <img src="bg-hero.png" alt="Local classroom roof structure" />
+            <div class="caption">Local partners, lasting change.</div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- STORY + IMPACT -->
-    <section class="soft-band">
-      <div class="container">
-        <div class="story-impact">
-          <!-- Story left -->
-          <div class="story-col">
-            <h3 class="eyebrow">Our Story &amp; The Challenge</h3>
-            <div class="story card">
-              <h3 class="story-title">The Heart of Aggie’s Foundation</h3>
-              <p>
-                We remove cost barriers so children can stay in school—starting with tuition and essentials.
-                We partner directly with schools and local builders to create safe learning spaces.
-              </p>
-              <a class="btn small contrast" href="about.html">Learn Our Full Story</a>
-            </div>
-          </div>
-
-          <!-- Impact right -->
-          <div class="impact-col">
-            <h3 class="eyebrow">Your Impact in Action</h3>
-
-            <div class="impact-tiles">
-              <article class="impact card">
-                <div class="impact-icon">
-                  <img src="schoolbagclipart.jpg" alt="Backpack icon (Tuition)">
-                </div>
-                <h4>Tuition Covered</h4>
-                <p>Direct payments to partner schools for verified students.</p>
-                <a class="chip" href="projects.html">Learn More</a>
-              </article>
-
-              <article class="impact card">
-                <div class="impact-icon">
-                  <img src="schoolsuppliesclipart.jpg" alt="Supplies icon">
-                </div>
-                <h4>Books &amp; Supplies</h4>
-                <p>Every child receives the materials they need to learn.</p>
-                <a class="chip" href="projects.html">Learn More</a>
-              </article>
-
-              <article class="impact card">
-                <div class="impact-icon">
-                  <img src="classroomclipart.jpg" alt="Classroom icon">
-                </div>
-                <h4>Classrooms Built</h4>
-                <p>Safe spaces created with local teams and materials.</p>
-                <a class="chip" href="projects.html">Learn More</a>
-              </article>
-            </div>
-          </div>
-        </div>
-
-    <!-- CTA BAND -->
-    <section class="cta">
-      <div class="container cta-inner">
-        <div class="cta-left">
-          <!-- If you add a small headshot later, put it here -->
-          <!-- <img class="avatar" src="SPEAKER.jpg" alt="Quote speaker"> -->
-          <div class="cta-quote">Be the reason a child stays in school this year</div>
-        </div>
-        <a href="donate.html" class="btn light">Give €7 Now</a>
-      </div>
-    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -158,17 +86,18 @@
         <div class="logo">Aggie's <span>Foundation</span></div>
         <p>Empowering education through tuition, supplies, and safe classrooms in Kumi.</p>
 
-<div class="footer-social">
-  <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
-    <img src="insta-Photoroom.png" alt="Instagram logo">
-  </a>
-  <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
-    <img src="facebook-Photoroom.png" alt="Facebook logo">
-  </a>
-  <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" rel="noopener" aria-label="LinkedIn">
-    <img src="linkedin-Photoroom1.png" alt="LinkedIn logo">
-  </a>
-</div>
+        <!-- Social: replace URLs with your real pages -->
+        <div class="footer-social">
+          <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="insta-Photoroom.png" alt="Instagram logo">
+          </a>
+          <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="facebook-Photoroom.png" alt="Facebook logo">
+          </a>
+          <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="linkedin-Photoroom.png" alt="LinkedIn logo">
+          </a>
+        </div>
 
         <p class="copyright">© 2025 Aggie's Foundation</p>
       </div>
@@ -195,7 +124,7 @@
   </footer>
 
   <script>
-    // Simple mobile nav toggle
+    // simple mobile nav toggle
     const burger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
     burger?.addEventListener('click', () => {
