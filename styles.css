@@ -16,14 +16,14 @@
 
 @font-face{
   font-family: "Playful Display";
-  src: url("assets/Fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+  src: url("PlayfairDisplay-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face{
   font-family: "Playful Display";
-  src: url("assets/Fonts/PlayfairDisplay-Bold.ttf") format("truetype");
+  src: url("PlayfairDisplay-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
