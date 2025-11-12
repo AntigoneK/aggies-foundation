@@ -4,32 +4,36 @@
   /*--wash-bot: rgba(255,255,255,0.60);
 }*/
 
-:root{
-  /* Brand greens */
-  --ink:#153f3b;          /* main headings/body */
-  --muted:#4e6a67;        /* secondary text */
-  --green:#1b615d;        /* nav/links */
-  --teal:#2a8f8a;         /* accents on hover */
+/* =========================================================
+   Aggie's Foundation — Homepage layout (full CSS replacement)
+   Mirrors your mockup (warm cream, impact tiles, terracotta CTA)
+   ========================================================= */
 
-  /* Warm palette */
-  --cream:#f1ede5;        /* page background */
-  --paper:#ffffff;        /* cards/header */
-  --soft:#efe9de;         /* section band */
-  --terracotta:#c76844;   /* CTA band + tags */
+:root{
+  /* Text & brand */
+  --ink:#153f3b;
+  --muted:#4e6a67;
+  --green:#1b615d;
+  --teal:#2a8f8a;
+
+  /* Surfaces */
+  --cream:#f1ede5;
+  --paper:#ffffff;
+  --soft:#f3eee6;
+
+  /* CTA band */
+  --terracotta:#c76844;
   --terracotta-700:#b25e3e;
 
-  /* Lines & shadows */
+  /* Lines & depth */
   --line:#e8e1d6;
   --shadow:0 14px 28px rgba(16,24,40,.08), 0 2px 6px rgba(16,24,40,.06);
 
   /* Focus */
   --ring:0 0 0 3px rgba(26,127,122,.22);
-
-  /* CTA orange from previous iteration kept for pills if needed */
-  --orange:#dd7a38;
 }
 
-/* ---------------- Local fonts (flat repo) ---------------- */
+/* ---------- local fonts (flat repo) ---------- */
 @font-face{
   font-family:"Playfair Display";
   src:url("PlayfairDisplay-Regular.ttf") format("truetype");
@@ -41,14 +45,13 @@
   font-weight:700; font-style:normal; font-display:swap;
 }
 
-/* ---------------- Reset / base ---------------- */
+/* ---------- base ---------- */
 *{ box-sizing:border-box }
 html,body{ height:100% }
 body{
   margin:0;
   font-family:"Playfair Display", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:var(--ink);
-  line-height:1.55;
+  color:var(--ink); line-height:1.55;
   background:
     radial-gradient(900px 320px at 50% 0%, rgba(199,104,68,.10), transparent 65%),
     var(--cream);
@@ -59,12 +62,15 @@ a:hover{ color:var(--teal) }
 button,input,select,textarea{ font:inherit }
 .container{ max-width:1120px; margin:0 auto; padding:0 20px }
 
-/* Make footer stick when content is short */
-html, body { display:flex; flex-direction:column }
+/* Keep footer at bottom */
+html, body{ display:flex; flex-direction:column }
 main{ flex:1 }
 
+/* top seam */
+.top-strip{ height:10px; background:#2f6f6a }
+
 /* =========================================================
-   HEADER (thin green strip + white rounded bar)
+   HEADER
    ========================================================= */
 .site-header{
   position:sticky; top:0; z-index:10;
@@ -81,7 +87,6 @@ main{ flex:1 }
   display:flex; align-items:center; justify-content:space-between;
 }
 
-/* Logo block */
 .logo{ display:flex; align-items:center; gap:.65rem; color:var(--ink) }
 .logo img{
   width:38px; height:38px; border-radius:50%;
@@ -91,13 +96,11 @@ main{ flex:1 }
 .logo .brand-accent{ color:#ffbd59; font-weight:800 }
 .logo strong{ color:var(--ink); font-weight:800 }
 
-/* Primary nav */
 .nav a{
   margin:0 12px; color:var(--ink); font-weight:600; opacity:.95;
 }
 .nav a:hover{ opacity:1 }
 
-/* Donate pill (soft terracotta to match mockup) */
 .pill-donate{
   display:inline-flex; align-items:center; justify-content:center;
   padding:10px 16px; border-radius:999px;
@@ -107,41 +110,36 @@ main{ flex:1 }
 }
 .pill-donate:hover{ background:var(--terracotta-700) }
 
-/* Mobile hamburger */
 .hamburger{ display:none; gap:6px; background:none; border:0; cursor:pointer }
 .hamburger span{ width:22px; height:2px; background:var(--ink); display:block }
 
 /* =========================================================
-   BUTTONS
+   HERO
    ========================================================= */
+.hero{ padding:26px 0 8px }
+.hero-shell{ background:transparent }
+.hero-grid{
+  display:grid; grid-template-columns:1.08fr .92fr; gap:28px; align-items:center;
+}
+
+.hero-copy h1{
+  font-size:2.7rem; line-height:1.1; margin:0 0 10px; color:var(--ink);
+}
+.hero-copy p{ color:var(--muted); margin:0 0 16px }
+.actions{ display:flex; gap:12px; margin:14px 0 8px }
+
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   padding:12px 18px; border-radius:999px; border:1px solid var(--line);
   background:#fff; color:var(--ink); font-weight:600; cursor:pointer;
-  transition:.2s; text-decoration:none;
+  transition:.2s;
 }
-.btn:hover{ box-shadow:0 1px 0 rgba(0,0,0,.02) }
-.btn.primary{ background:var(--green); border-color:var(--green); color:#fff }
-.btn.primary:hover{ filter:brightness(1.06) }
-.btn.contrast{ background:var(--terracotta); color:#fff; border-color:transparent; font-weight:800 }
+.btn.primary{ background:#1b615d; border-color:#1b615d; color:#fff }
+.btn.contrast{ background:var(--terracotta); border-color:transparent; color:#fff; font-weight:800 }
 .btn.contrast:hover{ background:var(--terracotta-700) }
-.btn.ghost{ background:transparent; border-color:var(--green); color:var(--green) }
+.btn.light{ background:#fff; color:#222; border-color:transparent }
 .btn.small{ padding:8px 14px; font-size:.92rem }
 
-/* =========================================================
-   HERO (left copy + right image)
-   ========================================================= */
-.hero{ padding:32px 0 10px }
-.hero-grid{
-  display:grid; grid-template-columns:1.08fr .92fr; gap:28px; align-items:center;
-}
-.hero-copy h1{
-  font-size:2.7rem; line-height:1.1; margin:0 0 10px; color:var(--ink);
-}
-.hero-copy p{ color:var(--muted); max-width:640px; margin:0 0 16px }
-.actions{ display:flex; gap:12px; margin:14px 0 8px }
-
-/* Stat chips (three pills under buttons) */
 .stats{ display:flex; gap:14px; flex-wrap:wrap; padding:0; margin:14px 0 0; list-style:none }
 .stats li{
   background:#fff; border:1px solid var(--line); border-radius:999px;
@@ -156,87 +154,78 @@ main{ flex:1 }
 }
 .stats span{ color:var(--ink); font-weight:800; margin-right:2px }
 
-/* Hero image card */
-.hero-card .card{
-  background:#fff; border:1px solid var(--line); border-radius:18px;
-  padding:10px; box-shadow:var(--shadow);
-}
-.hero-card .caption{ color:var(--muted); font-size:.92rem; margin-top:8px }
+.hero-photo.card{ padding:10px; border:1px solid var(--line); border-radius:18px; background:#fff; box-shadow:var(--shadow) }
 
 /* =========================================================
-   STORY + IMPACT STRIP (mimic soft band)
+   STORY + IMPACT BAND
    ========================================================= */
-.features{ padding-top:18px; padding-bottom:6px }
-.section-head h2{
-  font-size:1.9rem; margin:8px 0 6px; color:var(--ink);
+.soft-band{ background:var(--soft); padding:26px 0 30px; border-top:1px solid var(--line) }
+.eyebrow{ color:var(--ink); font-size:1.05rem; margin:0 0 10px }
+
+.two-col{
+  display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:start;
 }
-.section-head .muted{ color:var(--muted) }
 
-.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px }
-
-/* Impact tiles (cards with icon placeholder + Learn more pill) */
 .card{
   background:var(--paper); border:1px solid var(--line); border-radius:18px;
   padding:18px; box-shadow:var(--shadow); color:var(--ink);
 }
-.card h3{ margin:0 0 8px }
-.card.feature{
-  position:relative; padding-top:16px; padding-bottom:16px;
+.story-card p{ margin:8px 0 14px; color:var(--muted) }
+
+.impact-row{
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px;
 }
-.card.feature::before{
-  /* ICON PLACEHOLDER — replace background-image with your icon later */
-  /* e.g. background-image:url("icon-tuition.svg"); */
-  content:"";
-  width:48px; height:48px; border-radius:12px;
-  background:linear-gradient(180deg, #faf7f2, #f0e9df);
-  border:1px solid var(--line);
-  box-shadow:0 1px 0 rgba(0,0,0,.02);
-  display:block; margin-bottom:12px;
+.impact-tile{ display:flex; gap:14px; align-items:flex-start }
+.impact-media{
+  width:80px; height:80px; border-radius:14px; overflow:hidden;
+  border:1px solid var(--line); background:#fff;
+  display:flex; align-items:center; justify-content:center;
+}
+.impact-media img{ width:100%; height:100%; object-fit:cover; border-radius:14px }
+
+.impact-text h4{ margin:2px 0 6px }
+.impact-text p{ margin:0 0 8px; color:var(--muted) }
+
+.chip{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px; border-radius:999px; background:var(--terracotta); color:#fff; font-weight:700;
+  text-decoration:none; border:1px solid rgba(0,0,0,.05);
+}
+.chip:hover{ background:var(--terracotta-700) }
+
+.scroll-hint{
+  display:flex; align-items:center; gap:10px; color:var(--muted);
+  margin:18px 0 0;
+}
+.scroll-hint .dot{
+  width:8px; height:8px; background:var(--muted); border-radius:50%;
 }
 
 /* =========================================================
-   CTA BAND (terracotta)
+   CTA BAND
    ========================================================= */
-.cta{
-  margin:44px 0 0; background:var(--terracotta);
-  border-top:1px solid rgba(0,0,0,.05);
-  border-bottom:1px solid rgba(0,0,0,.05);
-}
+.cta{ background:var(--terracotta); color:#fff; margin:34px 0 0 }
 .cta-inner{
   display:flex; align-items:center; justify-content:space-between; gap:16px;
-  padding:24px 20px; color:#fff;
+  padding:22px 20px;
 }
-.cta-inner h2{ margin:0; font-size:1.6rem }
-.cta-inner .btn{ background:#fff; color:#223; border-color:transparent }
-.cta-inner .btn:hover{ filter:brightness(.98) }
+.cta-quote{ font-size:1.25rem; font-weight:800 }
+.avatar{ width:40px; height:40px; border-radius:50%; object-fit:cover; margin-right:10px }
 
 /* =========================================================
-   QUOTES / TESTIMONIALS ROW
+   VOICES ROW
    ========================================================= */
-.testimonials{ padding-top:24px; padding-bottom:10px }
-.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start }
-.quote{ position:relative }
-.quote::before{
-  content:"“"; position:absolute; left:14px; top:6px; font-size:48px; color:rgba(0,0,0,.12);
+.voices{ padding:26px 0 }
+.voice-row{
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:18px;
 }
-.quote p{ margin-left:32px; }
+.voice p{ margin:0; color:var(--muted) }
 
 /* =========================================================
-   FORMS, LISTS
-   ========================================================= */
-label{ display:grid; gap:6px }
-input,textarea{
-  background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; color:var(--ink)
-}
-input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
-.inline-form{ display:flex; gap:8px }
-.inline-form input{ flex:1 }
-
-/* =========================================================
-   FOOTER (deep green with columns + social)
+   FOOTER
    ========================================================= */
 .site-footer{
-  margin-top:48px;
+  margin-top:36px;
   background:linear-gradient(180deg, #1e5c57, #1b534f);
   color:#fff; padding:36px 20px; border-top:1px solid rgba(255,255,255,.06);
 }
@@ -247,7 +236,7 @@ input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
 .site-footer a{ color:#fff; text-decoration:underline }
 
 .site-footer .logo{
-  display:inline-flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.28rem; line-height:1;
+  display:inline-flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.28rem;
 }
 .site-footer .logo::before{
   content:""; width:44px; height:44px; border-radius:50%; flex:0 0 44px;
@@ -260,14 +249,6 @@ input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
 .site-footer h4{ margin:0 0 12px; font-weight:700; font-size:1.16rem }
 .copyright{ margin-top:12px; color:#fff; font-size:.9rem; opacity:.85 }
 
-
-   <div class="footer-social">
-     <a href="https://www.instagram.com/aggie.sfoundation" aria-label="Instagram">IG</a>
-     <a href="https://www.facebook.com/p/Aggies-Foundation-61569674120544/" aria-label="Facebook">FB</a>
-     <a href="https://www.linkedin.com/company/aggie-s-foundation/?viewAsMember=true" aria-label="LinkedIn">IN</a>
-   </div>
-
--------------------------------------------------------- */
 .footer-social{ display:flex; gap:10px; margin-top:12px }
 .footer-social a{
   width:36px; height:36px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center;
@@ -277,28 +258,34 @@ input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
 .footer-social a:hover{ background:rgba(255,255,255,.18) }
 
 /* =========================================================
-   IMAGE PLACEHOLDERS (where you’ll add images later)
+   FORMS
    ========================================================= */
-/* 1) HERO IMAGE: change the <img src="..."> in index.html:
-     <img src="HERO_IMAGE.jpg" alt="..." />
-   2) STORY IMAGE: If you add an extra picture card in the “features” band,
-     just drop <img src="STORY_IMAGE.jpg"> inside a .card.
-   3) IMPACT ICONS: update .card.feature::before with background-image URLs.
-*/
+label{ display:grid; gap:6px }
+input,textarea{
+  background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; color:var(--ink)
+}
+input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
+.inline-form{ display:flex; gap:8px }
+.inline-form input{ flex:1 }
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns:1fr; gap:20px }
-  .grid-3{ grid-template-columns:1fr 1fr }
+  .two-col{ grid-template-columns:1fr }
+  .impact-row{ grid-template-columns:1fr 1fr }
+  .voice-row{ grid-template-columns:1fr 1fr }
   .cta-inner{ flex-direction:column; text-align:center }
 }
+
 @media (max-width: 640px){
-  .grid-3,.grid-2{ grid-template-columns:1fr }
   .header-inner{ padding:10px 12px }
   .nav{ display:none; position:absolute; right:16px; top:60px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; box-shadow:var(--shadow) }
   .nav a{ display:block; padding:8px 10px; color:var(--ink) }
   .hamburger{ display:flex }
-  .logo{ font-size:1.08rem }
+
+  .impact-row{ grid-template-columns:1fr }
+  .voice-row{ grid-template-columns:1fr }
 }
+
