@@ -1,426 +1,256 @@
 :root{
-  --text: #124c49;           /* body text */
-  --muted: #124c49;          /* secondary text */
-  --accent: #1c7e7a;         /* teal */
-  --highlight: #ffbd59;      /* warm yellow for CTAs */
-  --card: #ffffff;           /* card/section surface */
-  --line: #e5e7eb;           /* soft borders */
-  --ring: rgba(28,126,122,0.28);
-  --ink-card: #124c49;
+  /* Brand */
+  --green-900:#124c49;     /* main text + headings */
+  --green-800:#1b615d;
+  --green-700:#1c7e7a;
+  --green-600:#2a8f8a;
+  --orange:#dd7a38;        /* orange CTAs */
+  --orange-600:#c66e33;
 
   /* Background image (relative to css/ folder) */
   /*--bg-photo: url("http://127.0.0.1:5500/assets/bg-hero.png");*/
-  --wash-top: rgba(255,255,255,0.60);  /* overlay strength */
-  --wash-bot: rgba(255,255,255,0.60);
+  /*--wash-top: rgba(255,255,255,0.60);  /* overlay strength */
+  /*--wash-bot: rgba(255,255,255,0.60);
+}*/
+
+  /* Surfaces */
+  --cream:#f5efe6;         /* page background */
+  --paper:#ffffff;         /* cards / header bar */
+  --line:#eae6df;          /* soft separators */
+  --shadow:0 10px 20px rgba(16,24,40,.06);
+
+  /* Text */
+  --ink:#124c49;
+  --muted:#3f5a58;
+
+  /* Focus ring */
+  --ring:0 0 0 3px rgba(28,126,122,.22);
 }
 
+/* ---------- Fonts (flat repo paths) ---------- */
 @font-face{
-  font-family: "Playful Display";
-  src: url("PlayfairDisplay-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family:"Playfair Display";
+  src:url("PlayfairDisplay-Regular.ttf") format("truetype");
+  font-weight:400; font-style:normal; font-display:swap;
 }
 @font-face{
-  font-family: "Playful Display";
-  src: url("PlayfairDisplay-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  font-family:"Playfair Display";
+  src:url("PlayfairDisplay-Bold.ttf") format("truetype");
+  font-weight:700; font-style:normal; font-display:swap;
 }
 
-/* -------- Reset / base -------- */
-*{ box-sizing: border-box }
-html, body{ height: 100% }
+/* ---------- Base reset ---------- */
+*{ box-sizing:border-box }
+html,body{ height:100% }
 body{
-  margin: 0;
-  font-family: "Playful Display", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--text);
-  line-height: 1.55;
-  background: transparent; /* let html's background show through */
-}
-button, input, select, textarea { font: inherit }
-img{ max-width: 100%; display: block; border-radius: 16px }
-a{ color: var(--accent); text-decoration: none }
-a:hover{ text-decoration: underline }
-
-.container{ max-width: 1100px; margin: 0 auto; padding: 0 20px }
-
-/* -------- Global background (photo + white wash) -------- */
-/* Use stacked backgrounds on <html>: overlay first, photo second */
-html{
+  margin:0;
+  font-family:"Playfair Display", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink);
+  line-height:1.55;
   background:
-    linear-gradient(180deg, var(--wash-top), var(--wash-bot)),
-    var(--bg-photo) center / cover no-repeat fixed;
+    radial-gradient(900px 320px at 50% 0%, rgba(221,122,56,.10), transparent 60%),
+    var(--cream);
 }
+img{ max-width:100%; display:block; border-radius:16px }
+a{ color:var(--green-700); text-decoration:none }
+a:hover{ text-decoration:underline }
+button,input,select,textarea{ font:inherit }
 
-/* ===========================================
-   Header
-   =========================================== */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  /* teal tint + translucency */
-  background: rgba(20, 91, 88, 0.85);
-  backdrop-filter: blur(6px) saturate(1.1);
-  -webkit-backdrop-filter: blur(6px) saturate(1.1); /* Safari */
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+.container{ max-width:1120px; margin:0 auto; padding:0 20px }
+
+/* Make footer stick to bottom when content is short */
+html, body { display:flex; flex-direction:column }
+main{ flex:1 }
+
+/* =========================================================
+   Header (white bar, rounded corners, subtle shadow)
+   ========================================================= */
+.site-header{
+  position:sticky; top:0; z-index:10;
+  background:transparent;
+  border-bottom:1px solid transparent;
 }
 .header-inner{
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 0;
+  margin:12px auto 0;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1120px;
 }
 
-html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+/* Logo (badge + wordmark) */
+.logo{ display:flex; align-items:center; gap:.6rem; color:var(--green-900) }
+.logo img{
+  width:36px; height:36px; border-radius:50%;
+  background:#fff; object-fit:cover;
+  box-shadow:0 2px 8px rgba(0,0,0,.12);
 }
+.logo .brand-accent{ color:#ffbd59; font-weight:800 }
+.logo strong{ color:var(--green-900); font-weight:800 }
 
-main {
-  flex: 1;  /* pushes footer down */
-}
-
-/* Logo with readable badge */
-.logo{
-  display: flex; align-items: center; gap: .6rem;
-}
-.logo img {
-  width: 100px;                 /* bigger overall logo */
-  height: 50px;                /* ensure it's a perfect square */
-  object-fit: contain;         /* keep the logo proportions */
-  background: #ffffff;         /* circular badge color */
-  border-radius: 80%;          /* makes it a perfect circle */
-  padding: 2px;                /* inner spacing around the image */
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
-  display: inline-block;
-}
-.header-inner { padding: 8px 0; } /* keeps bar height tidy with larger logo */
-
-.logo { color:#ffffff; }
-
-.logo{
-  font-size: 1.80rem;
-  font-weight: 400;
-  letter-spacing: .2px;
-}
-@media (min-width: 1200px){
-  .logo{ font-size: 1.85rem; }
-}
-
-/* Allow inner spans to color themselves */
-.logo span { color: inherit; }
-
-/* “Aggie’s” mustard; “Foundation” white */
-.logo .brand-accent { color: #ffbd59 !important; font-weight: 800; }
-.logo:hover .brand-accent { filter: brightness(1.08); }
-.logo strong { color: #ffffff; font-weight: 800; }
-
-
-.site-header { backdrop-filter: blur(6px) saturate(1.15); }
-
-/* Nav links + Donate pill */
+/* Nav */
 .nav a{
-  margin: 0 12px; color: #fff; opacity: .95; text-decoration: none; font-weight: 600;
+  margin:0 12px; color:var(--green-900); font-weight:600; opacity:.9;
 }
-.nav a:hover{ opacity: 1 }
+.nav a:hover{ opacity:1 }
 
+/* Donate pill (orange) */
 .pill-donate{
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 8px 14px; border-radius: 999px;
-  background: var(--highlight); color: #1f2937; font-weight: 700;
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border-radius:999px; border:1px solid rgba(0,0,0,.06);
+  background:var(--orange); color:#fff; font-weight:800;
+  box-shadow:0 2px 8px rgba(221,122,56,.22);
 }
-.pill-donate:hover{ filter: brightness(0.98) }
-.pill-donate { font-weight: 800; }
+.pill-donate:hover{ filter:brightness(.98) }
 
-.hamburger{ display: none; gap: 6px; background: none; border: 0; cursor: pointer }
-.hamburger span{ display: block; width: 22px; height: 2px; background: #fff }
+/* Mobile nav */
+.hamburger{ display:none; gap:6px; background:none; border:0; cursor:pointer }
+.hamburger span{ width:22px; height:2px; background:var(--green-900); display:block }
 
-/* ===========================================
-   Buttons, text helpers
-   =========================================== */
+/* =========================================================
+   Buttons
+   ========================================================= */
 .btn{
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 12px 18px; border-radius: 999px; border: 1px solid var(--line);
-  background: #fff; color: var(--text); font-weight: 600; transition: .2s; cursor: pointer; text-decoration: none;
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:12px 18px; border-radius:999px; border:1px solid var(--line);
+  background:#fff; color:var(--ink); font-weight:600; transition:.2s; cursor:pointer; text-decoration:none;
+  box-shadow:0 1px 0 rgba(0,0,0,.02);
 }
-.btn.small{ padding: 8px 14px; font-size: .9rem }
-.btn.primary{ background: var(--accent); border-color: var(--accent); color: #fff }
-.btn.primary:hover{ filter: brightness(1.1) }
-.btn.ghost{ background: transparent; border-color: var(--accent); color: var(--accent) }
-.btn.ghost:hover{ background: rgba(28,126,122,0.08) }
-.btn.contrast{ background: var(--highlight); color: #1f2937; border-color: transparent }
-.btn.contrast:hover{ filter: brightness(0.98) }
+.btn.primary{ background:var(--green-700); border-color:var(--green-700); color:#fff }
+.btn.primary:hover{ filter:brightness(1.06) }
+.btn.contrast{ background:var(--orange); border-color:transparent; color:#fff; font-weight:800 }
+.btn.contrast:hover{ filter:brightness(.98) }
+.btn.ghost{ background:transparent; border-color:var(--green-700); color:var(--green-700) }
+.btn.small{ padding:8px 14px; font-size:.92rem }
 
-.muted{ color: var(--muted) }
-.small{ font-size: .9rem }
-
-/* ===========================================
-   Hero
-   =========================================== */
-.hero{
-  padding: 64px 0 32px;
-  /* warm, subtle glow on top of the washed photo */
-  background: radial-gradient(800px 300px at 50% 0%, rgba(255,189,89,0.18), transparent 60%);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+/* =========================================================
+   Hero section (left copy, right image card)
+   ========================================================= */
+.hero{ padding:28px 0 8px }
+.hero-grid{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;
 }
-.hero-grid{ display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: center }
-.hero-copy h1{ font-size: 3rem; line-height: 1.05; margin: 0 0 12px }
+.hero-copy h1{
+  font-size:3rem; line-height:1.05; margin:0 0 12px; color:var(--green-900);
+}
 .hero-copy h1::after{
-  content:"";
-  display:block;
-  width: 72px;
-  height: 4px;
-  margin-top: 10px;
-  border-radius: 2px;
-  background: #ffbd59;       /* mustard accent */
+  content:""; display:block; width:72px; height:4px; margin-top:10px;
+  border-radius:2px; background:#ffbd59;
 }
-.hero-copy p{ font-size: 1.1rem; color: var(--muted); max-width: 640px }
-.actions{ display: flex; gap: 12px; margin: 22px 0 14px }
-.stats{ display: flex; gap: 18px; flex-wrap: wrap; padding: 0; margin: 14px 0 0; list-style: none }
+.hero-copy p{ font-size:1.05rem; color:var(--muted); max-width:640px }
+.actions{ display:flex; gap:12px; margin:22px 0 14px }
+.stats{ display:flex; gap:18px; flex-wrap:wrap; padding:0; margin:14px 0 0; list-style:none }
 .stats li{
-  background: #fff; border: 1px solid var(--line); padding: 10px 14px; border-radius: 999px; color: var(--muted)
+  background:#fff; border:1px solid var(--line);
+  padding:10px 14px; border-radius:999px; color:var(--muted)
 }
-.stats span{ color: var(--text); font-weight: 800; margin-right: 6px }
-.hero-card .card{ padding: 10px; background: #fff; border: 1px solid var(--line); border-radius: 18px }
-.caption{ color: var(--muted); font-size: .9rem; margin-top: 8px }
+.stats span{ color:var(--ink); font-weight:800; margin-right:6px }
 
-/* ===========================================
+.hero-card .card{
+  padding:10px; background:#fff; border:1px solid var(--line);
+  border-radius:18px; box-shadow:var(--shadow);
+}
+.caption{ color:var(--muted); font-size:.92rem; margin-top:8px }
+
+/* =========================================================
    Sections / Cards
-   =========================================== */
+   ========================================================= */
 .section-head h2{
-  font-size: 2.25rem;        /* up from default */
-  line-height: 1.15;
-  color: #124c49;            /* deep readable teal */
-  letter-spacing: -0.01em;
-  margin-bottom: .25rem;
+  font-size:2.1rem; line-height:1.15; color:var(--green-900);
+  letter-spacing:-.01em; margin:18px 0 6px;
 }
 .section-head h2::after{
-  content:"";
-  display:block;
-  width: 72px;
-  height: 4px;
-  margin-top: 10px;
-  border-radius: 2px;
-  background: #ffbd59;       /* mustard accent */
+  content:""; display:block; width:72px; height:4px; margin-top:10px;
+  border-radius:2px; background:#ffbd59;
 }
-.section-head .muted{ color:#3c4a4a; }
+.section-head .muted{ color:#496765 }
 
-.grid-3{ display: grid; grid-template-columns: repeat(3,1fr); gap: 18px }
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: start;              /* align both columns to the top */
-}
-
-/* Tighten internal spacing so it doesn't feel stretched */
-.grid-2 > div:first-child h2 {
-  margin: 0 0 10px;
-}
-.grid-2 > div:first-child p {
-  margin: 0 0 12px;
-  line-height: 1.55;
-}
-.grid-2 > div:first-child ul {
-  margin: 6px 0 0;
-  padding-left: 18px;
-}
-.grid-2 > div:first-child li {
-  margin: 6px 0;
-}
-
-/* Keep the media card compact so it doesn't force extra height */
-.grid-2 > .card {
-  max-width: 520px;
-  align-self: start;
-}
-.grid-2 > .card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-@media (max-width: 640px){
-  .grid-2 { grid-template-columns: 1fr; }
-}
+.grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px }
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start }
 
 .card{
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.04);
+  background:var(--paper); border:1px solid var(--line); border-radius:18px;
+  padding:18px; box-shadow:var(--shadow); color:var(--ink);
 }
-.card, .cta-inner, .map-placeholder { color: var(--ink-card); }
-.card h1, .card h2, .card h3 { color: var(--ink-card); }
+.card h1,.card h2,.card h3{ color:var(--ink) }
+.feature h3{ margin:0 0 6px }
+.quote p{ font-size:1.05rem }
+.project h3{ margin:10px 0 6px }
 
-.feature h3{ margin: 0 0 6px }
-.quote p{ font-size: 1.1rem }
-.project h3{ margin: 10px 0 6px }
-
-/* Projct image dimensions */
-.card.project img {
-  width: 100%;               /* take full card width */
-  height: 280px;             /* choose a consistent height */
-  object-fit: cover;         /* crop to fill the space nicely */
-  border-radius: 12px;       /* match your other rounded corners */
-  display: block;            /* remove any unwanted gaps */
+/* Project images consistent height */
+.card.project img{
+  width:100%; height:260px; object-fit:cover; border-radius:12px; display:block;
 }
 
 /* CTA strip */
-.cta{ margin: 54px 0 }
+.cta{ margin:54px 0 }
 .cta-inner{
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 26px 20px; border: 1px solid var(--line); border-radius: 18px; background: #fff;
-  box-shadow: 0 10px 18px rgba(0,0,0,0.04);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:26px 20px; border:1px solid var(--line); border-radius:18px; background:#fff;
+  box-shadow:var(--shadow);
 }
 
-/* Page headers, lists, forms */
-.page-head{ margin: 28px 0 16px }
-.page-head .lead{ color: var(--muted) }
+/* Lists & forms */
+.page-head{ margin:28px 0 16px }
+.page-head .lead{ color:var(--muted) }
 
-.checklist{ padding-left: 20px }
-.checklist li{ margin-bottom: 8px }
+.checklist{ padding-left:20px }
+.checklist li{ margin-bottom:8px }
 
-.donate-tiers .tier{ text-align: center }
-.tier.featured{ border-color: var(--accent); box-shadow: 0 0 0 4px var(--ring) }
-
-.donate-form form{ display: grid; gap: 12px }
-label{ display: grid; gap: 6px }
-input, textarea{
-  background: #ffffff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; color: var(--text)
+.donate-form form{ display:grid; gap:12px }
+label{ display:grid; gap:6px }
+input,textarea{
+  background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; color:var(--ink)
 }
-input:focus, textarea:focus{ outline: none; box-shadow: 0 0 0 3px var(--ring) }
+input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
+.inline-form{ display:flex; gap:8px }
+.inline-form input{ flex:1 }
 
-.inline-form{ display: flex; gap: 8px }
-.inline-form input{ flex: 1 }
-
-.map-placeholder{
-  height: 200px; display: flex; align-items: center; justify-content: center;
-  background: #fff; border: 1px solid var(--line)
+/* =========================================================
+   Footer (deep green band)
+   ========================================================= */
+.site-footer{
+  margin-top:48px;
+  background:linear-gradient(180deg, rgba(18,76,73,.92), rgba(18,76,73,.90));
+  color:#fff; padding:40px 20px; border-top:1px solid rgba(255,255,255,.06);
 }
-
-/* ===========================================
-   Footer
-   =========================================== */
-.site-footer {
-  margin-top: 48px;
-  background: linear-gradient(
-    180deg,
-    rgba(20, 91, 88, 0.75) 0%,
-    rgba(20, 91, 88, 0.85) 30%,
-    rgba(20, 91, 88, 0.9) 100%
-  );
-  backdrop-filter: blur(5px) saturate(1.1);
-  -webkit-backdrop-filter: blur(5px) saturate(1.1);
-  color: #ffffff;
-  padding: 40px 20px;
+.footer-grid{
+  display:grid; grid-template-columns:2fr 1fr 1.3fr; gap:40px;
+  align-items:start; max-width:1120px; margin:0 auto;
 }
+.site-footer a{ color:#fff; text-decoration:underline }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1.3fr;
-  gap: 40px;
-  align-items: start; /* ensures all align at the top */
-  max-width: 1200px;
-  margin: 0 auto; /* centers footer content */
+/* Footer brand (image + colored words) */
+.site-footer .logo{
+  display:inline-flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.35rem; line-height:1;
 }
-
-.site-footer a {
-  color: #ffffff;
-  text-decoration: underline;
+.site-footer .logo::before{
+  content:""; width:44px; height:44px; border-radius:50%; flex:0 0 44px;
+  background:#fff url("logo.PNG") center/90% no-repeat; box-shadow:0 3px 8px rgba(0,0,0,.18);
+  border:1px solid rgba(0,0,0,.08);
 }
+.site-footer .logo .brand-accent{ color:#ffbd59 }
+.site-footer .logo span{ color:#fff }
 
-/* ====== Footer "Aggie's Foundation" Title Enhancements ====== */
+/* Footer headings + copyright */
+.site-footer h4{ margin:0 0 12px; font-weight:700; font-size:1.2rem }
+.copyright{ margin-top:12px; color:#fff; font-size:.9rem; opacity:.85 }
 
-/* style the existing footer logo text */
-.site-footer .logo {
-  position: relative;
-  font-size: 1.5rem;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: transparent; /* hide original unified color */
-}
-
-/* Colors: Aggie's (mustard) + Foundation (green) */
-.site-footer .logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 1.5rem;
-  line-height: 1;
-  color: #ffbd59 !important;      /* Aggie's */
-}
-
-/* Foundation word (assuming your HTML is:  Aggie's <span>Foundation</span>) */
-.site-footer .logo span {
-  color: #ffffff !important;      /* Foundation */
-}
-/* Inject image before the text using a pseudo-element */
-.site-footer .logo::before {
-  content: "";
-  width: 50px;                     /* adjust size here */
-  height: 50px;                    /* keep equal for true circle */
-  flex: 0 0 50px;
-  border-radius: 50%;
-  background-color: #ffffff;       /* white circle */
-  background-image: url("logo.PNG");  /* path is from css/ */
-  background-size: 90% auto;       /* logo scale inside the circle */
-  background-repeat: no-repeat;
-  background-position: center;
-  box-shadow: 0 3px 8px rgba(0,0,0,.18);
-  border: 1px solid rgba(0,0,0,.08);
-}
-/* Kill any older footer logo hacks that hid the text or drew green circles */
-.site-footer .logo::after { content: none !important; }
-.site-footer .logo { color: #ffbd59 !important; } /* re-assert mustard for Aggie's */
-
-/* Adjust spacing since we now have a logo image */
-.site-footer .logo {
-  gap: 0.4rem;
-  padding-left: 5px;
-}
-
-/* Footer headings and copyright */
-.site-footer h4 {
-  margin: 0 0 10px;
-  font-weight: 700;
-  font-size: 1.4rem;
-}
-
-.copyright {
-  margin-top: 12px;
-  color: #ffffff;
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-/* ===========================================
+/* =========================================================
    Responsive
-   =========================================== */
-   @media (min-width: 900px){ .logo img{ width:50px } }
-@media (max-width: 900px){
-  .hero-grid{ grid-template-columns: 1fr }
-  .grid-3{ grid-template-columns: 1fr 1fr }
-  .footer-grid{ grid-template-columns: 1fr }
+   ========================================================= */
+@media (max-width: 980px){
+  .hero-grid{ grid-template-columns:1fr; gap:20px }
+  .grid-3{ grid-template-columns:1fr 1fr }
 }
 @media (max-width: 640px){
-  .grid-3{ grid-template-columns: 1fr }
-  .grid-2{ grid-template-columns: 1fr }
-  .nav{
-    display: none; position: absolute; right: 16px; top: 58px;
-    background: rgba(20,91,88,0.96); border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 12px
-  }
-  .nav a{ display: block; padding: 8px 10px; color: #fff }
-  .hamburger{ display: flex }
-  .logo{ font-size: 1rem }
+  .grid-3,.grid-2{ grid-template-columns:1fr }
+  .header-inner{ padding:10px 12px }
+  .nav{ display:none; position:absolute; right:16px; top:60px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; box-shadow:var(--shadow) }
+  .nav a{ display:block; padding:8px 10px; color:var(--green-900) }
+  .hamburger{ display:flex }
+  .logo{ font-size:1.1rem }
 }
