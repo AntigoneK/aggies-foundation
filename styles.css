@@ -373,7 +373,7 @@ input:focus, textarea:focus{ outline: none; box-shadow: 0 0 0 3px var(--ring) }
   flex: 0 0 50px;
   border-radius: 50%;
   background-color: #ffffff;       /* white circle */
-  background-image: url("../assets/logo.PNG");  /* path is from css/ */
+  background-image: url("logo.PNG");  /* path is from css/ */
   background-size: 90% auto;       /* logo scale inside the circle */
   background-repeat: no-repeat;
   background-position: center;
