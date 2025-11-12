@@ -1,33 +1,35 @@
-:root{
-  /* Brand */
-  --green-900:#124c49;     /* main text + headings */
-  --green-800:#1b615d;
-  --green-700:#1c7e7a;
-  --green-600:#2a8f8a;
-  --orange:#dd7a38;        /* orange CTAs */
-  --orange-600:#c66e33;
-
   /* Background image (relative to css/ folder) */
   /*--bg-photo: url("http://127.0.0.1:5500/assets/bg-hero.png");*/
   /*--wash-top: rgba(255,255,255,0.60);  /* overlay strength */
   /*--wash-bot: rgba(255,255,255,0.60);
 }*/
 
-  /* Surfaces */
-  --cream:#f5efe6;         /* page background */
-  --paper:#ffffff;         /* cards / header bar */
-  --line:#eae6df;          /* soft separators */
-  --shadow:0 10px 20px rgba(16,24,40,.06);
+:root{
+  /* Brand greens */
+  --ink:#153f3b;          /* main headings/body */
+  --muted:#4e6a67;        /* secondary text */
+  --green:#1b615d;        /* nav/links */
+  --teal:#2a8f8a;         /* accents on hover */
 
-  /* Text */
-  --ink:#124c49;
-  --muted:#3f5a58;
+  /* Warm palette */
+  --cream:#f1ede5;        /* page background */
+  --paper:#ffffff;        /* cards/header */
+  --soft:#efe9de;         /* section band */
+  --terracotta:#c76844;   /* CTA band + tags */
+  --terracotta-700:#b25e3e;
 
-  /* Focus ring */
-  --ring:0 0 0 3px rgba(28,126,122,.22);
+  /* Lines & shadows */
+  --line:#e8e1d6;
+  --shadow:0 14px 28px rgba(16,24,40,.08), 0 2px 6px rgba(16,24,40,.06);
+
+  /* Focus */
+  --ring:0 0 0 3px rgba(26,127,122,.22);
+
+  /* CTA orange from previous iteration kept for pills if needed */
+  --orange:#dd7a38;
 }
 
-/* ---------- Fonts (flat repo paths) ---------- */
+/* ---------------- Local fonts (flat repo) ---------------- */
 @font-face{
   font-family:"Playfair Display";
   src:url("PlayfairDisplay-Regular.ttf") format("truetype");
@@ -39,7 +41,7 @@
   font-weight:700; font-style:normal; font-display:swap;
 }
 
-/* ---------- Base reset ---------- */
+/* ---------------- Reset / base ---------------- */
 *{ box-sizing:border-box }
 html,body{ height:100% }
 body{
@@ -48,159 +50,180 @@ body{
   color:var(--ink);
   line-height:1.55;
   background:
-    radial-gradient(900px 320px at 50% 0%, rgba(221,122,56,.10), transparent 60%),
+    radial-gradient(900px 320px at 50% 0%, rgba(199,104,68,.10), transparent 65%),
     var(--cream);
 }
 img{ max-width:100%; display:block; border-radius:16px }
-a{ color:var(--green-700); text-decoration:none }
-a:hover{ text-decoration:underline }
+a{ color:var(--green); text-decoration:none }
+a:hover{ color:var(--teal) }
 button,input,select,textarea{ font:inherit }
-
 .container{ max-width:1120px; margin:0 auto; padding:0 20px }
 
-/* Make footer stick to bottom when content is short */
+/* Make footer stick when content is short */
 html, body { display:flex; flex-direction:column }
 main{ flex:1 }
 
 /* =========================================================
-   Header (white bar, rounded corners, subtle shadow)
+   HEADER (thin green strip + white rounded bar)
    ========================================================= */
 .site-header{
   position:sticky; top:0; z-index:10;
-  background:transparent;
-  border-bottom:1px solid transparent;
+  background:linear-gradient(180deg, #2f6f6a, #2f6f6a);
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
 .header-inner{
-  margin:12px auto 0;
   background:var(--paper);
   border:1px solid var(--line);
   border-radius:14px;
   box-shadow:var(--shadow);
+  margin:10px auto;
   padding:10px 16px;
   display:flex; align-items:center; justify-content:space-between;
-  max-width:1120px;
 }
 
-/* Logo (badge + wordmark) */
-.logo{ display:flex; align-items:center; gap:.6rem; color:var(--green-900) }
+/* Logo block */
+.logo{ display:flex; align-items:center; gap:.65rem; color:var(--ink) }
 .logo img{
-  width:36px; height:36px; border-radius:50%;
+  width:38px; height:38px; border-radius:50%;
   background:#fff; object-fit:cover;
   box-shadow:0 2px 8px rgba(0,0,0,.12);
 }
 .logo .brand-accent{ color:#ffbd59; font-weight:800 }
-.logo strong{ color:var(--green-900); font-weight:800 }
+.logo strong{ color:var(--ink); font-weight:800 }
 
-/* Nav */
+/* Primary nav */
 .nav a{
-  margin:0 12px; color:var(--green-900); font-weight:600; opacity:.9;
+  margin:0 12px; color:var(--ink); font-weight:600; opacity:.95;
 }
 .nav a:hover{ opacity:1 }
 
-/* Donate pill (orange) */
+/* Donate pill (soft terracotta to match mockup) */
 .pill-donate{
   display:inline-flex; align-items:center; justify-content:center;
-  padding:10px 16px; border-radius:999px; border:1px solid rgba(0,0,0,.06);
-  background:var(--orange); color:#fff; font-weight:800;
-  box-shadow:0 2px 8px rgba(221,122,56,.22);
+  padding:10px 16px; border-radius:999px;
+  background:var(--terracotta); color:#fff; font-weight:800;
+  border:1px solid rgba(0,0,0,.05);
+  box-shadow:0 3px 10px rgba(199,104,68,.22);
 }
-.pill-donate:hover{ filter:brightness(.98) }
+.pill-donate:hover{ background:var(--terracotta-700) }
 
-/* Mobile nav */
+/* Mobile hamburger */
 .hamburger{ display:none; gap:6px; background:none; border:0; cursor:pointer }
-.hamburger span{ width:22px; height:2px; background:var(--green-900); display:block }
+.hamburger span{ width:22px; height:2px; background:var(--ink); display:block }
 
 /* =========================================================
-   Buttons
+   BUTTONS
    ========================================================= */
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   padding:12px 18px; border-radius:999px; border:1px solid var(--line);
-  background:#fff; color:var(--ink); font-weight:600; transition:.2s; cursor:pointer; text-decoration:none;
-  box-shadow:0 1px 0 rgba(0,0,0,.02);
+  background:#fff; color:var(--ink); font-weight:600; cursor:pointer;
+  transition:.2s; text-decoration:none;
 }
-.btn.primary{ background:var(--green-700); border-color:var(--green-700); color:#fff }
+.btn:hover{ box-shadow:0 1px 0 rgba(0,0,0,.02) }
+.btn.primary{ background:var(--green); border-color:var(--green); color:#fff }
 .btn.primary:hover{ filter:brightness(1.06) }
-.btn.contrast{ background:var(--orange); border-color:transparent; color:#fff; font-weight:800 }
-.btn.contrast:hover{ filter:brightness(.98) }
-.btn.ghost{ background:transparent; border-color:var(--green-700); color:var(--green-700) }
+.btn.contrast{ background:var(--terracotta); color:#fff; border-color:transparent; font-weight:800 }
+.btn.contrast:hover{ background:var(--terracotta-700) }
+.btn.ghost{ background:transparent; border-color:var(--green); color:var(--green) }
 .btn.small{ padding:8px 14px; font-size:.92rem }
 
 /* =========================================================
-   Hero section (left copy, right image card)
+   HERO (left copy + right image)
    ========================================================= */
-.hero{ padding:28px 0 8px }
+.hero{ padding:32px 0 10px }
 .hero-grid{
-  display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center;
+  display:grid; grid-template-columns:1.08fr .92fr; gap:28px; align-items:center;
 }
 .hero-copy h1{
-  font-size:3rem; line-height:1.05; margin:0 0 12px; color:var(--green-900);
+  font-size:2.7rem; line-height:1.1; margin:0 0 10px; color:var(--ink);
 }
-.hero-copy h1::after{
-  content:""; display:block; width:72px; height:4px; margin-top:10px;
-  border-radius:2px; background:#ffbd59;
-}
-.hero-copy p{ font-size:1.05rem; color:var(--muted); max-width:640px }
-.actions{ display:flex; gap:12px; margin:22px 0 14px }
-.stats{ display:flex; gap:18px; flex-wrap:wrap; padding:0; margin:14px 0 0; list-style:none }
-.stats li{
-  background:#fff; border:1px solid var(--line);
-  padding:10px 14px; border-radius:999px; color:var(--muted)
-}
-.stats span{ color:var(--ink); font-weight:800; margin-right:6px }
+.hero-copy p{ color:var(--muted); max-width:640px; margin:0 0 16px }
+.actions{ display:flex; gap:12px; margin:14px 0 8px }
 
-.hero-card .card{
-  padding:10px; background:#fff; border:1px solid var(--line);
-  border-radius:18px; box-shadow:var(--shadow);
+/* Stat chips (three pills under buttons) */
+.stats{ display:flex; gap:14px; flex-wrap:wrap; padding:0; margin:14px 0 0; list-style:none }
+.stats li{
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding:10px 14px; color:var(--muted); display:inline-flex; align-items:center; gap:8px;
+  box-shadow:0 1px 0 rgba(0,0,0,.02);
 }
-.caption{ color:var(--muted); font-size:.92rem; margin-top:8px }
+.stats li::before{
+  content:""; width:22px; height:22px; border-radius:50%;
+  background:linear-gradient(180deg, #f6f2eb, #efe7da);
+  border:1px solid var(--line);
+  display:inline-block;
+}
+.stats span{ color:var(--ink); font-weight:800; margin-right:2px }
+
+/* Hero image card */
+.hero-card .card{
+  background:#fff; border:1px solid var(--line); border-radius:18px;
+  padding:10px; box-shadow:var(--shadow);
+}
+.hero-card .caption{ color:var(--muted); font-size:.92rem; margin-top:8px }
 
 /* =========================================================
-   Sections / Cards
+   STORY + IMPACT STRIP (mimic soft band)
    ========================================================= */
+.features{ padding-top:18px; padding-bottom:6px }
 .section-head h2{
-  font-size:2.1rem; line-height:1.15; color:var(--green-900);
-  letter-spacing:-.01em; margin:18px 0 6px;
+  font-size:1.9rem; margin:8px 0 6px; color:var(--ink);
 }
-.section-head h2::after{
-  content:""; display:block; width:72px; height:4px; margin-top:10px;
-  border-radius:2px; background:#ffbd59;
-}
-.section-head .muted{ color:#496765 }
+.section-head .muted{ color:var(--muted) }
 
 .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px }
-.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start }
 
+/* Impact tiles (cards with icon placeholder + Learn more pill) */
 .card{
   background:var(--paper); border:1px solid var(--line); border-radius:18px;
   padding:18px; box-shadow:var(--shadow); color:var(--ink);
 }
-.card h1,.card h2,.card h3{ color:var(--ink) }
-.feature h3{ margin:0 0 6px }
-.quote p{ font-size:1.05rem }
-.project h3{ margin:10px 0 6px }
-
-/* Project images consistent height */
-.card.project img{
-  width:100%; height:260px; object-fit:cover; border-radius:12px; display:block;
+.card h3{ margin:0 0 8px }
+.card.feature{
+  position:relative; padding-top:16px; padding-bottom:16px;
+}
+.card.feature::before{
+  /* ICON PLACEHOLDER — replace background-image with your icon later */
+  /* e.g. background-image:url("icon-tuition.svg"); */
+  content:"";
+  width:48px; height:48px; border-radius:12px;
+  background:linear-gradient(180deg, #faf7f2, #f0e9df);
+  border:1px solid var(--line);
+  box-shadow:0 1px 0 rgba(0,0,0,.02);
+  display:block; margin-bottom:12px;
 }
 
-/* CTA strip */
-.cta{ margin:54px 0 }
+/* =========================================================
+   CTA BAND (terracotta)
+   ========================================================= */
+.cta{
+  margin:44px 0 0; background:var(--terracotta);
+  border-top:1px solid rgba(0,0,0,.05);
+  border-bottom:1px solid rgba(0,0,0,.05);
+}
 .cta-inner{
-  display:flex; align-items:center; justify-content:space-between;
-  padding:26px 20px; border:1px solid var(--line); border-radius:18px; background:#fff;
-  box-shadow:var(--shadow);
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:24px 20px; color:#fff;
 }
+.cta-inner h2{ margin:0; font-size:1.6rem }
+.cta-inner .btn{ background:#fff; color:#223; border-color:transparent }
+.cta-inner .btn:hover{ filter:brightness(.98) }
 
-/* Lists & forms */
-.page-head{ margin:28px 0 16px }
-.page-head .lead{ color:var(--muted) }
+/* =========================================================
+   QUOTES / TESTIMONIALS ROW
+   ========================================================= */
+.testimonials{ padding-top:24px; padding-bottom:10px }
+.grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:start }
+.quote{ position:relative }
+.quote::before{
+  content:"“"; position:absolute; left:14px; top:6px; font-size:48px; color:rgba(0,0,0,.12);
+}
+.quote p{ margin-left:32px; }
 
-.checklist{ padding-left:20px }
-.checklist li{ margin-bottom:8px }
-
-.donate-form form{ display:grid; gap:12px }
+/* =========================================================
+   FORMS, LISTS
+   ========================================================= */
 label{ display:grid; gap:6px }
 input,textarea{
   background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; color:var(--ink)
@@ -210,47 +233,75 @@ input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
 .inline-form input{ flex:1 }
 
 /* =========================================================
-   Footer (deep green band)
+   FOOTER (deep green with columns + social)
    ========================================================= */
 .site-footer{
   margin-top:48px;
-  background:linear-gradient(180deg, rgba(18,76,73,.92), rgba(18,76,73,.90));
-  color:#fff; padding:40px 20px; border-top:1px solid rgba(255,255,255,.06);
+  background:linear-gradient(180deg, #1e5c57, #1b534f);
+  color:#fff; padding:36px 20px; border-top:1px solid rgba(255,255,255,.06);
 }
 .footer-grid{
-  display:grid; grid-template-columns:2fr 1fr 1.3fr; gap:40px;
+  display:grid; grid-template-columns:2fr 1fr 1.3fr; gap:36px;
   align-items:start; max-width:1120px; margin:0 auto;
 }
 .site-footer a{ color:#fff; text-decoration:underline }
 
-/* Footer brand (image + colored words) */
 .site-footer .logo{
-  display:inline-flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.35rem; line-height:1;
+  display:inline-flex; align-items:center; gap:.6rem; font-weight:800; font-size:1.28rem; line-height:1;
 }
 .site-footer .logo::before{
   content:""; width:44px; height:44px; border-radius:50%; flex:0 0 44px;
-  background:#fff url("logo.PNG") center/90% no-repeat; box-shadow:0 3px 8px rgba(0,0,0,.18);
-  border:1px solid rgba(0,0,0,.08);
+  background:#fff url("logo.PNG") center/90% no-repeat;
+  box-shadow:0 3px 8px rgba(0,0,0,.18); border:1px solid rgba(0,0,0,.08);
 }
 .site-footer .logo .brand-accent{ color:#ffbd59 }
 .site-footer .logo span{ color:#fff }
 
-/* Footer headings + copyright */
-.site-footer h4{ margin:0 0 12px; font-weight:700; font-size:1.2rem }
+.site-footer h4{ margin:0 0 12px; font-weight:700; font-size:1.16rem }
 .copyright{ margin-top:12px; color:#fff; font-size:.9rem; opacity:.85 }
 
+/* --- Social icons row (you'll add the links in HTML) ---
+   Add in your footer HTML (first column is nice):
+
+   <div class="footer-social">
+     <a href="https://instagram.com/YOUR_HANDLE" aria-label="Instagram">IG</a>
+     <a href="https://facebook.com/YOUR_PAGE" aria-label="Facebook">FB</a>
+     <a href="https://linkedin.com/company/YOUR_COMPANY" aria-label="LinkedIn">IN</a>
+   </div>
+
+   Replace IG/FB/IN with inline SVGs or icon fonts later.
+-------------------------------------------------------- */
+.footer-social{ display:flex; gap:10px; margin-top:12px }
+.footer-social a{
+  width:36px; height:36px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.12); color:#fff; text-decoration:none; font-weight:700;
+  border:1px solid rgba(255,255,255,.18);
+}
+.footer-social a:hover{ background:rgba(255,255,255,.18) }
+
 /* =========================================================
-   Responsive
+   IMAGE PLACEHOLDERS (where you’ll add images later)
+   ========================================================= */
+/* 1) HERO IMAGE: change the <img src="..."> in index.html:
+     <img src="HERO_IMAGE.jpg" alt="..." />
+   2) STORY IMAGE: If you add an extra picture card in the “features” band,
+     just drop <img src="STORY_IMAGE.jpg"> inside a .card.
+   3) IMPACT ICONS: update .card.feature::before with background-image URLs.
+*/
+
+/* =========================================================
+   RESPONSIVE
    ========================================================= */
 @media (max-width: 980px){
   .hero-grid{ grid-template-columns:1fr; gap:20px }
   .grid-3{ grid-template-columns:1fr 1fr }
+  .cta-inner{ flex-direction:column; text-align:center }
 }
 @media (max-width: 640px){
   .grid-3,.grid-2{ grid-template-columns:1fr }
   .header-inner{ padding:10px 12px }
   .nav{ display:none; position:absolute; right:16px; top:60px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; box-shadow:var(--shadow) }
-  .nav a{ display:block; padding:8px 10px; color:var(--green-900) }
+  .nav a{ display:block; padding:8px 10px; color:var(--ink) }
   .hamburger{ display:flex }
-  .logo{ font-size:1.1rem }
+  .logo{ font-size:1.08rem }
 }
