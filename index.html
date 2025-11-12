@@ -5,26 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aggie's Foundation</title>
 
-  <!-- Inter UI font; Playfair loaded locally via styles.css @font-face -->
+  <!-- Inter (UI) via Google; Playfair is loaded locally in CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
-  <script defer src="main.js"></script>
-
-  <meta name="description" content="Aggie's Foundation empowers education through tuition, supplies, and safe classrooms." />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Aggie's Foundation empowers education through tuition, supplies, and safe classrooms in Kumi." />
 </head>
 <body>
-
-  <!-- Top green seam -->
+  <!-- thin green seam like the mock -->
   <div class="top-strip"></div>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <img src="logo.PNG" alt="Aggie's Foundation logo">
+        <img src="logo.PNG" alt="Aggie's Foundation logo" />
         <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
       </a>
 
@@ -43,127 +40,114 @@
   </header>
 
   <main>
-<!-- HERO (mockup-aligned) -->
-<section class="hero hero-split">
-  <div class="container hero-frame">
-    <div class="hero-split-grid">
-      <!-- Left: copy + CTAs + fact circles -->
-      <div class="hero-left">
-        <h1>Unlock Futures.<br>Ignite Dreams.</h1>
-        <p class="sub">Your compassion empowers education in Kumi.</p>
+    <!-- HERO -->
+    <section class="hero hero-split">
+      <div class="container hero-frame">
+        <div class="hero-split-grid">
+          <!-- Left copy -->
+          <div class="hero-left">
+            <h1>Unlock Futures.<br>Ignite Dreams.</h1>
+            <p class="sub">Your compassion empowers education in Kumi.</p>
 
-        <div class="cta-row">
-          <a href="donate.html" class="btn hero-donate">Donate Now</a>
-          <a href="projects.html" class="btn hero-impact">See Our Impact</a>
+            <div class="cta-row">
+              <a href="donate.html" class="btn hero-donate">Donate Now</a>
+              <a href="projects.html" class="btn hero-impact">See Our Impact</a>
+            </div>
+
+            <ul class="facts">
+              <li class="fact">
+                <div class="fact-circle">
+                  <div class="fact-number">588</div>
+                  <div class="fact-label">Kids Strong</div>
+                </div>
+              </li>
+              <li class="fact">
+                <div class="fact-circle ring">
+                  <div class="fact-number">€7 = 1</div>
+                  <div class="fact-label">Year</div>
+                </div>
+              </li>
+              <li class="fact">
+                <div class="fact-circle">
+                  <div class="fact-number">100%</div>
+                  <div class="fact-label">To Schools</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right hero image -->
+          <div class="hero-right">
+            <!-- REPLACE with your real hero photo file -->
+            <img src="HERO_IMAGE.jpg" alt="Students smiling in class" />
+          </div>
         </div>
-
-        <!-- Fact circles -->
-        <ul class="facts">
-          <li class="fact">
-            <div class="fact-circle">
-              <div class="fact-number">588</div>
-              <div class="fact-label">Kids Strong</div>
-            </div>
-          </li>
-
-          <li class="fact">
-            <div class="fact-circle ring">
-              <div class="fact-number">€7 = 1</div>
-              <div class="fact-label">Year</div>
-            </div>
-          </li>
-
-          <li class="fact">
-            <div class="fact-circle">
-              <div class="fact-number">100%</div>
-              <div class="fact-label">To Schools</div>
-            </div>
-          </li>
-        </ul>
       </div>
+    </section>
 
-      <!-- Right: hero photo (replace src later) -->
-      <div class="hero-right">
-        <!-- REPLACE this src with your real hero image file, e.g. HERO_IMAGE.jpg -->
-        <img src="HERO_IMAGE.jpg" alt="Students smiling in class">
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- Story & Impact band -->
+    <!-- STORY + IMPACT -->
     <section class="soft-band">
       <div class="container">
-        <div class="two-col">
-          <!-- Left: Our Story -->
-          <div>
+        <div class="story-impact">
+          <!-- Story left -->
+          <div class="story-col">
             <h3 class="eyebrow">Our Story &amp; The Challenge</h3>
-            <div class="story-card card">
-              <h3>The Heart of Aggie’s Foundation</h3>
+            <div class="story card">
+              <h3 class="story-title">The Heart of Aggie’s Foundation</h3>
               <p>
                 We remove cost barriers so children can stay in school—starting with tuition and essentials.
                 We partner directly with schools and local builders to create safe learning spaces.
               </p>
-              <a href="about.html" class="btn small contrast">Learn Our Full Story</a>
+              <a class="btn small contrast" href="about.html">Learn Our Full Story</a>
             </div>
           </div>
 
-          <!-- Right: Impact tiles -->
-          <div>
+          <!-- Impact right -->
+          <div class="impact-col">
             <h3 class="eyebrow">Your Impact in Action</h3>
-            <div class="impact-row">
-              <!-- Tile 1: Tuition -->
-              <article class="impact-tile card">
-                <div class="impact-media">
+
+            <div class="impact-tiles">
+              <article class="impact card">
+                <div class="impact-icon">
                   <img src="schoolbagclipart.jpg" alt="Backpack icon (Tuition)">
                 </div>
-                <div class="impact-text">
-                  <h4>Tuition Covered</h4>
-                  <p>Direct payments to partner schools for verified students.</p>
-                  <a href="projects.html" class="chip">Learn More</a>
-                </div>
+                <h4>Tuition Covered</h4>
+                <p>Direct payments to partner schools for verified students.</p>
+                <a class="chip" href="projects.html">Learn More</a>
               </article>
 
-              <!-- Tile 2: Supplies -->
-              <article class="impact-tile card">
-                <div class="impact-media">
+              <article class="impact card">
+                <div class="impact-icon">
                   <img src="schoolsuppliesclipart.jpg" alt="Supplies icon">
                 </div>
-                <div class="impact-text">
-                  <h4>Books &amp; Supplies</h4>
-                  <p>Every child receives the materials they need to learn.</p>
-                  <a href="projects.html" class="chip">Learn More</a>
-                </div>
+                <h4>Books &amp; Supplies</h4>
+                <p>Every child receives the materials they need to learn.</p>
+                <a class="chip" href="projects.html">Learn More</a>
               </article>
 
-              <!-- Tile 3: Classrooms -->
-              <article class="impact-tile card">
-                <div class="impact-media">
+              <article class="impact card">
+                <div class="impact-icon">
                   <img src="classroomclipart.jpg" alt="Classroom icon">
                 </div>
-                <div class="impact-text">
-                  <h4>Classrooms Built</h4>
-                  <p>Safe spaces created with local teams and materials.</p>
-                  <a href="projects.html" class="chip">Learn More</a>
-                </div>
+                <h4>Classrooms Built</h4>
+                <p>Safe spaces created with local teams and materials.</p>
+                <a class="chip" href="projects.html">Learn More</a>
               </article>
             </div>
           </div>
         </div>
 
-        <!-- Scroll hint -->
         <div class="scroll-hint">
           <span class="dot"></span> Scroll to discover
         </div>
       </div>
     </section>
 
-    <!-- CTA band -->
+    <!-- CTA BAND -->
     <section class="cta">
       <div class="container cta-inner">
         <div class="cta-left">
-          <!-- Optional avatar/quote area —
-               If you add a small headshot later, place it here -->
+          <!-- If you add a small headshot later, put it here -->
           <!-- <img class="avatar" src="SPEAKER.jpg" alt="Quote speaker"> -->
           <div class="cta-quote">Be the reason a child stays in school this year</div>
         </div>
@@ -171,14 +155,27 @@
       </div>
     </section>
 
-  <!-- Footer -->
+    <!-- VOICES -->
+    <section class="voices">
+      <div class="container">
+        <h3 class="eyebrow">Voices of Our Community</h3>
+        <div class="voice-row">
+          <div class="voice card"><p>“Support from Aggie’s Foundation kept our most vulnerable students in class all year.”</p></div>
+          <div class="voice card"><p>“The new classroom doubled our capacity and reduced dropouts.”</p></div>
+          <div class="voice card"><p>“Books and supplies meant every learner could participate with confidence.”</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <div class="logo">Aggie's <span>Foundation</span></div>
         <p>We open doors to education by funding tuition, books, and safe classrooms.</p>
 
-        <!-- SOCIAL LINKS: replace the # with your real profiles -->
+        <!-- Social: add your real links -->
         <div class="footer-social">
           <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
           <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
@@ -208,5 +205,14 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Simple mobile nav toggle
+    const burger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    burger?.addEventListener('click', () => {
+      nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
+    });
+  </script>
 </body>
 </html>
