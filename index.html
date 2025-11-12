@@ -43,37 +43,53 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-shell">
-        <div class="hero-grid">
-          <!-- Left copy -->
-          <div class="hero-copy">
-            <h1>Unlock Futures.<br>Ignite Dreams.</h1>
-            <p>Your compassion empowers education in Kumi.</p>
+<!-- HERO (mockup-aligned) -->
+<section class="hero hero-split">
+  <div class="container hero-frame">
+    <div class="hero-split-grid">
+      <!-- Left: copy + CTAs + fact circles -->
+      <div class="hero-left">
+        <h1>Unlock Futures.<br>Ignite Dreams.</h1>
+        <p class="sub">Your compassion empowers education in Kumi.</p>
 
-            <div class="actions">
-              <a href="donate.html" class="btn contrast">Donate Now</a>
-              <a href="projects.html" class="btn">See Our Impact</a>
-            </div>
-
-            <!-- Stat chips -->
-            <ul class="stats">
-              <li><span>588</span> Kids Strong</li>
-              <li><span>€7 = 1yr</span> Essentials</li>
-              <li><span>100%</span> To Schools</li>
-            </ul>
-          </div>
-
-          <!-- Right image (add your real hero photo later) -->
-          <div class="hero-photo card">
-            <!-- REPLACE THIS SRC LATER with your real hero image file.
-                 e.g. HERO_IMAGE.jpg uploaded to the repo root. -->
-            <img src="HERO_IMAGE.jpg" alt="... (Add your hero image here)">
-          </div>
+        <div class="cta-row">
+          <a href="donate.html" class="btn hero-donate">Donate Now</a>
+          <a href="projects.html" class="btn hero-impact">See Our Impact</a>
         </div>
+
+        <!-- Fact circles -->
+        <ul class="facts">
+          <li class="fact">
+            <div class="fact-circle">
+              <div class="fact-number">588</div>
+              <div class="fact-label">Kids Strong</div>
+            </div>
+          </li>
+
+          <li class="fact">
+            <div class="fact-circle ring">
+              <div class="fact-number">€7 = 1</div>
+              <div class="fact-label">Year</div>
+            </div>
+          </li>
+
+          <li class="fact">
+            <div class="fact-circle">
+              <div class="fact-number">100%</div>
+              <div class="fact-label">To Schools</div>
+            </div>
+          </li>
+        </ul>
       </div>
-    </section>
+
+      <!-- Right: hero photo (replace src later) -->
+      <div class="hero-right">
+        <!-- REPLACE this src with your real hero image file, e.g. HERO_IMAGE.jpg -->
+        <img src="HERO_IMAGE.jpg" alt="Students smiling in class">
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Story & Impact band -->
     <section class="soft-band">
