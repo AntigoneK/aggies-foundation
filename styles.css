@@ -136,15 +136,70 @@ main{ flex:1 }
 .btn.hero-donate:hover{ background:var(--terracotta-700) }
 .btn.hero-impact{ background:#e7efe9; color:#1b4f49; border:2px solid #5c8b84; padding:10px 18px; font-weight:700 }
 
-.facts{ display:flex; gap:28px; align-items:center; list-style:none; padding:0; margin:18px 0 0 }
-.fact-circle{
-  width:112px; height:112px; background:#fff; border-radius:50%;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  border:10px solid #e6e0d6; box-shadow:0 10px 24px rgba(16,24,40,.10); text-align:center;
+.facts{
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: center;
 }
-.fact-circle.ring{ border-color:#224f45 }
-.fact-number{ font-size:1.15rem; font-weight:800; color:var(--ink); line-height:1.1 }
-.fact-label{ font-size:.82rem; color:var(--muted); margin-top:2px }
+
+.fact{ list-style: none; }
+
+/* Base circle size & layout */
+.fact-circle{
+  /* diameter of the white part */
+  --d: 120px;
+  width: var(--d);
+  height: var(--d);
+  padding: 12px;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+
+  /* center the 3 lines perfectly */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;                /* small gap between lines */
+
+  box-shadow: 0 8px 22px rgba(0,0,0,.08);
+  overflow: hidden;        /* never bleed outside the circle */
+  box-sizing: border-box;
+}
+
+/* Dark green ring without stealing inner space */
+.fact-circle.ring{
+  box-shadow:
+    inset 0 0 0 10px #145B58,   /* ring */
+    0 8px 22px rgba(0,0,0,.08); /* drop shadow */
+}
+
+/* Typography tuned to fit */
+.fact-number{
+  font-weight: 800;
+  color: #124c49;
+  line-height: 1.0;
+  /* scales gently with viewport but stays sensible */
+  font-size: clamp(18px, 2.6vw, 26px);
+  white-space: nowrap;
+}
+
+.fact-label{
+  color: #3d5d5a;
+  line-height: 1.1;
+  font-weight: 600;
+  /* slightly smaller than the number */
+  font-size: clamp(10px, 1.6vw, 13px);
+  /* allow breaks instead of overflow */
+  word-break: break-word;
+}
+
+/* Small screens: slightly smaller circles */
+@media (max-width: 520px){
+  .fact-circle{ --d: 104px; padding: 10px; }
+  .facts{ gap: 14px; }
+}
 
 .hero-right img{
   width:100%; height:100%; max-height:520px; object-fit:cover;
