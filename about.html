@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Aggie's Foundation</title>
+  <title>About • Aggie's Foundation</title>
 
+  <!-- Inter (UI) via Google; local ElmsSans loaded in CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="main.js"></script>
 </head>
+
 <body>
+  <!-- thin green seam like your home page -->
+  <div class="top-strip"></div>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
-        <img src="logo.PNG" alt="Aggie's Foundation logo">
+        <img src="logo.PNG" alt="Aggie's Foundation logo" />
         <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
       </a>
 
@@ -33,26 +39,27 @@
     </div>
   </header>
 
-  <!-- Page hero (narrow + centered) -->
-  <section class="page-hero">
-    <div class="container-narrow">
-      <h1>About us</h1>
-      <p class="lead">
-        We remove cost barriers so children can stay in school — starting with tuition and essentials.
-      </p>
-    </div>
-  </section>
+  <main>
+    <!-- TOP HERO (narrow + centered) -->
+    <section class="page-hero">
+      <div class="container-narrow">
+        <h1>About us</h1>
+        <p class="lead">
+          We remove cost barriers so children can stay in school — starting with tuition and essentials.
+        </p>
+      </div>
+    </section>
 
-  <!-- Our approach (narrow, centered two-column card) -->
-  <section class="about-approach">
-    <div class="container-narrow">
+    <!-- OUR APPROACH (white rounded card, centered) -->
+    <section class="about-approach">
       <div class="about-card">
         <div class="about-grid">
+          <!-- Left copy -->
           <div class="about-copy">
             <h2>Our approach</h2>
             <p>
-              We work directly with schools and communities. Donations are routed through our foundation to
-              the school, not to individuals. This keeps administration light and the impact real.
+              We work directly with schools and communities. Donations are routed through our foundation to the school,
+              not to individuals. This keeps administration light and the impact real.
             </p>
             <ul class="checklist">
               <li>Direct-to-school funding</li>
@@ -61,23 +68,40 @@
             </ul>
           </div>
 
+          <!-- Right media -->
           <div class="about-media">
-            <!-- Use your requested image here -->
-            <img src="bg-hero.png" alt="Local partners and students" />
+            <!-- Use your actual image file path -->
+            <img src="bg-hero.png" alt="Local classroom roof structure" />
             <div class="caption">Local partners, lasting change.</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <div class="logo">Aggie's <span>Foundation</span></div>
-        <p>We open doors to education by funding tuition, books, and safe classrooms.</p>
+        <p>Empowering education through tuition, supplies, and safe classrooms in Kumi.</p>
+
+        <!-- Social: replace URLs with your real pages -->
+        <div class="footer-social">
+          <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="insta-Photoroom.png" alt="Instagram logo">
+          </a>
+          <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">
+            <img src="facebook-Photoroom.png" alt="Facebook logo">
+          </a>
+          <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img src="linkedin-Photoroom.png" alt="LinkedIn logo">
+          </a>
+        </div>
+
         <p class="copyright">© 2025 Aggie's Foundation</p>
       </div>
+
       <div>
         <h4>Quick Links</h4>
         <ul class="linklist">
@@ -88,6 +112,7 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div>
         <h4>Stay in touch</h4>
         <form class="inline-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');">
@@ -97,5 +122,14 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // simple mobile nav toggle
+    const burger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    burger?.addEventListener('click', () => {
+      nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
+    });
+  </script>
 </body>
 </html>
