@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aggie's Foundation</title>
 
-  <!-- Inter for UI; Playfair loaded via local @font-face in styles.css -->
+  <!-- Inter UI font; Playfair loaded locally via styles.css @font-face -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,11 +13,14 @@
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
 
-  <meta name="description" content="Aggie's Foundation supports students with tuition, books, and safe classrooms. Join us to create lasting change.">
+  <meta name="description" content="Aggie's Foundation empowers education through tuition, supplies, and safe classrooms." />
 </head>
 <body>
 
-  <!-- Header (white bar with rounded corners) -->
+  <!-- Top green seam -->
+  <div class="top-strip"></div>
+
+  <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo">
@@ -42,88 +45,125 @@
   <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="container hero-grid">
-        <!-- Left copy -->
-        <div class="hero-copy">
-          <h1>Education changes<br>everything.</h1>
-          <p>
-            Every €7 sponsors a child’s tuition, books, and pens for a year.
-            Your gift goes directly to schools through our foundation.
-          </p>
+      <div class="container hero-shell">
+        <div class="hero-grid">
+          <!-- Left copy -->
+          <div class="hero-copy">
+            <h1>Unlock Futures.<br>Ignite Dreams.</h1>
+            <p>Your compassion empowers education in Kumi.</p>
 
-          <div class="actions">
-            <a href="donate.html" class="btn contrast">Donate now</a>
-            <a href="projects.html" class="btn">See our projects</a>
+            <div class="actions">
+              <a href="donate.html" class="btn contrast">Donate Now</a>
+              <a href="projects.html" class="btn">See Our Impact</a>
+            </div>
+
+            <!-- Stat chips -->
+            <ul class="stats">
+              <li><span>588</span> Kids Strong</li>
+              <li><span>€7 = 1yr</span> Essentials</li>
+              <li><span>100%</span> To Schools</li>
+            </ul>
           </div>
 
-          <!-- stats chips -->
-          <ul class="stats">
-            <li><span>588</span> students supported last year</li>
-            <li><span>100%</span> of donations go to schools</li>
-            <li><span>7€</span> covers one year of essentials</li>
-          </ul>
-        </div>
-
-        <!-- Right image card -->
-        <div class="hero-card">
-          <div class="card">
-            <!-- flat repo path (no assets/) -->
-            <img src="placeholder-hero.jpg" alt="Students in a classroom">
-            <div class="caption">Help us build bright futures, one classroom at a time.</div>
+          <!-- Right image (add your real hero photo later) -->
+          <div class="hero-photo card">
+            <!-- REPLACE THIS SRC LATER with your real hero image file.
+                 e.g. HERO_IMAGE.jpg uploaded to the repo root. -->
+            <img src="HERO_IMAGE.jpg" alt="... (Add your hero image here)">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="features container">
-      <div class="section-head">
-        <h2>What your donation does</h2>
-        <p class="muted">Transparent, practical impact—focused on access to education.</p>
-      </div>
+    <!-- Story & Impact band -->
+    <section class="soft-band">
+      <div class="container">
+        <div class="two-col">
+          <!-- Left: Our Story -->
+          <div>
+            <h3 class="eyebrow">Our Story &amp; The Challenge</h3>
+            <div class="story-card card">
+              <h3>The Heart of Aggie’s Foundation</h3>
+              <p>
+                We remove cost barriers so children can stay in school—starting with tuition and essentials.
+                We partner directly with schools and local builders to create safe learning spaces.
+              </p>
+              <a href="about.html" class="btn small contrast">Learn Our Full Story</a>
+            </div>
+          </div>
 
-      <div class="grid-3">
-        <div class="card feature">
-          <h3>Tuition covered</h3>
-          <p>We pay school fees directly to partner schools for verified students.</p>
+          <!-- Right: Impact tiles -->
+          <div>
+            <h3 class="eyebrow">Your Impact in Action</h3>
+            <div class="impact-row">
+              <!-- Tile 1: Tuition -->
+              <article class="impact-tile card">
+                <div class="impact-media">
+                  <img src="schoolbagclipart.jpg" alt="Backpack icon (Tuition)">
+                </div>
+                <div class="impact-text">
+                  <h4>Tuition Covered</h4>
+                  <p>Direct payments to partner schools for verified students.</p>
+                  <a href="projects.html" class="chip">Learn More</a>
+                </div>
+              </article>
+
+              <!-- Tile 2: Supplies -->
+              <article class="impact-tile card">
+                <div class="impact-media">
+                  <img src="schoolsuppliesclipart.jpg" alt="Supplies icon">
+                </div>
+                <div class="impact-text">
+                  <h4>Books &amp; Supplies</h4>
+                  <p>Every child receives the materials they need to learn.</p>
+                  <a href="projects.html" class="chip">Learn More</a>
+                </div>
+              </article>
+
+              <!-- Tile 3: Classrooms -->
+              <article class="impact-tile card">
+                <div class="impact-media">
+                  <img src="classroomclipart.jpg" alt="Classroom icon">
+                </div>
+                <div class="impact-text">
+                  <h4>Classrooms Built</h4>
+                  <p>Safe spaces created with local teams and materials.</p>
+                  <a href="projects.html" class="chip">Learn More</a>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
 
-        <div class="card feature">
-          <h3>Books &amp; supplies</h3>
-          <p>Every child receives the materials they need to learn confidently.</p>
-        </div>
-
-        <div class="card feature">
-          <h3>Classrooms built</h3>
-          <p>Beyond fees, we invest in safe learning spaces with local builders.</p>
+        <!-- Scroll hint -->
+        <div class="scroll-hint">
+          <span class="dot"></span> Scroll to discover
         </div>
       </div>
     </section>
 
-    <!-- CTA strip -->
+    <!-- CTA band -->
     <section class="cta">
       <div class="container cta-inner">
-        <h2>Be the reason a child stays in school this year.</h2>
-        <a href="donate.html" class="btn contrast">Give €7</a>
+        <div class="cta-left">
+          <!-- Optional avatar/quote area —
+               If you add a small headshot later, place it here -->
+          <!-- <img class="avatar" src="SPEAKER.jpg" alt="Quote speaker"> -->
+          <div class="cta-quote">Be the reason a child stays in school this year</div>
+        </div>
+        <a href="donate.html" class="btn light">Give €7 Now</a>
       </div>
     </section>
 
-    <!-- Quotes -->
-    <section class="container testimonials">
-      <div class="section-head">
-        <h2>From our partners</h2>
-      </div>
-
-      <div class="grid-2">
-        <blockquote class="card quote">
-          <p>“Support from Aggie’s Foundation kept our most vulnerable students in class all year.”</p>
-          <cite>— School Director, Partner School</cite>
-        </blockquote>
-
-        <blockquote class="card quote">
-          <p>“The new classroom doubled our capacity and reduced dropouts.”</p>
-          <cite>— Teacher, Community School</cite>
-        </blockquote>
+    <!-- Voices (testimonials preview) -->
+    <section class="voices">
+      <div class="container">
+        <h3 class="eyebrow">Voices of Our Community</h3>
+        <div class="voice-row">
+          <div class="voice card"><p>“Support from Aggie’s Foundation kept our most vulnerable students in class all year.”</p></div>
+          <div class="voice card"><p>“The new classroom doubled our capacity and reduced dropouts.”</p></div>
+          <div class="voice card"><p>“Books and supplies meant every learner could participate with confidence.”</p></div>
+        </div>
       </div>
     </section>
   </main>
@@ -134,6 +174,14 @@
       <div>
         <div class="logo">Aggie's <span>Foundation</span></div>
         <p>We open doors to education by funding tuition, books, and safe classrooms.</p>
+
+        <!-- SOCIAL LINKS: replace the # with your real profiles -->
+        <div class="footer-social">
+          <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+          <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+          <a href="https://linkedin.com/company/YOUR_COMPANY" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+        </div>
+
         <p class="copyright">© 2025 Aggie's Foundation</p>
       </div>
 
