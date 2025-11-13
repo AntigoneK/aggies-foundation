@@ -425,8 +425,8 @@ main{ flex:1 }
   background:#fff url("logo.PNG") center/90% no-repeat;
   box-shadow:0 3px 8px rgba(0,0,0,.18); border:1px solid rgba(0,0,0,.08);
 }
-.site-footer .logo .brand-accent{ color:#fff }
-.site-footer .logo span{ color:#fff }
+.site-footer .logo .brand-accent{ color:#f1ede5 }
+.site-footer .logo span{ color:#f1ede5 }
 .site-footer h4{ margin:0 0 12px; font-weight:700; font-size:1.16rem }
 .copyright{ margin-top:12px; color:#fff; font-size:.9rem; opacity:.85 }
 
