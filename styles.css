@@ -373,6 +373,28 @@ main{ flex:1 }
 .scroll-hint{ display:flex; align-items:center; gap:10px; color:var(--muted); margin:18px 0 0 }
 .scroll-hint .dot{ width:8px; height:8px; background:var(--muted); border-radius:50% }
 
+@media (max-width: 960px){
+  .story-impact{
+    grid-template-columns: 1fr;
+  }
+  .impact-tiles{
+    grid-template-columns: repeat(3, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 760px){
+  .impact-tiles{
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 520px){
+  .impact-tiles{
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* =========================================================
    CTA band
    ========================================================= */
