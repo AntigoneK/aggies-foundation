@@ -479,6 +479,33 @@ input:focus,textarea:focus{ outline:none; box-shadow:var(--ring) }
   border-radius: 2px;
 }
 
+
+/* Button row + Circles in one aligned line */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;        /* space between buttons and circles */
+  flex-wrap: wrap;  /* so it doesn’t break on mobile */
+  margin-top: 16px;
+}
+
+/* Keep the button row tight */
+.hero-actions .cta-row {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Align circles vertically with the buttons */
+.hero-actions .facts {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+
 /* =========================================================
    Responsive
    ========================================================= */
