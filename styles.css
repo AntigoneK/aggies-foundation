@@ -369,7 +369,7 @@ button,input,select,textarea{ font:inherit; }
   word-break:break-word;
 }
 
-/* RIGHT: hero image with left fade 
+/* RIGHT: hero image with left fade */
 .hero-right{
   position:relative;
 }
@@ -382,7 +382,7 @@ button,input,select,textarea{ font:inherit; }
   border:1px solid var(--line);
   box-shadow:0 10px 24px rgba(16,24,40,.08);
 }
-.hero-right::before{
+/*.hero-right::before{
   content:"";
   position:absolute;
   top:0;
