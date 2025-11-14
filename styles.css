@@ -135,57 +135,57 @@ button,input,select,textarea{ font:inherit; }
 }
 .nav a:hover{ opacity:1; }
 
-/* Make the top-level nav a flex row */
-.nav{
-  display:flex;
-  align-items:center;
-  gap:8px;
-}
+/* --- Projects dropdown (desktop) --- */
 
-/* Wrapper for items with a dropdown */
+/* Wrapper for menu items that have a dropdown */
 .nav-item{
   position:relative;
-  display:flex;
-  align-items:center;
+  display:inline-block;
 }
 
-/* Keep same spacing for Projects link itself */
+/* Keep spacing for the Projects top link */
 .nav-item > a{
   margin:0 12px;
 }
 
-/* Dropdown panel (hidden by default) */
+/* The dropdown panel itself (hidden by default) */
 .nav-dropdown{
   position:absolute;
-  top:110%;
   left:0;
-  min-width:220px;
+  top:130%;
+  min-width:260px;
   background:#fff;
   border:1px solid var(--line);
-  border-radius:12px;
+  border-radius:18px;
   box-shadow:var(--shadow);
-  padding:8px 0;
-  display:none;          /* default: hidden */
-  z-index:20;
+  padding:16px 20px;
+  display:none;
+  z-index:50;
 }
 
-/* Show dropdown on hover */
+/* Show the dropdown when hovering the Projects item */
 .nav-item-projects:hover .nav-dropdown{
   display:block;
 }
 
-/* Links inside dropdown */
+/* Links inside the dropdown */
 .nav-dropdown a{
   display:block;
-  padding:8px 14px;
-  margin:0;              /* override .nav a margin */
-  font-size:.95rem;
+  margin:0 0 8px;
+  padding:2px 0;
+  color:var(--ink);
+  font-weight:500;
   white-space:nowrap;
 }
 
-.nav-dropdown a:hover{
-  background:#f4efe7;
+.nav-dropdown a:last-child{
+  margin-bottom:0;
 }
+
+.nav-dropdown a:hover{
+  color:var(--teal);
+}
+
 
 .pill-donate{
   display:inline-flex;
@@ -823,7 +823,7 @@ input:focus,textarea:focus{
   .header-inner{ padding:10px 12px; }
 
   .nav{
-    display:none;               /* JS toggles this to block */
+    display:none;             /* JS toggles this */
     position:absolute;
     right:16px;
     top:60px;
@@ -844,15 +844,17 @@ input:focus,textarea:focus{
   }
 
   .nav-item{
-    width:100%;
     display:block;
+    width:100%;
   }
 
-  /* On mobile, always show the dropdown under Projects */
+  /* On mobile, always show the sub-links under Projects */
   .nav-dropdown{
     position:static;
-    box-shadow:none;
+    min-width:0;
     border:0;
+    border-radius:0;
+    box-shadow:none;
     padding:0 0 0 12px;
     display:block;
     margin-top:4px;
@@ -867,3 +869,4 @@ input:focus,textarea:focus{
 
   .hero-left h1{ font-size:2.4rem; }
 }
+
