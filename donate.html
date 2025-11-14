@@ -1,80 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aggie's Foundation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<script defer src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Donate • Aggie's Foundation</title>
 
+  <!-- Fonts & global styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="main.js"></script>
+
+  <!-- Donate-page-only styles -->
+  <style>
+    /* Top hero (reuse visual language from About page) */
+    .donate-hero {
+      background: #f4efe7;
+      padding: 56px 0 36px;
+    }
+    .donate-hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .donate-hero-inner h1 {
+      margin: 0 0 8px;
+      font-size: 2.4rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .donate-hero-inner .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    /* Section that holds the three tiers */
+    .donate-section {
+      padding: 34px 0 32px;
+      background: var(--soft);
+      border-top: 1px solid var(--line);
+    }
+    .donate-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .donate-tier.card {
+      padding: 22px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .donate-tier h3 {
+      margin: 0 0 4px;
+      font-size: 1.3rem;
+      color: var(--ink);
+    }
+    .donate-tier p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+    .donate-tier .btn {
+      margin-top: auto;
+    }
+    .donate-tier.featured {
+      border: 2px solid var(--terracotta);
+    }
+
+    /* GoFundMe embed card */
+    .donate-embed {
+      padding: 34px 0 40px;
+    }
+    .donate-embed-card {
+      padding: 24px 20px 22px;
+    }
+    .donate-embed-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      color: var(--ink);
+    }
+    .donate-embed-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+    }
+    .gfm-frame-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    .gfm-frame {
+      width: 100%;
+      height: 520px;
+      border: 0;
+    }
+    .donate-embed-note {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 900px) {
+      .donate-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <img src="logo.PNG" alt="Aggie's Foundation logo">
-      <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
-</a>
+  <!-- thin green seam -->
+  <div class="top-strip"></div>
 
-<nav id="nav" class="nav">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
-  <a href="donate.html" class="pill-donate">Donate</a>
-  <a href="contact.html">Contact</a>
-</nav>
-    <button aria-label="Toggle menu" class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.PNG" alt="Aggie's Foundation logo" />
+        <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
+      </a>
 
-<main class="container">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
+      <nav id="nav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="donate.html" class="pill-donate">Donate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button aria-label="Toggle menu" class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="donate-hero">
+      <div class="donate-hero-inner">
         <h1>Donate</h1>
-        <p class="lead">100% of your donation goes directly to schools. €7 funds a year of tuition and supplies for one child.</p>
-  </section>
+        <p class="lead">
+          100% of your donation goes directly to schools. €7 funds a year of tuition and supplies for one child.
+        </p>
+      </div>
+    </section>
 
-  <section class="grid-3 donate-tiers">
-    <div class="card tier">
-      <h3>€7</h3>
-      <p>One student’s school year</p>
-      <button class="btn primary">Give €7</button>
-    </div>
-    <div class="card tier featured">
-      <h3>€50</h3>
-      <p>Classroom supplies</p>
-      <button class="btn contrast">Give €50</button>
-    </div>
-    <div class="card tier">
-      <h3>€250</h3>
-      <p>Build & repair fund</p>
-      <button class="btn primary">Give €250</button>
-    </div>
-  </section>
+    <!-- PRESET TIERS -->
+    <section class="donate-section">
+      <div class="container">
+        <div class="donate-grid">
+          <article class="card donate-tier">
+            <h3>€7</h3>
+            <p>One student’s school year</p>
+            <a
+              href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
+              target="_blank" rel="noopener"
+              class="btn primary">
+              Give €7
+            </a>
+          </article>
 
-  <section class="card donate-form">
-    <h2>Custom amount</h2>
-    <form onsubmit="event.preventDefault(); alert('This is a demo. Connect Stripe or your payment method.');">
-      <label>Amount (€)
-        <input type="number" min="1" step="1" value="7" required />
-      </label>
-      <label>Name
-        <input type="text" placeholder="Your name" required />
-      </label>
-      <label>Email
-        <input type="email" placeholder="you@example.com" required />
-      </label>
-      <button class="btn primary">Donate</button>
-      <p class="muted small">Demo only. Replace with real payment integration (e.g., Stripe Checkout).</p>
-    </form>
-  </section>
-</main>
+          <article class="card donate-tier featured">
+            <h3>€50</h3>
+            <p>Classroom supplies</p>
+            <a
+              href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
+              target="_blank" rel="noopener"
+              class="btn contrast">
+              Give €50
+            </a>
+          </article>
+
+          <article class="card donate-tier">
+            <h3>€250</h3>
+            <p>Build &amp; repair fund</p>
+            <a
+              href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
+              target="_blank" rel="noopener"
+              class="btn primary">
+              Give €250
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOFUNDME EMBED -->
+    <section class="donate-embed">
+      <div class="container">
+        <article class="card donate-embed-card">
+          <h2>Give via GoFundMe</h2>
+          <p>
+            Donations are handled securely through our GoFundMe campaign. You can choose any amount,
+            leave a message, and see the latest progress.
+          </p>
+
+          <div class="gfm-frame-wrap">
+            <!-- Replace URL below with your actual GoFundMe campaign link -->
+            <iframe
+              class="gfm-frame"
+              src="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
+              title="Aggie's Foundation GoFundMe">
+            </iframe>
+          </div>
+
+          <p class="donate-embed-note">
+            If the embedded view doesn’t load, you can
+            <a href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE" target="_blank" rel="noopener">
+              open the GoFundMe page in a new tab
+            </a>.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
 
  <!-- FOOTER -->
   <footer class="site-footer">
