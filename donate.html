@@ -137,65 +137,58 @@
   </header>
 
   <main>
-    <!-- HERO -->
+    <!-- Hero -->
     <section class="donate-hero">
       <div class="donate-hero-inner">
         <h1>Donate</h1>
-        <p class="lead">
+        <p>
           100% of your donation goes directly to schools. €7 funds a year of tuition and supplies for one child.
         </p>
       </div>
     </section>
 
-    <!-- TIER BUTTONS THAT SCROLL -->
-    <section class="donate-section">
+    <!-- Single €7 tier -->
+    <section class="donate-tiers-section">
       <div class="container">
-        <div class="donate-grid">
-
-          <article class="card donate-tier">
-            <h3>€7</h3>
-            <p>One student’s school year</p>
-            <a href="#gfm-section" class="btn primary">Give €7</a>
+        <div class="donate-tiers-grid">
+          <article class="card donation-tier">
+            <div>
+              <div class="amount">€7</div>
+              <h3>One student’s school year</h3>
+              <p>
+                Your gift of €7 keeps one child in school for a full year with tuition and essentials.
+              </p>
+              <p>
+                If you’d like to support more than one child, please enter a multiple of €7 in the GoFundMe form below.
+              </p>
+            </div>
+            <a href="#gofundme" class="btn primary">Give €7</a>
           </article>
-
-          <article class="card donate-tier featured">
-            <h3>€50</h3>
-            <p>Classroom supplies</p>
-            <a href="#gfm-section" class="btn contrast">Give €50</a>
-          </article>
-
-          <article class="card donate-tier">
-            <h3>€100</h3>
-            <p>Build &amp; repair fund</p>
-            <a href="#gfm-section" class="btn primary">Give €100</a>
-          </article>
-
         </div>
       </div>
     </section>
 
-    <!-- GOFUNDME EMBED -->
-    <section id="gfm-section" class="donate-embed">
+    <!-- GoFundMe embed -->
+    <section id="gofundme" class="gofundme-section">
       <div class="container">
-        <article class="card donate-embed-card">
+        <article class="card gofundme-card">
           <h2>Complete your donation</h2>
-          <p>Choose any amount and donate securely through GoFundMe.</p>
-
-          <div class="gfm-frame-wrap">
-            <!-- INSERT YOUR ACTUAL GOFUNDME LINK BELOW -->
-            <iframe
-              class="gfm-frame"
-              src="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
-              title="Aggie's Foundation GoFundMe">
-            </iframe>
-          </div>
-
-          <p class="donate-embed-note">
-            If you prefer, you can also
-            <a href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE" target="_blank" rel="noopener">
-              open the GoFundMe page in a new tab.
-            </a>
+          <p>
+            Choose any amount and donate securely through GoFundMe.  
+            You can adjust the amount there to support as many children as you’d like.
           </p>
+
+          <div class="gfm-embed-wrapper">
+            <!-- Replace this src with your real GoFundMe URL when it’s ready -->
+            <iframe
+              src="https://www.gofundme.com/f/your-fundraiser-slug-here"
+              style="width:100%; border:0;"
+              height="600"
+              frameborder="0"
+              scrolling="yes"
+              title="Aggie's Foundation GoFundMe"
+            ></iframe>
+          </div>
         </article>
       </div>
     </section>
