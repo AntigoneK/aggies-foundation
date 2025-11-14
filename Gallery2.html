@@ -8,49 +8,100 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script defer src="main.js"></script>
 
   <style>
     .project-hero {
-      background: #f4efe7;
-      padding: 56px 0 30px;
+      background:#f4efe7;
+      padding:56px 0 30px;
     }
-    .project-hero-inner {
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .project-hero-inner{
+      max-width:820px;
+      margin:0 auto;
+      padding:0 20px;
     }
-    .project-hero-inner h1 {
-      margin: 0 0 8px;
-      font-size: 2.2rem;
-      color: var(--ink);
+    .project-hero-inner h1{
+      margin:0 0 8px;
+      font-size:2.2rem;
+      color:var(--ink);
     }
-    .project-hero-inner p {
-      margin: 0;
-      color: var(--muted);
+    .project-hero-inner p{
+      margin:0;
+      color:var(--muted);
     }
 
-    .gallery-section {
-      padding: 32px 0 60px;
+    .gallery-section{
+      padding:32px 0 60px;
     }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
+    .gallery-inner{
+      max-width:840px;
+      margin:0 auto;
+      padding:0 20px;
     }
-    .gallery-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
+    .slider-card{
+      background:var(--paper);
+      border-radius:24px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:flex;
+      align-items:center;
+      gap:12px;
     }
-    .gallery-item figcaption {
-      margin-top: 6px;
-      font-size: 0.9rem;
-      color: var(--muted);
+    .slider-arrow{
+      flex:0 0 auto;
+      width:40px;
+      height:40px;
+      border-radius:999px;
+      border:0;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.5rem;
+      font-weight:700;
+      background:var(--terracotta);
+      color:#fff;
+      box-shadow:0 4px 10px rgba(0,0,0,.16);
+    }
+    .slider-arrow:disabled{
+      opacity:.4;
+      cursor:default;
+      box-shadow:none;
+    }
+
+    .slider-frame{
+      flex:1 1 auto;
+      position:relative;
+    }
+    .slider-image{
+      width:100%;
+      max-height:420px;
+      object-fit:cover;
+      border-radius:18px;
+      border:1px solid var(--line);
+    }
+    .slider-caption{
+      margin-top:8px;
+      font-size:.95rem;
+      color:var(--muted);
+    }
+    .slider-count{
+      margin-top:4px;
+      font-size:.8rem;
+      color:var(--muted);
+      opacity:.8;
+    }
+
+    @media (max-width:720px){
+      .slider-card{
+        flex-direction:column;
+      }
+      .slider-arrow{
+        order:-1;
+      }
     }
   </style>
 </head>
@@ -83,30 +134,85 @@
       <div class="project-hero-inner">
         <h1>Back-to-school kits</h1>
         <p>
-          Every kit includes books, pens, and basic supplies so students can walk into class prepared to learn.
+          Books, pens, and uniforms help students arrive ready to learn on day one at our partner schools.
         </p>
       </div>
     </section>
 
     <section class="gallery-section">
-      <div class="container">
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="project-kits-1.jpg" alt="Children receiving school kits">
-            <figcaption>Students receiving their back-to-school kits.</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="project-kits-2.jpg" alt="Close-up of supplies">
-            <figcaption>Books, pens, and exercise books funded through your donations.</figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <img src="project-kits-3.jpg" alt="Children holding supplies">
-            <figcaption>Proud faces with everything they need for the school year.</figcaption>
-          </figure>
+      <div class="gallery-inner">
+        <div class="slider-card">
+          <button class="slider-arrow" id="prevBtn" aria-label="Previous photo">‹</button>
+
+          <div class="slider-frame">
+            <img id="galleryImage" class="slider-image" src="" alt="">
+            <div id="galleryCaption" class="slider-caption"></div>
+            <div id="galleryCount" class="slider-count"></div>
+          </div>
+
+          <button class="slider-arrow" id="nextBtn" aria-label="Next photo">›</button>
         </div>
       </div>
     </section>
   </main>
+
+  <script>
+    // update filenames to match images in /Gallery2
+    const galleryItems = [
+      {
+        src: "Gallery2/photo1.jpg",
+        alt: "Child with exercise books",
+        caption: "New exercise books ready for the first day back at school."
+      },
+      {
+        src: "Gallery2/photo2.jpg",
+        alt: "Student holding backpack",
+        caption: "Backpack, pens, and basics provided through back-to-school kits."
+      },
+      {
+        src: "Gallery2/photo3.jpg",
+        alt: "Group of children with supplies",
+        caption: "Learners receiving their kits at a partner school."
+      }
+    ];
+
+    let currentIndex = 0;
+
+    const imgEl = document.getElementById("galleryImage");
+    const captionEl = document.getElementById("galleryCaption");
+    const countEl = document.getElementById("galleryCount");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function renderSlide() {
+      const item = galleryItems[currentIndex];
+      imgEl.src = item.src;
+      imgEl.alt = item.alt;
+      captionEl.textContent = item.caption;
+      countEl.textContent = `${currentIndex + 1} of ${galleryItems.length}`;
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === galleryItems.length - 1;
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        renderSlide();
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < galleryItems.length - 1) {
+        currentIndex++;
+        renderSlide();
+      }
+    });
+
+    renderSlide();
+  </script>
+</body>
+</html>
+
 
 <!-- FOOTER -->
   <footer class="site-footer">
