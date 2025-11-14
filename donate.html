@@ -12,9 +12,12 @@
   <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
 
-  <!-- Donate-page-only styles -->
+  <!-- Donate-page-only styling -->
   <style>
-    /* Top hero (reuse visual language from About page) */
+    html {
+      scroll-behavior: smooth;
+    }
+
     .donate-hero {
       background: #f4efe7;
       padding: 56px 0 36px;
@@ -27,16 +30,13 @@
     .donate-hero-inner h1 {
       margin: 0 0 8px;
       font-size: 2.4rem;
-      letter-spacing: -0.02em;
       color: var(--ink);
     }
     .donate-hero-inner .lead {
       margin: 0;
       color: var(--muted);
-      font-size: 1.05rem;
     }
 
-    /* Section that holds the three tiers */
     .donate-section {
       padding: 34px 0 32px;
       background: var(--soft);
@@ -44,80 +44,63 @@
     }
     .donate-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 24px;
     }
     .donate-tier.card {
-      padding: 22px 20px 20px;
+      padding: 22px 20px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      justify-content: space-between;
     }
     .donate-tier h3 {
       margin: 0 0 4px;
       font-size: 1.3rem;
-      color: var(--ink);
     }
     .donate-tier p {
       margin: 0 0 16px;
       color: var(--muted);
     }
-    .donate-tier .btn {
-      margin-top: auto;
-    }
+
     .donate-tier.featured {
       border: 2px solid var(--terracotta);
     }
 
-    /* GoFundMe embed card */
+    /* GoFundMe */
     .donate-embed {
       padding: 34px 0 40px;
     }
     .donate-embed-card {
-      padding: 24px 20px 22px;
+      padding: 24px 20px;
     }
     .donate-embed-card h2 {
       margin: 0 0 8px;
-      font-size: 1.5rem;
-      color: var(--ink);
-    }
-    .donate-embed-card p {
-      margin: 0 0 16px;
-      color: var(--muted);
     }
     .gfm-frame-wrap {
-      position: relative;
       width: 100%;
-      max-width: 100%;
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      background: #fff;
+      background: white;
     }
     .gfm-frame {
       width: 100%;
       height: 520px;
-      border: 0;
-    }
-    .donate-embed-note {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: var(--muted);
+      border: none;
     }
 
-    /* Responsive tweaks */
     @media (max-width: 900px) {
       .donate-grid {
         grid-template-columns: 1fr;
       }
     }
   </style>
-</head>
 
+</head>
 <body>
-  <!-- thin green seam -->
+
+  <!-- tiny green bar -->
   <div class="top-strip"></div>
 
   <!-- HEADER -->
@@ -153,58 +136,42 @@
       </div>
     </section>
 
-    <!-- PRESET TIERS -->
+    <!-- TIER BUTTONS THAT SCROLL -->
     <section class="donate-section">
       <div class="container">
         <div class="donate-grid">
+
           <article class="card donate-tier">
             <h3>€7</h3>
             <p>One student’s school year</p>
-            <a
-              href="https://www.gofundme.com/f/rqg89a-aggies-foundation?utm_campaign=man_sharesheet_dash&utm_medium=customer&utm_source=whatsapp&attribution_id=sl%3Aa70b416e-4428-491f-b7c6-c0295d4e6039"
-              target="_blank" rel="noopener"
-              class="btn primary">
-              Give €7
-            </a>
+            <a href="#gfm-section" class="btn primary">Give €7</a>
           </article>
 
           <article class="card donate-tier featured">
             <h3>€50</h3>
             <p>Classroom supplies</p>
-            <a
-              href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
-              target="_blank" rel="noopener"
-              class="btn contrast">
-              Give €50
-            </a>
+            <a href="#gfm-section" class="btn contrast">Give €50</a>
           </article>
 
           <article class="card donate-tier">
             <h3>€250</h3>
             <p>Build &amp; repair fund</p>
-            <a
-              href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
-              target="_blank" rel="noopener"
-              class="btn primary">
-              Give €250
-            </a>
+            <a href="#gfm-section" class="btn primary">Give €250</a>
           </article>
+
         </div>
       </div>
     </section>
 
     <!-- GOFUNDME EMBED -->
-    <section class="donate-embed">
+    <section id="gfm-section" class="donate-embed">
       <div class="container">
         <article class="card donate-embed-card">
-          <h2>Give via GoFundMe</h2>
-          <p>
-            Donations are handled securely through our GoFundMe campaign. You can choose any amount,
-            leave a message, and see the latest progress.
-          </p>
+          <h2>Complete your donation</h2>
+          <p>Choose any amount and donate securely through GoFundMe.</p>
 
           <div class="gfm-frame-wrap">
-            <!-- Replace URL below with your actual GoFundMe campaign link -->
+            <!-- INSERT YOUR ACTUAL GOFUNDME LINK BELOW -->
             <iframe
               class="gfm-frame"
               src="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE"
@@ -213,10 +180,10 @@
           </div>
 
           <p class="donate-embed-note">
-            If the embedded view doesn’t load, you can
+            If you prefer, you can also
             <a href="https://www.gofundme.com/f/YOUR-GOFUNDME-URL-HERE" target="_blank" rel="noopener">
-              open the GoFundMe page in a new tab
-            </a>.
+              open the GoFundMe page in a new tab.
+            </a>
           </p>
         </article>
       </div>
