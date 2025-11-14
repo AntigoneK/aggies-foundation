@@ -135,21 +135,21 @@ button,input,select,textarea{ font:inherit; }
 }
 .nav a:hover{ opacity:1; }
 
-/* Make nav a flex row */
+/* Make the top-level nav a flex row */
 .nav{
   display:flex;
   align-items:center;
   gap:8px;
 }
 
-/* Wrapper for items that have a dropdown */
+/* Wrapper for items with a dropdown */
 .nav-item{
   position:relative;
   display:flex;
   align-items:center;
 }
 
-/* Keep same spacing for top-level link inside nav-item */
+/* Keep same spacing for Projects link itself */
 .nav-item > a{
   margin:0 12px;
 }
@@ -165,11 +165,11 @@ button,input,select,textarea{ font:inherit; }
   border-radius:12px;
   box-shadow:var(--shadow);
   padding:8px 0;
-  display:none;              /* <— key line: hide by default */
+  display:none;          /* default: hidden */
   z-index:20;
 }
 
-/* Show dropdown only when hovering the Projects wrapper */
+/* Show dropdown on hover */
 .nav-item-projects:hover .nav-dropdown{
   display:block;
 }
@@ -178,7 +178,7 @@ button,input,select,textarea{ font:inherit; }
 .nav-dropdown a{
   display:block;
   padding:8px 14px;
-  margin:0;                  /* override top-level margin */
+  margin:0;              /* override .nav a margin */
   font-size:.95rem;
   white-space:nowrap;
 }
@@ -840,7 +840,7 @@ input:focus,textarea:focus{
     display:block;
     padding:8px 10px;
     color:var(--ink);
-    margin:0;                   /* avoid big side margins in mobile */
+    margin:0;
   }
 
   .nav-item{
@@ -848,12 +848,12 @@ input:focus,textarea:focus{
     display:block;
   }
 
-  /* On mobile, show the dropdown as inline sub-links under Projects */
+  /* On mobile, always show the dropdown under Projects */
   .nav-dropdown{
     position:static;
     box-shadow:none;
     border:0;
-    padding:0 0 0 8px;
+    padding:0 0 0 12px;
     display:block;
     margin-top:4px;
   }
