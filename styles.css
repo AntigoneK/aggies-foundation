@@ -363,9 +363,7 @@ button,input,select,textarea{ font:inherit; }
   .hero-actions .facts{ gap:14px; }
 }
 
-/* =========================================================
-   Story + Impact tiles (below hero)
-   ========================================================= */
+/* STORY + IMPACT TILES (below hero) */
 
 .soft-band{
   background:var(--soft);
@@ -375,8 +373,9 @@ button,input,select,textarea{ font:inherit; }
 
 .story-impact{
   display:grid;
-  grid-template-columns:minmax(0,1.4fr) minmax(0,2.1fr);
-  gap:24px;
+  /* make left card narrower, right column wider */
+  grid-template-columns:minmax(0,1fr) minmax(0,2fr);
+  gap:32px;
   align-items:stretch;
 }
 
@@ -403,15 +402,17 @@ button,input,select,textarea{ font:inherit; }
 /* impact tiles */
 .impact-tiles{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr));
-  gap:20px;
+  grid-template-columns:repeat(3, minmax(0,1fr)); /* 3 equal columns */
+  gap:24px;
 }
+
 .impact.card{
   padding:22px 18px 20px;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
 }
+
 .impact-icon{
   width:80px;
   height:80px;
@@ -429,15 +430,18 @@ button,input,select,textarea{ font:inherit; }
   height:100%;
   object-fit:cover;
 }
+
+/* fix tiny margin typo here */
 .impact h4{
-  margin:1 1 8px;
+  margin:0 0 8px;
   font-size:1.02rem;
 }
 .impact p{
-  margin:1;
+  margin:0 0 16px;
   color:var(--muted);
   line-height:1.45;
 }
+
 .chip{
   display:inline-flex;
   align-items:center;
@@ -462,6 +466,7 @@ button,input,select,textarea{ font:inherit; }
 @media (max-width:520px){
   .impact-tiles{ grid-template-columns:1fr; }
 }
+
 
 /* =========================================================
    CTA band
