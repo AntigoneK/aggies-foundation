@@ -11,6 +11,136 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
   <script defer src="main.js"></script>
+
+  <!-- About-page-only styles (won't affect index) -->
+  <style>
+    .about-intro {
+      padding: 40px 0 10px;
+    }
+    .about-intro-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .about-intro-inner h1 {
+      margin: 0 0 8px;
+      font-size: 2.6rem;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    .about-intro-inner p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    /* Main layout for the cards */
+    .about-sections {
+      padding: 10px 0 40px;
+    }
+    .about-row-top {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+    .about-row-team {
+      margin-bottom: 0;
+    }
+
+    .about-card-photo {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 260px;
+    }
+
+    /* white tint overlay */
+    .about-card-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .about-card-inner {
+      position: relative; /* above overlay */
+      padding: 26px 28px 24px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .about-card-inner h2,
+    .about-card-inner h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+    .about-card-inner p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+    .about-card-inner ul {
+      margin: 4px 0 0 18px;
+      padding: 0;
+      color: var(--muted);
+    }
+    .about-card-inner li {
+      margin: 4px 0;
+    }
+
+    /* Team card: full width & a bit taller */
+    .about-card-team {
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .about-card-team-inner {
+      padding: 26px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .team-photos-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .team-photos-row img {
+      flex: 1 1 0;
+      min-width: 160px;
+      border-radius: 18px;
+      object-fit: cover;
+    }
+    .about-card-team-inner h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+    .about-card-team-inner p {
+      margin: 0;
+      color: var(--muted);
+    }
+    .about-card-team-inner .chip {
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+
+    /* Responsive: stack cards on small screens */
+    @media (max-width: 880px) {
+      .about-row-top {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -40,80 +170,78 @@
   </header>
 
   <main>
-    <!-- TOP ABOUT HEADER (no white box) -->
-    <section>
-      <div class="container">
+    <!-- Big heading, no white box -->
+    <section class="about-intro">
+      <div class="about-intro-inner">
         <h1>About us</h1>
         <p>
           We remove cost barriers so children can stay in school — starting with tuition and essentials.
-        </p>
-        <p>
-          We work directly with schools and communities. Donations are routed through our foundation to the school,
-          not to individuals. This keeps administration light and the impact real.
+          We work directly with schools and communities so every euro is put to work in the classroom.
         </p>
       </div>
     </section>
 
-    <!-- ABOUT CARDS -->
-    <section class="soft-band">
+    <!-- Cards: 2 on top, 1 full-width below -->
+    <section class="about-sections">
       <div class="container">
-
-        <!-- ROW 1: two equal cards -->
-        <div class="impact-tiles"
-             style="grid-template-columns: repeat(2, minmax(0,1fr)); gap:24px;">
-          <!-- Card 1: Our approach -->
-          <article class="impact card">
-            <div class="impact-icon">
-              <img src="schoolbagclipart.jpg" alt="School bag icon">
+        <!-- Top row -->
+        <div class="about-row-top">
+          <!-- Our approach card with background photo -->
+          <article class="about-card-photo"
+                   style="background-image:url('approach-bg.jpg');">
+            <div class="about-card-inner">
+              <h2>Our approach</h2>
+              <p>
+                We work directly with partner schools to keep children in class by covering tuition and essentials.
+              </p>
+              <ul>
+                <li>Direct-to-school funding</li>
+                <li>Clear, simple reporting</li>
+                <li>Local builders for classrooms</li>
+              </ul>
             </div>
-            <h4>Our approach</h4>
-            <p>
-              We work directly with partner schools to keep children in class by covering tuition and essentials.
-            </p>
-            <ul>
-              <li>Direct-to-school funding</li>
-              <li>Clear, simple reporting</li>
-              <li>Local builders for classrooms</li>
-            </ul>
           </article>
 
-          <!-- Card 2: Classrooms in Kumi -->
-          <article class="impact card">
-            <div class="impact-icon">
-              <img src="bg-hero.png" alt="Local classroom roof structure">
+          <!-- Classrooms in Kumi card with background photo -->
+          <article class="about-card-photo"
+                   style="background-image:url('classrooms-bg.jpg');">
+            <div class="about-card-inner">
+              <h2>Classrooms in Kumi</h2>
+              <p>
+                Step by step, we help schools repair and build safe classrooms so learning can continue
+                even when buildings are worn or overcrowded.
+              </p>
+              <a class="chip" href="projects.html">See Our Projects</a>
             </div>
-            <h4>Classrooms in Kumi</h4>
-            <p>
-              Step by step, we help schools repair and build safe classrooms so learning can continue even when
-              buildings are worn or overcrowded.
-            </p>
-            <a class="chip" href="projects.html">See Our Projects</a>
           </article>
         </div>
 
-        <!-- ROW 2: single centered card -->
-        <div style="margin-top:32px; max-width:720px; margin-left:auto; margin-right:auto;">
-          <article class="impact card">
-            <div class="impact-icon">
-              <!-- Use a still from your Instagram team post here -->
-              <img src="team-photo.jpg" alt="Aggie's Foundation team together in Kumi">
+        <!-- Team row -->
+        <div class="about-row-team">
+          <article class="about-card-team">
+            <div class="about-card-team-inner">
+              <!-- Two cropped team photos side by side -->
+              <div class="team-photos-row">
+                <img src="team-1.jpg" alt="Aggie's Foundation team – first group photo">
+                <img src="team-2.jpg" alt="Aggie's Foundation team – second group photo">
+              </div>
+
+              <h3>Our team</h3>
+              <p>
+                Behind every classroom and scholarship is a small team of people in Kumi and Europe
+                working together with school leaders.
+              </p>
+              <p>
+                See the faces behind Aggie’s Foundation in our team photo on Instagram.
+              </p>
+              <a class="chip"
+                 href="https://www.instagram.com/p/C30fM0mNbJg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                 target="_blank" rel="noopener">
+                View the post
+              </a>
             </div>
-            <h4>Our team</h4>
-            <p>
-              Behind every classroom and scholarship is a small team of people in Kumi and Europe working together
-              with school leaders.
-            </p>
-            <p>
-              See the faces behind Aggie’s Foundation in our team photo on Instagram.
-            </p>
-            <a class="chip"
-               href="https://www.instagram.com/p/C30fM0mNbJg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
-               target="_blank" rel="noopener">
-              View the post
-            </a>
           </article>
         </div>
-
       </div>
     </section>
   </main>
