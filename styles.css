@@ -149,10 +149,15 @@ button,input,select,textarea{ font:inherit; }
   display: inline-block;
 }
 
+.nav-item-projects {
+  position: relative;
+  display: inline-block;
+}
+
 /* Dropdown panel for Projects */
 .nav-item-projects .nav-dropdown {
   position: absolute;
-  top: 120%;          /* just below the Projects link */
+  top: 120%;         /* or top: calc(100% + 6px); if you prefer */
   left: 0;
   min-width: 230px;
   background: #ffffff;
@@ -164,15 +169,14 @@ button,input,select,textarea{ font:inherit; }
   visibility: hidden;
   transform: translateY(4px);
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
-  pointer-events: none;  /* can't be clicked while hidden */
+  /* REMOVE pointer-events: none; */
   z-index: 20;
 }
 
-/* Links inside the dropdown card */
+/* Links inside dropdown */
 .nav-item-projects .nav-dropdown a {
   display: block;
   padding: 8px 16px;
-  margin: 0;
   white-space: nowrap;
   color: var(--ink);
 }
@@ -181,14 +185,12 @@ button,input,select,textarea{ font:inherit; }
   background: #f4efe7;
 }
 
-/* When hovering Projects *or* anything inside its wrapper,
-   keep the dropdown visible and clickable */
+/* Keep menu open while hovering Projects OR the dropdown */
 .nav-item-projects:hover .nav-dropdown,
 .nav-item-projects:focus-within .nav-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
-  pointer-events: auto;   /* now you can click the project links */
 }
 
 .pill-donate{
