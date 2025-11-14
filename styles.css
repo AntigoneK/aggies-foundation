@@ -369,7 +369,7 @@ button,input,select,textarea{ font:inherit; }
   word-break:break-word;
 }
 
-/* RIGHT: hero image with left fade */
+/* RIGHT: hero image with left fade 
 .hero-right{
   position:relative;
 }
@@ -397,7 +397,7 @@ button,input,select,textarea{ font:inherit; }
     rgba(241,237,229,0.85) 40%,
     rgba(241,237,229,0) 100%
   );
-}
+} */
 
 /* small screens hero tweaks */
 @media (max-width:900px){
