@@ -1,7 +1,7 @@
-  /* Background image (relative to css/ folder) */
-  /*--bg-photo: url("http://127.0.0.1:5500/assets/bg-hero.png");*/
-  /*--wash-top: rgba(255,255,255,0.60);  /* overlay strength */
-  /*--wash-bot: rgba(255,255,255,0.60);
+/* Background image (relative to css/ folder) */
+/*--bg-photo: url("http://127.0.0.1:5500/assets/bg-hero.png");*/
+/*--wash-top: rgba(255,255,255,0.60);  /* overlay strength */
+/*--wash-bot: rgba(255,255,255,0.60);
 }*/
 
 /* =========================================================
@@ -230,11 +230,12 @@ button,input,select,textarea{ font:inherit; }
 
 .hero-split-grid{
   display:grid;
-  grid-template-columns:minmax(0,1.3fr) minmax(0,0.7fr);
+  grid-template-columns:minmax(0,1.3fr) minmax(0,1.5fr);
   column-gap:40px;
+  align-items:center;
 }
 
-/* LEFT: text + circles + photo */
+/* LEFT: text + circles */
 .hero-left h1{
   font-size:3.1rem;
   line-height:1.05;
@@ -310,20 +311,20 @@ button,input,select,textarea{ font:inherit; }
   word-break:break-word;
 }
 
-/* Hero image under circles, fading on left */
-.hero-photo-wrap{
-  margin-top:30px;
+/* RIGHT: hero image with left fade */
+.hero-right{
   position:relative;
 }
-.hero-photo{
+.hero-right img{
   width:100%;
   max-height:520px;
+  height:100%;
   object-fit:cover;
   border-radius:18px;
   border:1px solid var(--line);
   box-shadow:0 10px 24px rgba(16,24,40,.08);
 }
-.hero-photo-wrap::before{
+.hero-right::before{
   content:"";
   position:absolute;
   top:0;
@@ -340,13 +341,13 @@ button,input,select,textarea{ font:inherit; }
   );
 }
 
-/* right placeholder (currently empty) */
-.hero-right-placeholder{}
-
 /* small screens hero tweaks */
 @media (max-width:900px){
   .hero-split-grid{
     grid-template-columns:1fr;
+  }
+  .hero-right{
+    margin-top:28px;
   }
 }
 
