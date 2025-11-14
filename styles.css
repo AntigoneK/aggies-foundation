@@ -825,11 +825,75 @@ input:focus,textarea:focus{
   }
 }
 
+
+
 @media (max-width:640px){
   .header-inner{ padding:10px 12px; }
 
   .nav{
-    display:none;             /* JS toggles this */
+    display:none;
+    position:absolute;
+    right:16px;
+    top:60px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px;
+    box-shadow:var(--shadow);
+  }
+  .nav a{
+    display:block;
+    padding:8px 10px;
+    color:var(--ink);
+  }
+
+  /* "Menu" button instead of three bars on mobile */
+  .hamburger{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 14px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:#fff;
+    font-weight:700;
+    color:var(--ink);
+    gap:0;
+  }
+  .hamburger span{
+    display:none;               /* hide the bar lines */
+  }
+  .hamburger::after{
+    content:"Menu";              /* show text instead */
+  }
+
+  /* Smaller hero title on phones */
+  .hero-left h1{ font-size:2.4rem; }
+
+  /* Simpler footer on phones */
+  .site-footer{
+    padding:24px 20px;
+  }
+  .footer-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  /* Hide Quick Links + newsletter on small screens */
+  .footer-grid > :nth-child(2),
+  .footer-grid > :nth-child(3){
+    display:none;
+  }
+}
+
+
+
+
+
+/* @media (max-width:640px){
+  .header-inner{ padding:10px 12px; }
+
+  .nav{
+    display:none;             
     position:absolute;
     right:16px;
     top:60px;
@@ -854,7 +918,6 @@ input:focus,textarea:focus{
     width:100%;
   }
 
-  /* On mobile, always show the sub-links under Projects */
   .nav-dropdown{
     position:static;
     min-width:0;
@@ -874,5 +937,5 @@ input:focus,textarea:focus{
   .hamburger{ display:flex; }
 
   .hero-left h1{ font-size:2.4rem; }
-}
+} */
 
