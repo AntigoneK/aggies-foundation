@@ -430,11 +430,11 @@ button,input,select,textarea{ font:inherit; }
   object-fit:cover;
 }
 .impact h4{
-  margin:0 0 8px;
+  margin:1 1 8px;
   font-size:1.02rem;
 }
 .impact p{
-  margin:0;
+  margin:1;
   color:var(--muted);
   line-height:1.45;
 }
