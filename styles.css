@@ -135,6 +135,58 @@ button,input,select,textarea{ font:inherit; }
 }
 .nav a:hover{ opacity:1; }
 
+/* make nav itself a flex row */
+.nav{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* wrapper for items that have a dropdown */
+.nav-item{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+/* ensure top-level Projects link still spaced like others */
+.nav-item > a{
+  margin:0 12px;
+}
+
+/* dropdown panel */
+.nav-dropdown{
+  position:absolute;
+  top:110%;
+  left:0;
+  min-width:200px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  padding:8px 0;
+  display:none;
+  z-index:20;
+}
+
+/* show dropdown on hover (desktop) */
+.nav-item:hover .nav-dropdown{
+  display:block;
+}
+
+/* links inside dropdown */
+.nav-dropdown a{
+  display:block;
+  padding:8px 14px;
+  margin:0;                  /* override top-level margin */
+  font-size:.95rem;
+  white-space:nowrap;
+}
+
+.nav-dropdown a:hover{
+  background:#f4efe7;
+}
+
 .pill-donate{
   display:inline-flex;
   align-items:center;
@@ -769,8 +821,9 @@ input:focus,textarea:focus{
 
 @media (max-width:640px){
   .header-inner{ padding:10px 12px; }
+
   .nav{
-    display:none;
+    display:none;               /* JS toggles this to block */
     position:absolute;
     right:16px;
     top:60px;
@@ -779,12 +832,37 @@ input:focus,textarea:focus{
     border-radius:12px;
     padding:12px;
     box-shadow:var(--shadow);
+    flex-direction:column;
+    align-items:stretch;
   }
+
   .nav a{
     display:block;
     padding:8px 10px;
     color:var(--ink);
+    margin:0;                   /* avoid big side margins in mobile */
   }
+
+  .nav-item{
+    width:100%;
+    display:block;
+  }
+
+  /* on mobile the dropdown is always visible under "Projects" */
+  .nav-dropdown{
+    position:static;
+    box-shadow:none;
+    border:0;
+    padding:0 0 0 8px;
+    display:block;
+    margin-top:4px;
+  }
+
+  .nav-dropdown a{
+    padding:6px 10px;
+    font-size:.95rem;
+  }
+
   .hamburger{ display:flex; }
 
   .hero-left h1{ font-size:2.4rem; }
