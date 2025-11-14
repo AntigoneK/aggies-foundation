@@ -137,55 +137,59 @@ button,input,select,textarea{ font:inherit; }
 
 /* --- Projects dropdown (desktop) --- */
 
-/* Wrapper for menu items that have a dropdown */
-.nav-item{
-  position:relative;
-  display:inline-block;
+/* Make nav items hoverable groups */
+.nav {
+  display: flex;
+  align-items: center;
 }
 
-/* Keep spacing for the Projects top link */
-.nav-item > a{
-  margin:0 12px;
+/* Wrapper around "Projects" + its dropdown */
+.nav-item {
+  position: relative;
+  display: inline-block;
 }
 
-/* The dropdown panel itself (hidden by default) */
-.nav-dropdown{
-  position:absolute;
-  left:0;
-  top:130%;
-  min-width:260px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
-  box-shadow:var(--shadow);
-  padding:16px 20px;
-  display:none;
-  z-index:50;
+/* Dropdown panel for Projects */
+.nav-item-projects .nav-dropdown {
+  position: absolute;
+  top: 120%;          /* just below the Projects link */
+  left: 0;
+  min-width: 230px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  padding: 12px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  pointer-events: none;  /* can't be clicked while hidden */
+  z-index: 20;
 }
 
-/* Show the dropdown when hovering the Projects item */
-.nav-item-projects:hover .nav-dropdown{
-  display:block;
+/* Links inside the dropdown card */
+.nav-item-projects .nav-dropdown a {
+  display: block;
+  padding: 8px 16px;
+  margin: 0;
+  white-space: nowrap;
+  color: var(--ink);
 }
 
-/* Links inside the dropdown */
-.nav-dropdown a{
-  display:block;
-  margin:0 0 8px;
-  padding:2px 0;
-  color:var(--ink);
-  font-weight:500;
-  white-space:nowrap;
+.nav-item-projects .nav-dropdown a:hover {
+  background: #f4efe7;
 }
 
-.nav-dropdown a:last-child{
-  margin-bottom:0;
+/* When hovering Projects *or* anything inside its wrapper,
+   keep the dropdown visible and clickable */
+.nav-item-projects:hover .nav-dropdown,
+.nav-item-projects:focus-within .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;   /* now you can click the project links */
 }
-
-.nav-dropdown a:hover{
-  color:var(--teal);
-}
-
 
 .pill-donate{
   display:inline-flex;
