@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
   <script defer src="main.js"></script>
 
   <style>
@@ -16,14 +16,14 @@
       background:#f4efe7;
       padding:56px 0 30px;
     }
-    .project-hero-inner{
+    .project-hero-inner {
       max-width:820px;
       margin:0 auto;
       padding:0 20px;
     }
     .project-hero-inner h1{
       margin:0 0 8px;
-      font-size:2.2rem;
+      font-size:2.4rem;
       color:var(--ink);
     }
     .project-hero-inner p{
@@ -31,77 +31,49 @@
       color:var(--muted);
     }
 
-    .gallery-section{
+    .gallery-shell{
       padding:32px 0 60px;
     }
-    .gallery-inner{
-      max-width:840px;
+    .gallery-card{
+      max-width:900px;
       margin:0 auto;
-      padding:0 20px;
-    }
-
-    .slider-card{
-      background:var(--paper);
-      border-radius:24px;
+      padding:18px 20px;
+      background:#fff;
+      border-radius:26px;
       border:1px solid var(--line);
       box-shadow:var(--shadow);
-      padding:16px;
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:16px;
     }
-    .slider-arrow{
-      flex:0 0 auto;
-      width:40px;
-      height:40px;
-      border-radius:999px;
-      border:0;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:1.5rem;
-      font-weight:700;
-      background:var(--terracotta);
-      color:#fff;
-      box-shadow:0 4px 10px rgba(0,0,0,.16);
+    .gallery-frame{
+      flex:1;
+      min-height:260px;
     }
-    .slider-arrow:disabled{
-      opacity:.4;
-      cursor:default;
-      box-shadow:none;
-    }
-
-    .slider-frame{
-      flex:1 1 auto;
-      position:relative;
-    }
-    .slider-image{
+    .gallery-frame img{
       width:100%;
-      max-height:420px;
+      max-height:460px;
       object-fit:cover;
       border-radius:18px;
       border:1px solid var(--line);
+      display:block;
     }
-    .slider-caption{
-      margin-top:8px;
-      font-size:.95rem;
-      color:var(--muted);
+    .gallery-arrow{
+      border:none;
+      background:var(--terracotta);
+      color:#fff;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      font-size:1.4rem;
+      box-shadow:0 6px 16px rgba(199,104,68,.22);
     }
-    .slider-count{
-      margin-top:4px;
-      font-size:.8rem;
-      color:var(--muted);
-      opacity:.8;
-    }
-
-    @media (max-width:720px){
-      .slider-card{
-        flex-direction:column;
-      }
-      .slider-arrow{
-        order:-1;
-      }
+    .gallery-arrow:hover{
+      background:var(--terracotta-700);
     }
   </style>
 </head>
@@ -114,25 +86,21 @@
         <img src="logo.PNG" alt="Aggie's Foundation logo">
         <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
       </a>
-      
-     <nav id="nav" class="nav">
-  <a href="index.html">Home</a>
 
-  <!-- Projects with dropdown -->
-  <div class="nav-item nav-item-projects">
-    <a href="projects.html">Projects</a>
-    <div class="nav-dropdown">
+      <nav id="nav" class="nav">
+        <a href="index.html">Home</a>
+        <div class="nav-item nav-item-projects">
+          <a href="projects.html">Projects</a>
+          <div class="nav-dropdown">
             <a href="Scholarshipfund.html">Scholarship fund</a>
             <a href="Back-to-school kits.html">Back-to-school kits</a>
             <a href="Newclassrooms.html">New classrooms</a>
           </div>
         </div>
-
-  <a href="about.html">About</a>
-  <a href="donate.html" class="pill-donate">Donate</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+        <a href="about.html">About</a>
+        <a href="donate.html" class="pill-donate">Donate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
       <button aria-label="Toggle menu" class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
@@ -144,86 +112,63 @@
     <section class="project-hero">
       <div class="project-hero-inner">
         <h1>New classrooms</h1>
-        <p>
-          Built with local teams and materials, new classrooms create safe, bright spaces for learners in Kumi.
-        </p>
+        <p>Built with local teams, creating safe spaces for learners in Kumi.</p>
       </div>
     </section>
 
-    <section class="gallery-section">
-      <div class="gallery-inner">
-        <div class="slider-card">
-          <button class="slider-arrow" id="prevBtn" aria-label="Previous photo">‹</button>
-
-          <div class="slider-frame">
-            <img id="galleryImage" class="slider-image" src="" alt="">
-            <div id="galleryCaption" class="slider-caption"></div>
-            <div id="galleryCount" class="slider-count"></div>
-          </div>
-
-          <button class="slider-arrow" id="nextBtn" aria-label="Next photo">›</button>
+    <section class="gallery-shell">
+      <div class="gallery-card">
+        <button id="g3-prev" class="gallery-arrow" type="button" aria-label="Previous photo">‹</button>
+        <div class="gallery-frame">
+          <img id="g3-photo" src="" alt="New classrooms photo">
         </div>
+        <button id="g3-next" class="gallery-arrow" type="button" aria-label="Next photo">›</button>
       </div>
     </section>
   </main>
 
+
+  <!-- Gallery 3 script -->
   <script>
-  <script>
-    // Images for Gallery 3 (New classrooms) – stored in /Gallery3
-    const galleryItems = [
-      { src: "IMG_5142.jpeg", alt: "New classrooms photo 1", caption: "Early stages of a new classroom build." },
-      { src: "IMG_5245.jpeg", alt: "New classrooms photo 2", caption: "Local builders working on the classroom walls." },
-      { src: "IMG_5344.jpeg", alt: "New classrooms photo 3", caption: "Brickwork taking shape on the new structure." },
-      { src: "IMG_5411.jpeg", alt: "New classrooms photo 4", caption: "A view of construction progress on site." },
-      { src: "IMG_5479.jpeg", alt: "New classrooms photo 5", caption: "Community members and builders at the classroom site." },
-      { src: "IMG_5550.jpeg", alt: "New classrooms photo 6", caption: "Roof and walls nearing completion." },
-      { src: "IMG_5600.jpeg", alt: "New classrooms photo 7", caption: "Inside view of the new learning space." },
-      { src: "IMG_5605.jpeg", alt: "New classrooms photo 8", caption: "Windows and openings for light and air." },
-      { src: "IMG_5613.jpeg", alt: "New classrooms photo 9", caption: "Finishing touches being added by the team." },
-      { src: "IMG_6321.jpeg", alt: "New classrooms photo 10", caption: "Students exploring their new classroom area." },
-      { src: "IMG_6434.jpeg", alt: "New classrooms photo 11", caption: "View of the school grounds with the new building." },
-      { src: "IMG_6645.jpeg", alt: "New classrooms photo 12", caption: "Children gathered near the new classroom." },
-      { src: "IMG_7335.jpeg", alt: "New classrooms photo 13", caption: "Front view of the finished classroom." },
-      { src: "IMG_7566.jpeg", alt: "New classrooms photo 14", caption: "Learners outside their new classroom." },
-      { src: "IMG_7569.jpeg", alt: "New classrooms photo 15", caption: "Class in session in the newly built room." },
-      { src: "IMG_7575.jpeg", alt: "New classrooms photo 16", caption: "Teachers and students using the new space." },
-      { src: "IMG_7578.jpeg", alt: "New classrooms photo 17", caption: "Wide view of the classroom and surroundings." },
-      { src: "IMG_7581.jpeg", alt: "New classrooms photo 18", caption: "Celebrating the opening of the new classroom." }
-    ];
+    (function(){
+      const photos = [
+        "IMG_5142.jpeg",
+        "IMG_5245.jpeg",
+        "IMG_5344.jpeg",
+        "IMG_5411.jpeg",
+        "IMG_5479.jpeg",
+        "IMG_5550.jpeg",
+        "IMG_5600.jpeg",
+        "IMG_5605.jpeg",
+        "IMG_5613.jpeg",
+        "IMG_6321.jpeg",
+        "IMG_6434.jpeg",
+        "IMG_6645.jpeg",
+        "IMG_7335.jpeg",
+        "IMG_7566.jpeg",
+        "IMG_7569.jpeg",
+        "IMG_7575.jpeg",
+        "IMG_7578.jpeg",
+        "IMG_7581.jpeg"
+      ];
 
-    let currentIndex = 0;
+      const img = document.getElementById('g3-photo');
+      const prev = document.getElementById('g3-prev');
+      const next = document.getElementById('g3-next');
 
-    const imgEl = document.getElementById("galleryImage");
-    const captionEl = document.getElementById("galleryCaption");
-    const countEl = document.getElementById("galleryCount");
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+      if (!img) return;
 
-    function renderSlide() {
-      const item = galleryItems[currentIndex];
-      imgEl.src = item.src;
-      imgEl.alt = item.alt;
-      captionEl.textContent = item.caption;
-      countEl.textContent = `${currentIndex + 1} of ${galleryItems.length}`;
-      prevBtn.disabled = currentIndex === 0;
-      nextBtn.disabled = currentIndex === galleryItems.length - 1;
-    }
-
-    prevBtn.addEventListener("click", () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        renderSlide();
+      let index = 0;
+      function show(i){
+        index = (i + photos.length) % photos.length;
+        img.src = photos[index];
       }
-    });
 
-    nextBtn.addEventListener("click", () => {
-      if (currentIndex < galleryItems.length - 1) {
-        currentIndex++;
-        renderSlide();
-      }
-    });
+      prev.addEventListener('click', () => show(index - 1));
+      next.addEventListener('click', () => show(index + 1));
 
-    renderSlide();
+      show(0);
+    })();
   </script>
 </body>
 </html>
