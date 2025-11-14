@@ -573,8 +573,20 @@ button,input,select,textarea{ font:inherit; }
 .footer-social img{
   width:26px;
   height:26px;
-  object-fit:contain;  /* same zoom for IG / FB / IN */
+  object-fit:contain;
   filter:brightness(100%) invert(0);
+  transition:transform 0.2s ease;
+}
+
+/* 1st icon = Instagram, 2nd = Facebook */
+.footer-social a:nth-child(1) img,
+.footer-social a:nth-child(2) img{
+  transform:scale(1.2);   /* slightly zoom in */
+}
+
+/* Optional: hover zoom a tiny bit more for all three */
+.footer-social a:hover img{
+  transform:scale(1.25);
 }
 
 label{ display:grid; gap:6px; }
