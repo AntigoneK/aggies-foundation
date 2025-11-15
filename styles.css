@@ -127,6 +127,7 @@ button,input,select,textarea{ font:inherit; }
 .logo strong{
   color:var(--ink);
   font-weight:800;
+   font-size:2rem;
 }
 
 .nav a{
