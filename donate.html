@@ -37,6 +37,7 @@
       color: var(--muted);
     }
 
+    /* (old donate grid styles can stay, but are unused now) */
     .donate-section {
       padding: 34px 0 32px;
       background: var(--soft);
@@ -61,42 +62,93 @@
       margin: 0 0 16px;
       color: var(--muted);
     }
-
     .donate-tier.featured {
       border: 2px solid var(--terracotta);
     }
 
-    /* GoFundMe */
-    .donate-embed {
-      padding: 34px 0 40px;
+    /* ===== NEW: nicely centered €7 card ===== */
+    .donate-tiers-section {
+      padding: 32px 0 40px;
+      background: var(--soft);
+      border-top: 1px solid var(--line);
     }
-    .donate-embed-card {
-      padding: 24px 20px;
+    .donate-tiers-grid {
+      max-width: 880px;
+      margin: 0 auto;
     }
-    .donate-embed-card h2 {
+    .donation-tier.card {
+      padding: 26px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+    }
+    .donation-tier .amount {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .donation-tier h3 {
+      margin: 0 0 6px;
+      font-size: 1.3rem;
+      color: var(--ink);
+    }
+    .donation-tier p {
+      margin: 4px 0;
+      color: var(--muted);
+      max-width: 640px;
+    }
+    .donation-tier .btn {
+      margin-top: 12px;
+      align-self: center;
+    }
+
+    /* ===== NEW: GoFundMe embed fits card ===== */
+    .gofundme-section {
+      padding: 10px 0 60px;
+    }
+    .gofundme-card {
+      padding: 26px 24px 24px;
+    }
+    .gofundme-card h2 {
       margin: 0 0 8px;
     }
-    .gfm-frame-wrap {
-      width: 100%;
+    .gofundme-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+    .gfm-embed-wrapper {
       border-radius: 18px;
       overflow: hidden;
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      background: white;
+      background: #ffffff;
     }
-    .gfm-frame {
+    .gfm-embed-wrapper iframe {
+      display: block;
       width: 100%;
-      height: 520px;
-      border: none;
+      height: 560px;   /* fills the white box */
+      border: 0;
     }
 
     @media (max-width: 900px) {
       .donate-grid {
         grid-template-columns: 1fr;
       }
+      .donation-tier.card {
+        padding: 22px 18px 22px;
+      }
+      .donation-tier p {
+        max-width: none;
+      }
+      .gfm-embed-wrapper iframe {
+        height: 520px;
+      }
     }
   </style>
-
+  
 </head>
     <link rel="icon" type="image/png" href="logo-nontrans.jpg">
 <body>
@@ -136,7 +188,7 @@
     </div>
   </header>
 
-  <main>
+ <main>
     <!-- Hero -->
     <section class="donate-hero">
       <div class="donate-hero-inner">
