@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://aggiesfoundation.com/</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/index.html</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/projects.html</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/donate.html</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/about.html</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/contact.html</loc>
+  </url>
+
+  <!-- Add each project page as needed -->
+  <url>
+    <loc>https://aggiesfoundation.com/Scholarshipfund.html</loc>
+  </url>
+
+</urlset>
