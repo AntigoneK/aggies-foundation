@@ -514,10 +514,6 @@
       color: var(--muted);
     }
 
-    .payment-panel .btn {
-      margin-top: 22px;
-    }
-
     .payment-method-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -528,12 +524,32 @@
     .payment-method {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
       gap: 3px;
       min-height: 86px;
       padding: 16px 18px;
       border: 1px solid var(--line);
       border-radius: 18px;
       background: #faf8f4;
+      font: inherit;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .payment-method:hover {
+      border-color: var(--terracotta);
+      box-shadow: 0 5px 14px rgba(16,24,40,.07);
+      transform: translateY(-1px);
+    }
+
+    .payment-method.selected {
+      border-color: var(--terracotta);
+      background: #fff7f1;
     }
 
     .payment-method strong {
@@ -544,6 +560,28 @@
     .payment-method span {
       color: var(--muted);
       font-size: 0.88rem;
+    }
+
+    .method-badge {
+      margin-top: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #ece9e3;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .method-notice {
+      margin: 18px 0 0;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: #fff3e9;
+      border-left: 3px solid var(--terracotta);
+      color: var(--ink);
+      font-size: 0.9rem;
     }
 
     .payment-coming-soon {
@@ -859,56 +897,57 @@
 
               <p>
                 You selected: <strong id="panelSponsorSummary">Support a child</strong>.
-                Once our new European Foundation account is active, you’ll
-                be able to pay directly here. For now, you can donate
-                securely through GoFundMe.
+                Select a payment method below — we’ll let you know as soon
+                as it’s ready to use.
               </p>
 
               <div class="payment-method-grid">
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="iDEAL | Wero">
                   <strong>iDEAL | Wero</strong>
                   <span>Secure payment through your Dutch or European bank.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="Pay by Bank">
                   <strong>Pay by Bank</strong>
                   <span>Direct bank-to-bank European payment.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="Apple Pay / Google Pay">
                   <strong>Apple Pay / Google Pay</strong>
                   <span>Quick mobile payment using your wallet.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="Credit or debit card">
                   <strong>Credit or debit card</strong>
                   <span>Secure card checkout through the selected payment service.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="PayPal">
                   <strong>PayPal</strong>
                   <span>Complete your donation through your PayPal account.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
               </div>
+
+              <p
+                class="method-notice"
+                id="campaignMethodNotice"
+                aria-live="polite"
+                hidden
+              ></p>
 
               <div class="payment-coming-soon">
-                Payments will be completed through secure banking or payment
-                environments. Aggie’s Foundation will not receive or store
-                your card details or online-banking credentials.
+                Online payments aren’t active yet — we’re finishing setup
+                of our secure European Foundation account. Aggie’s
+                Foundation will never receive or store your card details
+                or online-banking credentials.
               </div>
-
-              <!-- TEMPORARY LINK:
-                   Replace with secure sponsorship payment flow later -->
-              <a
-                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
-                class="btn contrast"
-                target="_blank"
-                rel="noopener"
-              >
-                Continue on GoFundMe
-              </a>
 
             </div>
 
@@ -980,56 +1019,57 @@
               <h3>Choose how to complete your donation</h3>
 
               <p>
-                Once our new European Foundation account is active, you’ll
-                be able to pay directly here. For now, you can donate
-                securely through GoFundMe.
+                Select a payment method below — we’ll let you know as soon
+                as it’s ready to use.
               </p>
 
               <div class="payment-method-grid">
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="iDEAL | Wero">
                   <strong>iDEAL | Wero</strong>
                   <span>Secure payment through your Dutch or European bank.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="Pay by Bank">
                   <strong>Pay by Bank</strong>
                   <span>Direct bank-to-bank European payment.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="Apple Pay / Google Pay">
                   <strong>Apple Pay / Google Pay</strong>
                   <span>Quick mobile payment using your wallet.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="Credit or debit card">
                   <strong>Credit or debit card</strong>
                   <span>Secure card checkout through the selected payment service.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
-                <div class="payment-method">
+                <button type="button" class="payment-method" data-method="PayPal">
                   <strong>PayPal</strong>
                   <span>Complete your donation through your PayPal account.</span>
-                </div>
+                  <span class="method-badge">Coming soon</span>
+                </button>
 
               </div>
+
+              <p
+                class="method-notice"
+                id="generalMethodNotice"
+                aria-live="polite"
+                hidden
+              ></p>
 
               <div class="payment-coming-soon">
-                Payments will be completed through secure banking or payment
-                environments. Aggie’s Foundation will not receive or store
-                your card details or online-banking credentials.
+                Online payments aren’t active yet — we’re finishing setup
+                of our secure European Foundation account. Aggie’s
+                Foundation will never receive or store your card details
+                or online-banking credentials.
               </div>
-
-              <!-- TEMPORARY LINK:
-                   Replace with secure general donation payment link later -->
-              <a
-                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
-                class="btn contrast"
-                target="_blank"
-                rel="noopener"
-              >
-                Continue on GoFundMe
-              </a>
 
             </div>
 
@@ -1408,6 +1448,42 @@
     setupPaymentPanelToggle("sponsorButton", "campaignPaymentPanel", function () {
       document.getElementById("panelSponsorSummary").textContent =
         document.getElementById("sponsorButton").textContent;
+    });
+
+
+    /* ======================================================
+       PAYMENT METHOD SELECTION
+       No live payment integration exists yet (no secure account
+       set up), so selecting a method never sends anyone
+       anywhere or takes any payment — it just confirms the
+       choice and explains it isn't active yet.
+       ====================================================== */
+
+    document.querySelectorAll(".payment-panel").forEach(panel => {
+
+      const notice = panel.querySelector(".method-notice");
+
+      panel.querySelectorAll(".payment-method").forEach(button => {
+
+        button.addEventListener("click", function () {
+
+          panel.querySelectorAll(".payment-method").forEach(item => {
+            item.classList.remove("selected");
+          });
+
+          this.classList.add("selected");
+
+          if (notice) {
+            notice.hidden = false;
+            notice.textContent =
+              this.dataset.method +
+              " isn’t connected yet — we’re finishing setup of our " +
+              "secure European account. Check back soon!";
+          }
+        });
+
+      });
+
     });
 
 
