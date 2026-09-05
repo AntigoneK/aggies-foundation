@@ -108,7 +108,6 @@
        ===================================================== */
 
     .general-donation {
-      min-height: 100%;
       display: flex;
       flex-direction: column;
     }
@@ -905,10 +904,13 @@
     */
 
     const CHILD_CAMPAIGN = {
-      year: 2027,
+      label: "2026/27 Sponsor a Child Campaign",
 
-      start: "2027-01-01T00:00:00+01:00",
-      end: "2027-02-15T23:59:59+01:00",
+      // PLACEHOLDER — exact start date not yet confirmed.
+      // Best current estimate is "around Christmas" 2026.
+      // Update both dates as soon as the real dates are set.
+      start: "2026-12-20T00:00:00+01:00",
+      end: "2027-02-05T23:59:59+01:00",
 
       targetChildren: 700,
 
@@ -949,8 +951,8 @@
 
       document.getElementById("campaignTitle").textContent =
         campaignFinished
-          ? CHILD_CAMPAIGN.year + " campaign complete"
-          : CHILD_CAMPAIGN.year + " Sponsor a Child Campaign";
+          ? CHILD_CAMPAIGN.label + " — complete"
+          : CHILD_CAMPAIGN.label;
 
 
       /* ---------------------------
