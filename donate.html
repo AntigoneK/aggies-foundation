@@ -1,278 +1,1112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description"
-      content="Aggie's Foundation empowers education in Kumi through scholarships, school supplies, and new classrooms. Donate €7 to support a child's school year.">
-<meta name="keywords" content="charity, education, uganda, aggies foundation, donate, kumi, school, scholarship">
-<meta name="robots" content="index, follow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta
+    name="description"
+    content="Support Aggie's Foundation and help children in Kumi access education, school supplies, and safe classrooms."
+  >
+  <meta
+    name="keywords"
+    content="charity, education, uganda, aggies foundation, donate, kumi, school, scholarship"
+  >
+  <meta name="robots" content="index, follow">
+
   <title>Donate • Aggie's Foundation</title>
 
-  <!-- Fonts & global styles -->
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo-nontrans.jpg">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Global stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
   <script defer src="main.js"></script>
 
-  <!-- Donate-page-only styling -->
+  <!-- Donate-page-only styles -->
   <style>
     html {
       scroll-behavior: smooth;
     }
 
+    /* =====================================================
+       HERO
+       ===================================================== */
+
     .donate-hero {
-      background: #f4efe7;
-      padding: 56px 0 36px;
+      background:
+        linear-gradient(180deg, rgba(199,104,68,.07), transparent 65%),
+        #f4efe7;
+      padding: 60px 0 40px;
     }
+
     .donate-hero-inner {
       max-width: 820px;
       margin: 0 auto;
       padding: 0 20px;
     }
+
     .donate-hero-inner h1 {
-      margin: 0 0 8px;
-      font-size: 2.4rem;
+      margin: 0 0 12px;
+      font-size: clamp(2.5rem, 5vw, 3.4rem);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
       color: var(--ink);
     }
-    .donate-hero-inner .lead {
+
+    .donate-hero-inner p {
+      max-width: 700px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    /* =====================================================
+       IMPACT STATEMENT STRIP
+       ===================================================== */
+
+    .donate-impact-strip {
+      background: #ffbd59;
+      padding: 16px 0;
+    }
+
+    .donate-impact-strip p {
+      margin: 0;
+      text-align: center;
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 1.02rem;
+      letter-spacing: -0.005em;
+    }
+
+    .donate-impact-strip strong {
+      font-weight: 800;
+    }
+
+    /* =====================================================
+       MAIN DONATION AREA
+       ===================================================== */
+
+    .donation-main {
+      background: var(--soft);
+      padding: 52px 0 64px;
+      border-top: 1px solid var(--line);
+    }
+
+    .donation-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .donation-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .donation-card {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+    }
+
+    .card-kicker {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .donation-card h2 {
+      margin: 0 0 14px;
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.12;
+      color: var(--ink);
+    }
+
+    .donation-card h2::after {
+      content: "";
+      display: block;
+      width: 44px;
+      height: 4px;
+      margin-top: 10px;
+      border-radius: 999px;
+    }
+
+    .general-donation h2::after {
+      background: var(--green);
+    }
+
+    .campaign-card h2::after {
+      background: var(--terracotta);
+    }
+
+    .donation-card > p {
       margin: 0;
       color: var(--muted);
     }
 
-    /* (old donate grid styles can stay, but are unused now) */
-    .donate-section {
-      padding: 34px 0 32px;
-      background: var(--soft);
-      border-top: 1px solid var(--line);
-    }
-    .donate-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 24px;
-    }
-    .donate-tier.card {
-      padding: 22px 20px;
+    /* =====================================================
+       GENERAL DONATION
+       ===================================================== */
+
+    .general-donation {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-    }
-    .donate-tier h3 {
-      margin: 0 0 4px;
-      font-size: 1.3rem;
-    }
-    .donate-tier p {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-    .donate-tier.featured {
-      border: 2px solid var(--terracotta);
     }
 
-    /* ===== NEW: nicely centered €7 card ===== */
-    .donate-tiers-section {
-      padding: 32px 0 40px;
-      background: var(--soft);
-      border-top: 1px solid var(--line);
+    .general-donation .donation-copy {
+      margin-bottom: 20px;
     }
-    .donate-tiers-grid {
-      max-width: 880px;
-      margin: 0 auto;
+
+    .donation-photo {
+      margin: 0 0 20px;
     }
-    .donation-tier.card {
-      padding: 26px 28px 24px;
-      display: flex;
-      flex-direction: column;
+
+    .donation-photo:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .donation-photo img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .donation-photo figcaption {
+      margin-top: 8px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .general-donation .btn {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+
+    .always-open {
+      display: inline-flex;
       align-items: center;
-      text-align: center;
+      gap: 7px;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #e8f0eb;
+      color: var(--green);
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .always-open::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    /* =====================================================
+       SPONSOR-A-CHILD CAMPAIGN
+       ===================================================== */
+
+    .campaign-card {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(199,104,68,.06), transparent 55%),
+        var(--paper);
+      border-color: #ecd9cd;
+    }
+
+    .campaign-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 14px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .campaign-status.open {
+      background: #fff0e7;
+      color: var(--terracotta);
+    }
+
+    .campaign-status.open::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--terracotta);
+    }
+
+    .campaign-status.closed {
+      background: #ece9e3;
+      color: var(--muted);
+    }
+
+    .campaign-status.upcoming {
+      background: #eef3f0;
+      color: var(--green);
+    }
+
+    .campaign-dates {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* =====================================================
+       CAMPAIGN STATS
+       ===================================================== */
+
+    .campaign-stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 24px 0 20px;
+    }
+
+    .campaign-stat {
+      background: #f8f5ef;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .campaign-stat strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 2.1rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .campaign-stat span {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* =====================================================
+       PROGRESS BAR
+       ===================================================== */
+
+    .campaign-progress {
+      margin-top: 4px;
+    }
+
+    .progress-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e6e1d7;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--terracotta-700), var(--terracotta));
+      transition: width 0.6s ease;
+    }
+
+    .progress-footer {
+      margin-top: 9px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    /* =====================================================
+       SPONSOR AMOUNT BUTTONS
+       ===================================================== */
+
+    .sponsor-options {
+      margin-top: 24px;
+    }
+
+    .sponsor-options-title {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .sponsor-amounts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
     }
-    .donation-tier .amount {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin-bottom: 6px;
-      color: var(--ink);
-    }
-    .donation-tier h3 {
-      margin: 0 0 6px;
-      font-size: 1.3rem;
-      color: var(--ink);
-    }
-    .donation-tier p {
-      margin: 4px 0;
-      color: var(--muted);
-      max-width: 640px;
-    }
-    .donation-tier .btn {
-      margin-top: 12px;
-      align-self: center;
+
+    .sponsor-custom {
+      margin-top: 14px;
     }
 
-    /* ===== NEW: GoFundMe embed fits card ===== */
-    .gofundme-section {
-      padding: 10px 0 60px;
-    }
-    .gofundme-card {
-      padding: 26px 24px 24px;
-    }
-    .gofundme-card h2 {
-      margin: 0 0 8px;
-    }
-    .gofundme-card p {
-      margin: 0 0 18px;
-      color: var(--muted);
-    }
-    .gfm-embed-wrapper {
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      background: #ffffff;
-    }
-    .gfm-embed-wrapper iframe {
+    .sponsor-custom label {
       display: block;
-      width: 100%;
-      height: 560px;   /* fills the white box */
-      border: 0;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
     }
 
-    @media (max-width: 900px) {
-      .donate-grid {
+    .sponsor-custom-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sponsor-custom-row input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid #d9d2c6;
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .sponsor-custom-row input:focus {
+      outline: none;
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(199,104,68,.15);
+    }
+
+    .sponsor-custom-total {
+      flex: 0 0 auto;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .sponsor-amount {
+      padding: 14px 12px;
+      border: 1px solid #d9d2c6;
+      border-radius: 16px;
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .sponsor-amount:hover {
+      transform: translateY(-2px);
+      border-color: var(--terracotta);
+      box-shadow: 0 5px 14px rgba(16,24,40,.07);
+    }
+
+    .sponsor-amount.selected {
+      border-color: var(--terracotta);
+      background: #fff7f1;
+    }
+
+    .sponsor-amount strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .sponsor-amount span {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .sponsor-action {
+      margin-top: 18px;
+    }
+
+    .sponsor-note {
+      margin: 10px 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .campaign-closed-message {
+      display: none;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #f6f2eb;
+      border: 1px solid var(--line);
+    }
+
+    .campaign-closed-message p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* =====================================================
+       CONTEXTUAL PAYMENT PANEL
+       (appears below whichever card's button was clicked)
+       ===================================================== */
+
+    .payment-panel {
+      margin-top: 20px;
+      padding: 30px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      animation: panel-in 0.25s ease;
+    }
+
+    .payment-panel[hidden] {
+      display: none;
+    }
+
+    @keyframes panel-in {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .payment-panel h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .payment-panel > p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .payment-panel .btn {
+      margin-top: 22px;
+    }
+
+    .payment-method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .payment-method {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-height: 86px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #faf8f4;
+    }
+
+    .payment-method strong {
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .payment-method span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .payment-coming-soon {
+      margin-top: 22px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #f3eee6;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+
+    @media (max-width: 600px) {
+      .donate-hero {
+        padding: 40px 0 28px;
+      }
+
+      .donation-main {
+        padding: 28px 0 42px;
+      }
+
+      .donation-card,
+      .payment-panel {
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+
+      .campaign-stats,
+      .payment-method-grid,
+      .sponsor-amounts {
         grid-template-columns: 1fr;
       }
-      .donation-tier.card {
-        padding: 22px 18px 22px;
-      }
-      .donation-tier p {
-        max-width: none;
-      }
-      .gfm-embed-wrapper iframe {
-        height: 520px;
+
+      .progress-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
       }
     }
   </style>
-  
 </head>
-    <link rel="icon" type="image/png" href="logo-nontrans.jpg">
+
 <body>
-  <!-- tiny green bar -->
+
+  <!-- Green top strip -->
   <div class="top-strip"></div>
 
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo">
-        <img src="logo.PNG" alt="Aggie's Foundation logo" />
-        <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
-      </a>
-      
-<nav id="nav" class="nav">
-  <a href="index.html">Home</a>
 
-  <!-- Projects with dropdown -->
-  <div class="nav-item nav-item-projects">
-    <a href="projects.html">Projects</a>
-    <div class="nav-dropdown">
+      <a href="index.html" class="logo">
+        <img src="logo.PNG" alt="Aggie's Foundation logo">
+        <span>
+          <span class="brand-accent">Aggie’s</span>
+          <strong>Foundation</strong>
+        </span>
+      </a>
+
+      <nav id="nav" class="nav">
+        <a href="index.html">Home</a>
+
+        <div class="nav-item nav-item-projects">
+          <a href="projects.html">Projects</a>
+
+          <div class="nav-dropdown">
             <a href="Scholarshipfund.html">Scholarship fund</a>
             <a href="Back-to-school kits.html">Back-to-school kits</a>
             <a href="Newclassrooms.html">New classrooms</a>
           </div>
         </div>
 
-  <a href="about.html">About</a>
-  <a href="donate.html" class="pill-donate">Donate</a>
-  <a href="contact.html">Contact</a>
-</nav>
+        <a href="about.html">About</a>
+        <a href="donate.html" class="pill-donate">Donate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
 
-
-      <button aria-label="Toggle menu" class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
+      <button
+        aria-label="Toggle menu"
+        class="hamburger"
+        id="hamburger"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
+
     </div>
   </header>
 
- <main>
-    <!-- Hero -->
+  <main>
+
+    <!-- HERO -->
     <section class="donate-hero">
       <div class="donate-hero-inner">
+
         <h1>Donate</h1>
+
         <p>
-          100% of your donation goes directly to schools. €7 funds a year of tuition and supplies for one child.
+          Choose how you would like to support Aggie’s Foundation.
+          During our annual Support a Child campaign, €7 supports
+          one child’s school year. General donations help sustain our
+          wider work throughout the year.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- IMPACT STATEMENT -->
+    <section class="donate-impact-strip">
+      <div class="container">
+        <p>
+          <strong>100% of your donation</strong> goes directly to schools
+          — €7 funds a year of tuition and supplies for one child.
         </p>
       </div>
     </section>
 
-    <!-- Single €7 tier -->
-    <section class="donate-tiers-section">
+    <!-- DONATION OPTIONS -->
+    <section class="donation-main">
       <div class="container">
-        <div class="donate-tiers-grid">
-          <article class="card donation-tier">
-            <div>
-              <div class="amount">€7</div>
-              <h3>One student’s school year</h3>
+
+        <div class="donation-layout">
+
+          <!-- =================================================
+               CHILD SPONSORSHIP
+               ================================================= -->
+          <div class="donation-column">
+
+            <article class="donation-card campaign-card">
+
+              <div
+                id="campaignStatus"
+                class="campaign-status"
+              ></div>
+
+              <h2 id="campaignTitle">Support a Child Campaign</h2>
+
               <p>
-                Your donation of €7 keeps one child in school for a full year with tuition and essentials.
+                €7 covers one child’s tuition and essential school
+                supplies for the school year.
               </p>
+
+              <div
+                id="campaignDates"
+                class="campaign-dates"
+              ></div>
+
+              <!-- STATS -->
+              <div class="campaign-stats">
+
+                <div class="campaign-stat">
+                  <strong id="childrenHelped">0</strong>
+                  <span>children supported</span>
+                </div>
+
+                <div class="campaign-stat">
+                  <strong id="moneyRaised">€0</strong>
+                  <span>raised</span>
+                </div>
+
+              </div>
+
+              <!-- PROGRESS -->
+              <div class="campaign-progress">
+
+                <div class="progress-header">
+                  <span id="progressLabel">
+                    0% of this year's goal
+                  </span>
+
+                  <span id="campaignTarget">
+                    0 children goal
+                  </span>
+                </div>
+
+                <div
+                  class="progress-track"
+                  role="progressbar"
+                  aria-label="Campaign progress"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  id="progressTrack"
+                >
+                  <div
+                    id="progressFill"
+                    class="progress-fill"
+                  ></div>
+                </div>
+
+                <div
+                  id="childrenRemaining"
+                  class="progress-footer"
+                ></div>
+
+              </div>
+
+              <!-- OPEN CAMPAIGN CONTENT -->
+              <div id="campaignOpenContent">
+
+                <div class="sponsor-options">
+
+                  <p class="sponsor-options-title">
+                    Choose how many children you would like to support
+                  </p>
+
+                  <div class="sponsor-amounts">
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="7"
+                    >
+                      <strong>€7</strong>
+                      <span>1 child</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="14"
+                    >
+                      <strong>€14</strong>
+                      <span>2 children</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="21"
+                    >
+                      <strong>€21</strong>
+                      <span>3 children</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="35"
+                    >
+                      <strong>€35</strong>
+                      <span>5 children</span>
+                    </button>
+
+                  </div>
+
+                  <div class="sponsor-custom">
+
+                    <label for="customChildrenInput">
+                      Supporting more than 5 children?
+                    </label>
+
+                    <div class="sponsor-custom-row">
+                      <input
+                        type="number"
+                        id="customChildrenInput"
+                        min="1"
+                        step="1"
+                        inputmode="numeric"
+                        placeholder="Number of children"
+                      >
+                      <span id="customTotalDisplay" class="sponsor-custom-total">
+                        = €0
+                      </span>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="sponsor-action">
+
+                  <button
+                    type="button"
+                    id="sponsorButton"
+                    class="btn contrast"
+                    aria-expanded="false"
+                    aria-controls="campaignPaymentPanel"
+                  >
+                    Support a child
+                  </button>
+
+                  <p class="sponsor-note">
+                    Pick an amount above, then choose how to complete your
+                    donation below.
+                  </p>
+
+                </div>
+
+              </div>
+
+              <!-- CLOSED / UPCOMING CAMPAIGN -->
+              <div
+                id="campaignClosedMessage"
+                class="campaign-closed-message"
+              >
+                <p id="campaignClosedText"></p>
+              </div>
+
+            </article>
+
+            <!-- Revealed when "Support a child" is clicked -->
+            <div
+              id="campaignPaymentPanel"
+              class="payment-panel"
+              hidden
+            >
+
+              <h3>Choose how to complete your donation</h3>
+
               <p>
-                If you’d like to support more than one child, please enter multiples of €7 in the GoFundMe form below.
+                You selected: <strong id="panelSponsorSummary">Support a child</strong>.
+                Once our new European Foundation account is active, you’ll
+                be able to pay directly here. For now, you can donate
+                securely through GoFundMe.
               </p>
+
+              <div class="payment-method-grid">
+
+                <div class="payment-method">
+                  <strong>iDEAL | Wero</strong>
+                  <span>Secure payment through your Dutch or European bank.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Pay by Bank</strong>
+                  <span>Direct bank-to-bank European payment.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Apple Pay / Google Pay</strong>
+                  <span>Quick mobile payment using your wallet.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Credit or debit card</strong>
+                  <span>Secure card checkout through the selected payment service.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>PayPal</strong>
+                  <span>Complete your donation through your PayPal account.</span>
+                </div>
+
+              </div>
+
+              <div class="payment-coming-soon">
+                Payments will be completed through secure banking or payment
+                environments. Aggie’s Foundation will not receive or store
+                your card details or online-banking credentials.
+              </div>
+
+              <!-- TEMPORARY LINK:
+                   Replace with secure sponsorship payment flow later -->
+              <a
+                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
+                class="btn contrast"
+                target="_blank"
+                rel="noopener"
+              >
+                Continue on GoFundMe
+              </a>
+
             </div>
-            <a href="https://www.gofundme.com/f/ycxwm2-aggies-foundation?attribution_id=sl:c7246cc6-b4de-427c-93d4-2c6f4ffa2434&lang=en_US&ts=1763209626&utm_campaign=fp_sharesheet&utm_medium=customer&utm_source=whatsapp" class="btn primary">Donate €7</a>
-          </article>
+
+          </div>
+
+          <!-- =================================================
+               GENERAL DONATION
+               ================================================= -->
+          <div class="donation-column">
+
+            <article class="donation-card general-donation">
+
+              <div>
+
+                <span class="card-kicker">General fund</span>
+
+                <div class="always-open">
+                  Available all year
+                </div>
+
+                <h2>Support Aggie’s Foundation</h2>
+
+                <div class="donation-copy">
+                  <p>
+                    General donations go directly to Aggie and her work
+                    on the ground in Kumi — keeping schools running day
+                    to day, and helping us reach our goal of building new
+                    classrooms for children who don’t have one yet.
+                  </p>
+                </div>
+
+                <figure class="donation-photo">
+                  <img
+                    src="classroom-build.jpg"
+                    alt="Children and builders constructing a new classroom in Kumi"
+                  >
+                  <figcaption>The new classroom taking shape at Adesso School, Kumi</figcaption>
+                </figure>
+
+                <figure class="donation-photo">
+                  <img
+                    src="oseera-classroom.jpg"
+                    alt="A full classroom of children waving at Oseera Primary School"
+                  >
+                  <figcaption>Students at Oseera Primary School, one of the schools we support</figcaption>
+                </figure>
+
+              </div>
+
+              <button
+                type="button"
+                id="generalDonateBtn"
+                class="btn primary"
+                aria-expanded="false"
+                aria-controls="generalPaymentPanel"
+              >
+                Make a general donation
+              </button>
+
+            </article>
+
+            <!-- Revealed when "Make a general donation" is clicked -->
+            <div
+              id="generalPaymentPanel"
+              class="payment-panel"
+              hidden
+            >
+
+              <h3>Choose how to complete your donation</h3>
+
+              <p>
+                Once our new European Foundation account is active, you’ll
+                be able to pay directly here. For now, you can donate
+                securely through GoFundMe.
+              </p>
+
+              <div class="payment-method-grid">
+
+                <div class="payment-method">
+                  <strong>iDEAL | Wero</strong>
+                  <span>Secure payment through your Dutch or European bank.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Pay by Bank</strong>
+                  <span>Direct bank-to-bank European payment.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Apple Pay / Google Pay</strong>
+                  <span>Quick mobile payment using your wallet.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Credit or debit card</strong>
+                  <span>Secure card checkout through the selected payment service.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>PayPal</strong>
+                  <span>Complete your donation through your PayPal account.</span>
+                </div>
+
+              </div>
+
+              <div class="payment-coming-soon">
+                Payments will be completed through secure banking or payment
+                environments. Aggie’s Foundation will not receive or store
+                your card details or online-banking credentials.
+              </div>
+
+              <!-- TEMPORARY LINK:
+                   Replace with secure general donation payment link later -->
+              <a
+                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
+                class="btn contrast"
+                target="_blank"
+                rel="noopener"
+              >
+                Continue on GoFundMe
+              </a>
+
+            </div>
+
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- GoFundMe embed -->
-    <section id="gofundme" class="gofundme-section">
-      <div class="container">
-        <article class="card gofundme-card">
-          <h2>Complete your donation</h2>
-          <p>
-            Choose any amount and donate securely through GoFundMe.  
-            You can adjust the amount there to support as many children as you’d like.
-          </p>
-
-          <div class="gfm-embed-wrapper">
-            <!-- Replace this src with your real GoFundMe URL when it’s ready -->
-            <iframe
-              src="https://www.gofundme.com/f/ycxwm2-aggies-foundation?attribution_id=sl:c7246cc6-b4de-427c-93d4-2c6f4ffa2434&lang=en_US&ts=1763209626&utm_campaign=fp_sharesheet&utm_medium=customer&utm_source=whatsapp"
-              title="Aggie's Foundation GoFundMe"
-              scrolling="yes"
-            ></iframe>
-          </div>
-        </article>
-      </div>
-    </section>
   </main>
 
- <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
+
       <div>
+
         <div class="logo">
-          <span class="brand-accent">Aggie’s</span> <span>Foundation</span>
+          <span class="brand-accent">Aggie’s</span>
+          <span>Foundation</span>
         </div>
-        <p>Empowering education through tuition, supplies, and safe classrooms in Kumi.</p>
+
+        <p>
+          Empowering education through tuition, supplies,
+          and safe classrooms in Kumi.
+        </p>
 
         <div class="footer-social">
-          <a href="https://www.instagram.com/aggie.sfoundation" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="insta-Photoroom1.png" alt="Instagram logo">
+
+          <a
+            href="https://www.instagram.com/aggie.sfoundation"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <img
+              src="insta-Photoroom1.png"
+              alt="Instagram logo"
+            >
           </a>
-          <a href="https://www.facebook.com/p/Aggies-Foundation-61569674120544/" target="_blank" rel="noopener" aria-label="Facebook">
-            <img src="facebook-Photoroom1.png" alt="Facebook logo">
+
+          <a
+            href="https://www.facebook.com/p/Aggies-Foundation-61569674120544/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+          >
+            <img
+              src="facebook-Photoroom1.png"
+              alt="Facebook logo"
+            >
           </a>
-          <a href="https://www.linkedin.com/company/aggie-s-foundation/?viewAsMember=true" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img src="linkedin-Photoroom.png" alt="LinkedIn logo">
+
+          <a
+            href="https://www.linkedin.com/company/aggie-s-foundation/?viewAsMember=true"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+          >
+            <img
+              src="linkedin-Photoroom.png"
+              alt="LinkedIn logo"
+            >
           </a>
+
         </div>
 
-        <p class="copyright">© 2025 Aggie's Foundation</p>
+        <p class="copyright">
+          © 2026 Aggie's Foundation
+        </p>
+
       </div>
 
       <div>
+
         <h4>Quick Links</h4>
+
         <ul class="linklist">
           <li><a href="index.html">Home</a></li>
           <li><a href="projects.html">Projects</a></li>
@@ -280,17 +1114,306 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
+
       </div>
 
       <div>
+
         <h4>Stay in touch</h4>
-        <form class="inline-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');">
-          <input type="email" placeholder="Email address" required />
-          <button class="btn primary">Subscribe</button>
+
+        <form
+          class="inline-form"
+          onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');"
+        >
+          <input
+            type="email"
+            placeholder="Email address"
+            required
+          >
+          <button class="btn primary">
+            Subscribe
+          </button>
         </form>
+
       </div>
+
     </div>
   </footer>
+
+  <!-- =====================================================
+       CAMPAIGN CONFIGURATION + LOGIC
+       ===================================================== -->
+  <script>
+
+    /*
+      ========================================================
+      ONLY CHANGE THIS BLOCK EACH YEAR
+      ========================================================
+
+      EXAMPLE / PLACEHOLDER DATA — replace before this goes live.
+
+      - start / end: campaign window (ISO date with timezone).
+      - targetChildren: this year's goal.
+      - childrenHelped / moneyRaised: update these manually as
+        donations come in. Once a real payment system exists,
+        these could be pulled from verified transactions instead.
+    */
+
+    const CHILD_CAMPAIGN = {
+      label: "2026/27 Support a Child Campaign",
+
+      // PLACEHOLDER — exact start date not yet confirmed.
+      // Best current estimate is "around Christmas" 2026.
+      // Update both dates as soon as the real dates are set.
+      start: "2026-12-20T00:00:00+01:00",
+      end: "2027-02-05T23:59:59+01:00",
+
+      targetChildren: 700,
+
+      childrenHelped: 0,
+      moneyRaised: 0
+    };
+
+
+    /* ======================================================
+       PAGE LOGIC — no need to edit below this line
+       ====================================================== */
+
+    function formatCampaignDate(dateString) {
+      const date = new Date(dateString);
+
+      return date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      });
+    }
+
+
+    function updateCampaign() {
+
+      const now = new Date();
+      const start = new Date(CHILD_CAMPAIGN.start);
+      const end = new Date(CHILD_CAMPAIGN.end);
+
+      const campaignOpen = now >= start && now <= end;
+      const campaignUpcoming = now < start;
+      const campaignFinished = now > end;
+
+
+      /* ---------------------------
+         Title
+         --------------------------- */
+
+      document.getElementById("campaignTitle").textContent =
+        campaignFinished
+          ? CHILD_CAMPAIGN.label + " — complete"
+          : CHILD_CAMPAIGN.label;
+
+
+      /* ---------------------------
+         Basic statistics
+         --------------------------- */
+
+      document.getElementById("childrenHelped").textContent =
+        CHILD_CAMPAIGN.childrenHelped.toLocaleString("en-GB");
+
+      document.getElementById("moneyRaised").textContent =
+        "€" + CHILD_CAMPAIGN.moneyRaised.toLocaleString("en-GB");
+
+      document.getElementById("campaignTarget").textContent =
+        CHILD_CAMPAIGN.targetChildren.toLocaleString("en-GB") +
+        " children goal";
+
+
+      /* ---------------------------
+         Campaign dates
+         --------------------------- */
+
+      document.getElementById("campaignDates").textContent =
+        formatCampaignDate(CHILD_CAMPAIGN.start) +
+        " – " +
+        formatCampaignDate(CHILD_CAMPAIGN.end);
+
+
+      /* ---------------------------
+         Progress
+         --------------------------- */
+
+      const progress =
+        CHILD_CAMPAIGN.targetChildren > 0
+          ? Math.min(
+              100,
+              Math.round(
+                (CHILD_CAMPAIGN.childrenHelped / CHILD_CAMPAIGN.targetChildren) * 100
+              )
+            )
+          : 0;
+
+      document.getElementById("progressFill").style.width = progress + "%";
+
+      const progressTrack = document.getElementById("progressTrack");
+      progressTrack.setAttribute("aria-valuenow", progress);
+
+      document.getElementById("progressLabel").textContent =
+        progress + "% of this year's goal";
+
+      const remaining = Math.max(
+        0,
+        CHILD_CAMPAIGN.targetChildren - CHILD_CAMPAIGN.childrenHelped
+      );
+
+      document.getElementById("childrenRemaining").textContent =
+        remaining === 0
+          ? "This year's goal has been reached."
+          : remaining.toLocaleString("en-GB") + " children still to support";
+
+
+      /* ---------------------------
+         Open / upcoming / closed state
+         --------------------------- */
+
+      const status = document.getElementById("campaignStatus");
+      const openContent = document.getElementById("campaignOpenContent");
+      const closedMessage = document.getElementById("campaignClosedMessage");
+      const closedText = document.getElementById("campaignClosedText");
+
+      if (campaignOpen) {
+
+        status.textContent = "Campaign open";
+        status.className = "campaign-status open";
+
+        openContent.style.display = "block";
+        closedMessage.style.display = "none";
+
+      } else if (campaignUpcoming) {
+
+        status.textContent = "Campaign opens soon";
+        status.className = "campaign-status upcoming";
+
+        openContent.style.display = "none";
+        closedMessage.style.display = "block";
+
+        closedText.textContent =
+          "This year's Support a Child campaign hasn't opened yet — check back on " +
+          formatCampaignDate(CHILD_CAMPAIGN.start) +
+          ". General donations remain open throughout the year.";
+
+      } else {
+
+        status.textContent = "Campaign complete";
+        status.className = "campaign-status closed";
+
+        openContent.style.display = "none";
+        closedMessage.style.display = "block";
+
+        closedText.textContent =
+          "This year's Support a Child campaign is now closed. Thank you to everyone " +
+          "who helped support children in Kumi. General donations remain open throughout the year.";
+      }
+    }
+
+
+    /* ======================================================
+       SPONSOR AMOUNT SELECTION
+       ====================================================== */
+
+    function setSponsorSelection(children) {
+
+      const amount = children * 7;
+
+      document.getElementById("sponsorButton").textContent =
+        children === 1
+          ? "Support 1 child — €7"
+          : "Support " + children + " children — €" + amount;
+
+      return amount;
+    }
+
+    document.querySelectorAll(".sponsor-amount").forEach(button => {
+
+      button.addEventListener("click", function () {
+
+        document.querySelectorAll(".sponsor-amount").forEach(item => {
+          item.classList.remove("selected");
+        });
+
+        this.classList.add("selected");
+
+        // A preset was picked, so clear any custom amount typed in.
+        const customInput = document.getElementById("customChildrenInput");
+        customInput.value = "";
+        document.getElementById("customTotalDisplay").textContent = "= €0";
+
+        const amount = Number(this.dataset.amount);
+        setSponsorSelection(amount / 7);
+      });
+
+    });
+
+
+    /* ======================================================
+       CUSTOM CHILDREN COUNT
+       Lets a donor support more than the 5-child preset cap.
+       ====================================================== */
+
+    document.getElementById("customChildrenInput").addEventListener("input", function () {
+
+      const children = parseInt(this.value, 10);
+      const totalDisplay = document.getElementById("customTotalDisplay");
+
+      if (!Number.isInteger(children) || children < 1) {
+        totalDisplay.textContent = "= €0";
+        return;
+      }
+
+      // A custom number was typed, so deselect any preset amount.
+      document.querySelectorAll(".sponsor-amount").forEach(item => {
+        item.classList.remove("selected");
+      });
+
+      const amount = setSponsorSelection(children);
+      totalDisplay.textContent = "= €" + amount;
+    });
+
+
+    /* ======================================================
+       PAYMENT PANEL TOGGLES
+       Each donation card has its own hidden payment panel,
+       which opens directly below that card when its button
+       is clicked.
+       ====================================================== */
+
+    function setupPaymentPanelToggle(buttonId, panelId, onOpen) {
+
+      const button = document.getElementById(buttonId);
+      const panel = document.getElementById(panelId);
+
+      button.addEventListener("click", function () {
+
+        const willOpen = panel.hidden;
+
+        panel.hidden = !willOpen;
+        button.setAttribute("aria-expanded", String(willOpen));
+
+        if (willOpen) {
+          if (typeof onOpen === "function") onOpen();
+          panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      });
+    }
+
+    setupPaymentPanelToggle("generalDonateBtn", "generalPaymentPanel");
+
+    setupPaymentPanelToggle("sponsorButton", "campaignPaymentPanel", function () {
+      document.getElementById("panelSponsorSummary").textContent =
+        document.getElementById("sponsorButton").textContent;
+    });
+
+
+    updateCampaign();
+
+  </script>
 
 </body>
 </html>
