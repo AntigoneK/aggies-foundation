@@ -179,32 +179,14 @@
       margin-bottom: 20px;
     }
 
-    .donation-highlights {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 0 0 28px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .donation-highlights li {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
+    .donation-quote {
+      margin: 0 0 24px;
+      padding: 2px 0 2px 18px;
+      border-left: 3px solid var(--green);
+      font-style: italic;
+      font-size: 1.03rem;
+      line-height: 1.5;
       color: var(--ink);
-      font-weight: 600;
-      font-size: 0.98rem;
-    }
-
-    .donation-highlights li::before {
-      content: "";
-      flex: 0 0 7px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
-      transform: translateY(-2px);
     }
 
     .donation-photo {
@@ -634,7 +616,7 @@
 
         <p>
           Choose how you would like to support Aggie’s Foundation.
-          During our annual child sponsorship campaign, €7 supports
+          During our annual Support a Child campaign, €7 supports
           one child’s school year. General donations help sustain our
           wider work throughout the year.
         </p>
@@ -683,18 +665,18 @@
                   </p>
                 </div>
 
-                <ul class="donation-highlights">
-                  <li>Tuition &amp; school fees</li>
-                  <li>Notebooks, pens &amp; supplies</li>
-                  <li>Classroom repairs &amp; construction</li>
-                </ul>
+                <blockquote class="donation-quote">
+                  No two donations look the same here. Some become
+                  notebooks and pens. Some become desks and chalkboards.
+                  This one became a classroom.
+                </blockquote>
 
                 <figure class="donation-photo">
                   <img
                     src="classroom-build.jpg"
-                    alt="A new classroom being built in Kumi, with children and materials on site"
+                    alt="Children and builders constructing a new classroom in Kumi"
                   >
-                  <figcaption>A new classroom under construction in Kumi</figcaption>
+                  <figcaption>A new classroom taking shape in Kumi</figcaption>
                 </figure>
 
               </div>
@@ -790,7 +772,7 @@
                 class="campaign-status"
               ></div>
 
-              <h2 id="campaignTitle">Sponsor a Child Campaign</h2>
+              <h2 id="campaignTitle">Support a Child Campaign</h2>
 
               <p>
                 €7 covers one child’s tuition and essential school
@@ -911,7 +893,7 @@
                     aria-expanded="false"
                     aria-controls="campaignPaymentPanel"
                   >
-                    Sponsor a child
+                    Support a child
                   </button>
 
                   <p class="sponsor-note">
@@ -933,7 +915,7 @@
 
             </article>
 
-            <!-- Revealed when "Sponsor a child" is clicked -->
+            <!-- Revealed when "Support a child" is clicked -->
             <div
               id="campaignPaymentPanel"
               class="payment-panel"
@@ -943,7 +925,7 @@
               <h3>Choose how to complete your donation</h3>
 
               <p>
-                You selected: <strong id="panelSponsorSummary">Sponsor a child</strong>.
+                You selected: <strong id="panelSponsorSummary">Support a child</strong>.
                 Once our new European Foundation account is active, you’ll
                 be able to pay directly here. For now, you can donate
                 securely through GoFundMe.
@@ -1124,7 +1106,7 @@
     */
 
     const CHILD_CAMPAIGN = {
-      label: "2026/27 Sponsor a Child Campaign",
+      label: "2026/27 Support a Child Campaign",
 
       // PLACEHOLDER — exact start date not yet confirmed.
       // Best current estimate is "around Christmas" 2026.
@@ -1259,7 +1241,7 @@
         closedMessage.style.display = "block";
 
         closedText.textContent =
-          "This year's child sponsorship campaign hasn't opened yet — check back on " +
+          "This year's Support a Child campaign hasn't opened yet — check back on " +
           formatCampaignDate(CHILD_CAMPAIGN.start) +
           ". General donations remain open throughout the year.";
 
@@ -1272,7 +1254,7 @@
         closedMessage.style.display = "block";
 
         closedText.textContent =
-          "This year's child sponsorship campaign is now closed. Thank you to everyone " +
+          "This year's Support a Child campaign is now closed. Thank you to everyone " +
           "who helped support children in Kumi. General donations remain open throughout the year.";
       }
     }
@@ -1297,8 +1279,8 @@
 
         document.getElementById("sponsorButton").textContent =
           children === 1
-            ? "Sponsor 1 child — €7"
-            : "Sponsor " + children + " children — €" + amount;
+            ? "Support 1 child — €7"
+            : "Support " + children + " children — €" + amount;
       });
 
     });
