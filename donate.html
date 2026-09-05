@@ -106,10 +106,18 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 32px;
-      align-items: start;
+      align-items: stretch;
+    }
+
+    .donation-column {
+      display: flex;
+      flex-direction: column;
     }
 
     .donation-card {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
       background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 28px;
@@ -168,7 +176,52 @@
     }
 
     .general-donation .donation-copy {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+    }
+
+    .donation-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .donation-highlights li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .donation-highlights li::before {
+      content: "";
+      flex: 0 0 7px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .donation-photo {
+      margin: 0;
+    }
+
+    .donation-photo img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .donation-photo figcaption {
+      margin-top: 8px;
+      font-size: 0.84rem;
+      color: var(--muted);
     }
 
     .general-donation .btn {
@@ -406,35 +459,44 @@
     }
 
     /* =====================================================
-       FUTURE PAYMENT METHODS
+       CONTEXTUAL PAYMENT PANEL
+       (appears below whichever card's button was clicked)
        ===================================================== */
 
-    .payment-methods-section {
-      padding: 46px 0 62px;
-      background: var(--cream);
-    }
-
-    .payment-methods-card {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 34px;
+    .payment-panel {
+      margin-top: 20px;
+      padding: 30px;
       background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: 28px;
+      border-radius: 24px;
       box-shadow: var(--shadow);
+      animation: panel-in 0.25s ease;
     }
 
-    .payment-methods-card h2 {
-      margin: 0 0 10px;
-      font-size: 1.55rem;
+    .payment-panel[hidden] {
+      display: none;
+    }
+
+    @keyframes panel-in {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .payment-panel h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
       font-weight: 800;
       letter-spacing: -0.01em;
       color: var(--ink);
     }
 
-    .payment-methods-card > p {
+    .payment-panel > p {
       margin: 0;
       color: var(--muted);
+    }
+
+    .payment-panel .btn {
+      margin-top: 22px;
     }
 
     .payment-method-grid {
@@ -494,7 +556,7 @@
       }
 
       .donation-card,
-      .payment-methods-card {
+      .payment-panel {
         padding: 22px 18px;
         border-radius: 20px;
       }
@@ -599,265 +661,345 @@
           <!-- =================================================
                GENERAL DONATION
                ================================================= -->
-          <article class="donation-card general-donation">
+          <div class="donation-column">
 
-            <div>
+            <article class="donation-card general-donation">
 
-              <span class="card-kicker">General fund</span>
+              <div>
 
-              <div class="always-open">
-                Available all year
+                <span class="card-kicker">General fund</span>
+
+                <div class="always-open">
+                  Available all year
+                </div>
+
+                <h2>Support Aggie’s Foundation</h2>
+
+                <div class="donation-copy">
+                  <p>
+                    General donations help us continue our work throughout
+                    the year — from school supplies and classrooms to the
+                    practical costs of running our programmes in Kumi.
+                  </p>
+                </div>
+
+                <ul class="donation-highlights">
+                  <li>Tuition &amp; school fees</li>
+                  <li>Notebooks, pens &amp; supplies</li>
+                  <li>Classroom repairs &amp; construction</li>
+                </ul>
+
+                <figure class="donation-photo">
+                  <img
+                    src="classroom-build.jpg"
+                    alt="A new classroom being built in Kumi, with children and materials on site"
+                  >
+                  <figcaption>A new classroom under construction in Kumi</figcaption>
+                </figure>
+
               </div>
 
-              <h2>Support Aggie’s Foundation</h2>
+              <button
+                type="button"
+                id="generalDonateBtn"
+                class="btn primary"
+                aria-expanded="false"
+                aria-controls="generalPaymentPanel"
+              >
+                Make a general donation
+              </button>
 
-              <div class="donation-copy">
-                <p>
-                  General donations help us continue our work throughout
-                  the year — from school supplies and classrooms to the
-                  practical costs of running our programmes in Kumi.
-                </p>
+            </article>
+
+            <!-- Revealed when "Make a general donation" is clicked -->
+            <div
+              id="generalPaymentPanel"
+              class="payment-panel"
+              hidden
+            >
+
+              <h3>Choose how to complete your donation</h3>
+
+              <p>
+                Once our new European Foundation account is active, you’ll
+                be able to pay directly here. For now, you can donate
+                securely through GoFundMe.
+              </p>
+
+              <div class="payment-method-grid">
+
+                <div class="payment-method">
+                  <strong>iDEAL | Wero</strong>
+                  <span>Secure payment through your Dutch or European bank.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Pay by Bank</strong>
+                  <span>Direct bank-to-bank European payment.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Apple Pay / Google Pay</strong>
+                  <span>Quick mobile payment using your wallet.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Credit or debit card</strong>
+                  <span>Secure card checkout through the selected payment service.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>PayPal</strong>
+                  <span>Complete your donation through your PayPal account.</span>
+                </div>
+
               </div>
+
+              <div class="payment-coming-soon">
+                Payments will be completed through secure banking or payment
+                environments. Aggie’s Foundation will not receive or store
+                your card details or online-banking credentials.
+              </div>
+
+              <!-- TEMPORARY LINK:
+                   Replace with secure general donation payment link later -->
+              <a
+                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
+                class="btn contrast"
+                target="_blank"
+                rel="noopener"
+              >
+                Continue on GoFundMe
+              </a>
 
             </div>
 
-            <!-- TEMPORARY LINK:
-                 Replace with secure general donation payment link later -->
-            <a
-              href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
-              class="btn primary"
-              target="_blank"
-              rel="noopener"
-            >
-              Make a general donation
-            </a>
-
-          </article>
+          </div>
 
           <!-- =================================================
                CHILD SPONSORSHIP
                ================================================= -->
-          <article class="donation-card campaign-card">
+          <div class="donation-column">
 
-            <span class="card-kicker">Seasonal campaign</span>
+            <article class="donation-card campaign-card">
 
-            <div
-              id="campaignStatus"
-              class="campaign-status"
-            ></div>
-
-            <h2 id="campaignTitle">Sponsor a Child Campaign</h2>
-
-            <p>
-              €7 covers one child’s tuition and essential school
-              supplies for the school year.
-            </p>
-
-            <div
-              id="campaignDates"
-              class="campaign-dates"
-            ></div>
-
-            <!-- STATS -->
-            <div class="campaign-stats">
-
-              <div class="campaign-stat">
-                <strong id="childrenHelped">0</strong>
-                <span>children supported</span>
-              </div>
-
-              <div class="campaign-stat">
-                <strong id="moneyRaised">€0</strong>
-                <span>raised</span>
-              </div>
-
-            </div>
-
-            <!-- PROGRESS -->
-            <div class="campaign-progress">
-
-              <div class="progress-header">
-                <span id="progressLabel">
-                  0% of this year's goal
-                </span>
-
-                <span id="campaignTarget">
-                  0 children goal
-                </span>
-              </div>
+              <span class="card-kicker">Seasonal campaign</span>
 
               <div
-                class="progress-track"
-                role="progressbar"
-                aria-label="Campaign progress"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                id="progressTrack"
-              >
-                <div
-                  id="progressFill"
-                  class="progress-fill"
-                ></div>
-              </div>
-
-              <div
-                id="childrenRemaining"
-                class="progress-footer"
+                id="campaignStatus"
+                class="campaign-status"
               ></div>
 
-            </div>
+              <h2 id="campaignTitle">Sponsor a Child Campaign</h2>
 
-            <!-- OPEN CAMPAIGN CONTENT -->
-            <div id="campaignOpenContent">
+              <p>
+                €7 covers one child’s tuition and essential school
+                supplies for the school year.
+              </p>
 
-              <div class="sponsor-options">
+              <div
+                id="campaignDates"
+                class="campaign-dates"
+              ></div>
 
-                <p class="sponsor-options-title">
-                  Choose how many children you would like to support
-                </p>
+              <!-- STATS -->
+              <div class="campaign-stats">
 
-                <div class="sponsor-amounts">
+                <div class="campaign-stat">
+                  <strong id="childrenHelped">0</strong>
+                  <span>children supported</span>
+                </div>
+
+                <div class="campaign-stat">
+                  <strong id="moneyRaised">€0</strong>
+                  <span>raised</span>
+                </div>
+
+              </div>
+
+              <!-- PROGRESS -->
+              <div class="campaign-progress">
+
+                <div class="progress-header">
+                  <span id="progressLabel">
+                    0% of this year's goal
+                  </span>
+
+                  <span id="campaignTarget">
+                    0 children goal
+                  </span>
+                </div>
+
+                <div
+                  class="progress-track"
+                  role="progressbar"
+                  aria-label="Campaign progress"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  id="progressTrack"
+                >
+                  <div
+                    id="progressFill"
+                    class="progress-fill"
+                  ></div>
+                </div>
+
+                <div
+                  id="childrenRemaining"
+                  class="progress-footer"
+                ></div>
+
+              </div>
+
+              <!-- OPEN CAMPAIGN CONTENT -->
+              <div id="campaignOpenContent">
+
+                <div class="sponsor-options">
+
+                  <p class="sponsor-options-title">
+                    Choose how many children you would like to support
+                  </p>
+
+                  <div class="sponsor-amounts">
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="7"
+                    >
+                      <strong>€7</strong>
+                      <span>1 child</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="14"
+                    >
+                      <strong>€14</strong>
+                      <span>2 children</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="21"
+                    >
+                      <strong>€21</strong>
+                      <span>3 children</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="sponsor-amount"
+                      data-amount="35"
+                    >
+                      <strong>€35</strong>
+                      <span>5 children</span>
+                    </button>
+
+                  </div>
+
+                </div>
+
+                <div class="sponsor-action">
 
                   <button
                     type="button"
-                    class="sponsor-amount"
-                    data-amount="7"
+                    id="sponsorButton"
+                    class="btn contrast"
+                    aria-expanded="false"
+                    aria-controls="campaignPaymentPanel"
                   >
-                    <strong>€7</strong>
-                    <span>1 child</span>
+                    Sponsor a child
                   </button>
 
-                  <button
-                    type="button"
-                    class="sponsor-amount"
-                    data-amount="14"
-                  >
-                    <strong>€14</strong>
-                    <span>2 children</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    class="sponsor-amount"
-                    data-amount="21"
-                  >
-                    <strong>€21</strong>
-                    <span>3 children</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    class="sponsor-amount"
-                    data-amount="35"
-                  >
-                    <strong>€35</strong>
-                    <span>5 children</span>
-                  </button>
+                  <p class="sponsor-note">
+                    Pick an amount above, then choose how to complete your
+                    donation below.
+                  </p>
 
                 </div>
 
               </div>
 
-              <div class="sponsor-action">
+              <!-- CLOSED / UPCOMING CAMPAIGN -->
+              <div
+                id="campaignClosedMessage"
+                class="campaign-closed-message"
+              >
+                <p id="campaignClosedText"></p>
+              </div>
 
-                <!-- TEMPORARY:
-                     Replace with secure sponsorship payment flow later -->
-                <a
-                  id="sponsorButton"
-                  href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
-                  class="btn contrast"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  Sponsor a child
-                </a>
+            </article>
 
-                <p class="sponsor-note">
-                  You’ll be taken to GoFundMe to complete your donation —
-                  you can set the exact amount there.
-                </p>
+            <!-- Revealed when "Sponsor a child" is clicked -->
+            <div
+              id="campaignPaymentPanel"
+              class="payment-panel"
+              hidden
+            >
+
+              <h3>Choose how to complete your donation</h3>
+
+              <p>
+                You selected: <strong id="panelSponsorSummary">Sponsor a child</strong>.
+                Once our new European Foundation account is active, you’ll
+                be able to pay directly here. For now, you can donate
+                securely through GoFundMe.
+              </p>
+
+              <div class="payment-method-grid">
+
+                <div class="payment-method">
+                  <strong>iDEAL | Wero</strong>
+                  <span>Secure payment through your Dutch or European bank.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Pay by Bank</strong>
+                  <span>Direct bank-to-bank European payment.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Apple Pay / Google Pay</strong>
+                  <span>Quick mobile payment using your wallet.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Credit or debit card</strong>
+                  <span>Secure card checkout through the selected payment service.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>PayPal</strong>
+                  <span>Complete your donation through your PayPal account.</span>
+                </div>
 
               </div>
 
-            </div>
+              <div class="payment-coming-soon">
+                Payments will be completed through secure banking or payment
+                environments. Aggie’s Foundation will not receive or store
+                your card details or online-banking credentials.
+              </div>
 
-            <!-- CLOSED / UPCOMING CAMPAIGN -->
-            <div
-              id="campaignClosedMessage"
-              class="campaign-closed-message"
-            >
-              <p id="campaignClosedText"></p>
-            </div>
+              <!-- TEMPORARY LINK:
+                   Replace with secure sponsorship payment flow later -->
+              <a
+                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
+                class="btn contrast"
+                target="_blank"
+                rel="noopener"
+              >
+                Continue on GoFundMe
+              </a>
 
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================
-         FUTURE PAYMENT METHODS
-         ===================================================== -->
-    <section class="payment-methods-section">
-      <div class="container">
-
-        <div class="payment-methods-card">
-
-          <h2>Secure ways to donate</h2>
-
-          <p>
-            Once our new European Foundation account is active,
-            you’ll be able to choose the payment method that works
-            best for you.
-          </p>
-
-          <div class="payment-method-grid">
-
-            <div class="payment-method">
-              <strong>iDEAL | Wero</strong>
-              <span>
-                Secure payment through your Dutch or European bank.
-              </span>
-            </div>
-
-            <div class="payment-method">
-              <strong>Pay by Bank</strong>
-              <span>
-                Direct bank-to-bank European payment.
-              </span>
-            </div>
-
-            <div class="payment-method">
-              <strong>Apple Pay / Google Pay</strong>
-              <span>
-                Quick mobile payment using your wallet.
-              </span>
-            </div>
-
-            <div class="payment-method">
-              <strong>Credit or debit card</strong>
-              <span>
-                Secure card checkout through the selected payment service.
-              </span>
-            </div>
-
-            <div class="payment-method">
-              <strong>PayPal</strong>
-              <span>
-                Complete your donation through your PayPal account.
-              </span>
             </div>
 
           </div>
 
-          <div class="payment-coming-soon">
-            Payments will be completed through secure banking or payment
-            environments. Aggie’s Foundation will not receive or store your
-            card details or online-banking credentials.
-          </div>
-
         </div>
-
       </div>
     </section>
 
@@ -1159,6 +1301,40 @@
             : "Sponsor " + children + " children — €" + amount;
       });
 
+    });
+
+
+    /* ======================================================
+       PAYMENT PANEL TOGGLES
+       Each donation card has its own hidden payment panel,
+       which opens directly below that card when its button
+       is clicked.
+       ====================================================== */
+
+    function setupPaymentPanelToggle(buttonId, panelId, onOpen) {
+
+      const button = document.getElementById(buttonId);
+      const panel = document.getElementById(panelId);
+
+      button.addEventListener("click", function () {
+
+        const willOpen = panel.hidden;
+
+        panel.hidden = !willOpen;
+        button.setAttribute("aria-expanded", String(willOpen));
+
+        if (willOpen) {
+          if (typeof onOpen === "function") onOpen();
+          panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      });
+    }
+
+    setupPaymentPanelToggle("generalDonateBtn", "generalPaymentPanel");
+
+    setupPaymentPanelToggle("sponsorButton", "campaignPaymentPanel", function () {
+      document.getElementById("panelSponsorSummary").textContent =
+        document.getElementById("sponsorButton").textContent;
     });
 
 
