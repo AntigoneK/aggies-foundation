@@ -103,10 +103,11 @@
     }
 
     .donation-layout {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 32px;
-      align-items: stretch;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
     .donation-column {
@@ -558,12 +559,6 @@
        RESPONSIVE
        ===================================================== */
 
-    @media (max-width: 820px) {
-      .donation-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
     @media (max-width: 600px) {
       .donate-hero {
         padding: 40px 0 28px;
@@ -675,127 +670,6 @@
       <div class="container">
 
         <div class="donation-layout">
-
-          <!-- =================================================
-               GENERAL DONATION
-               ================================================= -->
-          <div class="donation-column">
-
-            <article class="donation-card general-donation">
-
-              <div>
-
-                <span class="card-kicker">General fund</span>
-
-                <div class="always-open">
-                  Available all year
-                </div>
-
-                <h2>Support Aggie’s Foundation</h2>
-
-                <div class="donation-copy">
-                  <p>
-                    General donations go directly to Aggie and her work
-                    on the ground in Kumi — keeping schools running day
-                    to day, and helping us reach our goal of building new
-                    classrooms for children who don’t have one yet.
-                  </p>
-                </div>
-
-                <figure class="donation-photo">
-                  <img
-                    src="classroom-build.jpg"
-                    alt="Children and builders constructing a new classroom in Kumi"
-                  >
-                  <figcaption>The new classroom taking shape at Adesso School, Kumi</figcaption>
-                </figure>
-
-                <figure class="donation-photo">
-                  <img
-                    src="oseera-classroom.jpg"
-                    alt="A full classroom of children waving at Oseera Primary School"
-                  >
-                  <figcaption>Students at Oseera Primary School, one of the schools we support</figcaption>
-                </figure>
-
-              </div>
-
-              <button
-                type="button"
-                id="generalDonateBtn"
-                class="btn primary"
-                aria-expanded="false"
-                aria-controls="generalPaymentPanel"
-              >
-                Make a general donation
-              </button>
-
-            </article>
-
-            <!-- Revealed when "Make a general donation" is clicked -->
-            <div
-              id="generalPaymentPanel"
-              class="payment-panel"
-              hidden
-            >
-
-              <h3>Choose how to complete your donation</h3>
-
-              <p>
-                Once our new European Foundation account is active, you’ll
-                be able to pay directly here. For now, you can donate
-                securely through GoFundMe.
-              </p>
-
-              <div class="payment-method-grid">
-
-                <div class="payment-method">
-                  <strong>iDEAL | Wero</strong>
-                  <span>Secure payment through your Dutch or European bank.</span>
-                </div>
-
-                <div class="payment-method">
-                  <strong>Pay by Bank</strong>
-                  <span>Direct bank-to-bank European payment.</span>
-                </div>
-
-                <div class="payment-method">
-                  <strong>Apple Pay / Google Pay</strong>
-                  <span>Quick mobile payment using your wallet.</span>
-                </div>
-
-                <div class="payment-method">
-                  <strong>Credit or debit card</strong>
-                  <span>Secure card checkout through the selected payment service.</span>
-                </div>
-
-                <div class="payment-method">
-                  <strong>PayPal</strong>
-                  <span>Complete your donation through your PayPal account.</span>
-                </div>
-
-              </div>
-
-              <div class="payment-coming-soon">
-                Payments will be completed through secure banking or payment
-                environments. Aggie’s Foundation will not receive or store
-                your card details or online-banking credentials.
-              </div>
-
-              <!-- TEMPORARY LINK:
-                   Replace with secure general donation payment link later -->
-              <a
-                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
-                class="btn contrast"
-                target="_blank"
-                rel="noopener"
-              >
-                Continue on GoFundMe
-              </a>
-
-            </div>
-
-          </div>
 
           <!-- =================================================
                CHILD SPONSORSHIP
@@ -1029,6 +903,127 @@
 
               <!-- TEMPORARY LINK:
                    Replace with secure sponsorship payment flow later -->
+              <a
+                href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
+                class="btn contrast"
+                target="_blank"
+                rel="noopener"
+              >
+                Continue on GoFundMe
+              </a>
+
+            </div>
+
+          </div>
+
+          <!-- =================================================
+               GENERAL DONATION
+               ================================================= -->
+          <div class="donation-column">
+
+            <article class="donation-card general-donation">
+
+              <div>
+
+                <span class="card-kicker">General fund</span>
+
+                <div class="always-open">
+                  Available all year
+                </div>
+
+                <h2>Support Aggie’s Foundation</h2>
+
+                <div class="donation-copy">
+                  <p>
+                    General donations go directly to Aggie and her work
+                    on the ground in Kumi — keeping schools running day
+                    to day, and helping us reach our goal of building new
+                    classrooms for children who don’t have one yet.
+                  </p>
+                </div>
+
+                <figure class="donation-photo">
+                  <img
+                    src="classroom-build.jpg"
+                    alt="Children and builders constructing a new classroom in Kumi"
+                  >
+                  <figcaption>The new classroom taking shape at Adesso School, Kumi</figcaption>
+                </figure>
+
+                <figure class="donation-photo">
+                  <img
+                    src="oseera-classroom.jpg"
+                    alt="A full classroom of children waving at Oseera Primary School"
+                  >
+                  <figcaption>Students at Oseera Primary School, one of the schools we support</figcaption>
+                </figure>
+
+              </div>
+
+              <button
+                type="button"
+                id="generalDonateBtn"
+                class="btn primary"
+                aria-expanded="false"
+                aria-controls="generalPaymentPanel"
+              >
+                Make a general donation
+              </button>
+
+            </article>
+
+            <!-- Revealed when "Make a general donation" is clicked -->
+            <div
+              id="generalPaymentPanel"
+              class="payment-panel"
+              hidden
+            >
+
+              <h3>Choose how to complete your donation</h3>
+
+              <p>
+                Once our new European Foundation account is active, you’ll
+                be able to pay directly here. For now, you can donate
+                securely through GoFundMe.
+              </p>
+
+              <div class="payment-method-grid">
+
+                <div class="payment-method">
+                  <strong>iDEAL | Wero</strong>
+                  <span>Secure payment through your Dutch or European bank.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Pay by Bank</strong>
+                  <span>Direct bank-to-bank European payment.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Apple Pay / Google Pay</strong>
+                  <span>Quick mobile payment using your wallet.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>Credit or debit card</strong>
+                  <span>Secure card checkout through the selected payment service.</span>
+                </div>
+
+                <div class="payment-method">
+                  <strong>PayPal</strong>
+                  <span>Complete your donation through your PayPal account.</span>
+                </div>
+
+              </div>
+
+              <div class="payment-coming-soon">
+                Payments will be completed through secure banking or payment
+                environments. Aggie’s Foundation will not receive or store
+                your card details or online-banking credentials.
+              </div>
+
+              <!-- TEMPORARY LINK:
+                   Replace with secure general donation payment link later -->
               <a
                 href="https://www.gofundme.com/f/ycxwm2-aggies-foundation"
                 class="btn contrast"
