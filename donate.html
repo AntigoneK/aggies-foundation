@@ -380,6 +380,48 @@
       gap: 10px;
     }
 
+    .sponsor-custom {
+      margin-top: 14px;
+    }
+
+    .sponsor-custom label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .sponsor-custom-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sponsor-custom-row input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid #d9d2c6;
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .sponsor-custom-row input:focus {
+      outline: none;
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px rgba(199,104,68,.15);
+    }
+
+    .sponsor-custom-total {
+      flex: 0 0 auto;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
     .sponsor-amount {
       padding: 14px 12px;
       border: 1px solid #d9d2c6;
@@ -883,6 +925,28 @@
 
                   </div>
 
+                  <div class="sponsor-custom">
+
+                    <label for="customChildrenInput">
+                      Supporting more than 5 children?
+                    </label>
+
+                    <div class="sponsor-custom-row">
+                      <input
+                        type="number"
+                        id="customChildrenInput"
+                        min="1"
+                        step="1"
+                        inputmode="numeric"
+                        placeholder="Number of children"
+                      >
+                      <span id="customTotalDisplay" class="sponsor-custom-total">
+                        = €0
+                      </span>
+                    </div>
+
+                  </div>
+
                 </div>
 
                 <div class="sponsor-action">
@@ -1265,6 +1329,18 @@
        SPONSOR AMOUNT SELECTION
        ====================================================== */
 
+    function setSponsorSelection(children) {
+
+      const amount = children * 7;
+
+      document.getElementById("sponsorButton").textContent =
+        children === 1
+          ? "Support 1 child — €7"
+          : "Support " + children + " children — €" + amount;
+
+      return amount;
+    }
+
     document.querySelectorAll(".sponsor-amount").forEach(button => {
 
       button.addEventListener("click", function () {
@@ -1275,15 +1351,40 @@
 
         this.classList.add("selected");
 
-        const amount = Number(this.dataset.amount);
-        const children = amount / 7;
+        // A preset was picked, so clear any custom amount typed in.
+        const customInput = document.getElementById("customChildrenInput");
+        customInput.value = "";
+        document.getElementById("customTotalDisplay").textContent = "= €0";
 
-        document.getElementById("sponsorButton").textContent =
-          children === 1
-            ? "Support 1 child — €7"
-            : "Support " + children + " children — €" + amount;
+        const amount = Number(this.dataset.amount);
+        setSponsorSelection(amount / 7);
       });
 
+    });
+
+
+    /* ======================================================
+       CUSTOM CHILDREN COUNT
+       Lets a donor support more than the 5-child preset cap.
+       ====================================================== */
+
+    document.getElementById("customChildrenInput").addEventListener("input", function () {
+
+      const children = parseInt(this.value, 10);
+      const totalDisplay = document.getElementById("customTotalDisplay");
+
+      if (!Number.isInteger(children) || children < 1) {
+        totalDisplay.textContent = "= €0";
+        return;
+      }
+
+      // A custom number was typed, so deselect any preset amount.
+      document.querySelectorAll(".sponsor-amount").forEach(item => {
+        item.classList.remove("selected");
+      });
+
+      const amount = setSponsorSelection(children);
+      totalDisplay.textContent = "= €" + amount;
     });
 
 
