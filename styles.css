@@ -850,6 +850,34 @@ input:focus,textarea:focus{
     color:var(--ink);
   }
 
+  .nav-item{
+    display:block;
+    width:100%;
+  }
+
+  /* On mobile there's no hover, so the Projects dropdown can't rely
+     on :hover/:focus-within — show its links inline instead of as an
+     absolutely-positioned panel, which was getting clipped by the
+     screen edge. */
+  .nav-item-projects .nav-dropdown{
+    position:static;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    display:block;
+    min-width:0;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    padding:0 0 4px 14px;
+    margin-top:4px;
+  }
+
+  .nav-item-projects .nav-dropdown a{
+    padding:6px 10px;
+    font-size:.95rem;
+  }
+
   /* "Menu" button instead of three bars on mobile */
   .hamburger{
     display:flex;
@@ -888,57 +916,4 @@ input:focus,textarea:focus{
   }
 }
 
-
-
-
-
-/* @media (max-width:640px){
-  .header-inner{ padding:10px 12px; }
-
-  .nav{
-    display:none;             
-    position:absolute;
-    right:16px;
-    top:60px;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:12px;
-    box-shadow:var(--shadow);
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .nav a{
-    display:block;
-    padding:8px 10px;
-    color:var(--ink);
-    margin:0;
-  }
-
-  .nav-item{
-    display:block;
-    width:100%;
-  }
-
-  .nav-dropdown{
-    position:static;
-    min-width:0;
-    border:0;
-    border-radius:0;
-    box-shadow:none;
-    padding:0 0 0 12px;
-    display:block;
-    margin-top:4px;
-  }
-
-  .nav-dropdown a{
-    padding:6px 10px;
-    font-size:.95rem;
-  }
-
-  .hamburger{ display:flex; }
-
-  .hero-left h1{ font-size:2.4rem; }
-} */
 
