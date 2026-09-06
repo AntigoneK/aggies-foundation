@@ -475,21 +475,19 @@ button,input,select,textarea{ font:inherit; }
 }
 
 .impact-icon{
-  width:80px;
-  height:80px;
-  border-radius:18px;
+  width:100%;
+  height:150px;
+  border-radius:16px;
   border:1px solid var(--line);
   overflow:hidden;
   background:#f7f3ec;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   margin-bottom:14px;
 }
 .impact-icon img{
   width:100%;
   height:100%;
   object-fit:cover;
+  border-radius:16px;
 }
 
 /* fix tiny margin typo here */
@@ -526,6 +524,158 @@ button,input,select,textarea{ font:inherit; }
 }
 @media (max-width:520px){
   .impact-tiles{ grid-template-columns:1fr; }
+}
+
+/* =========================================================
+   Homepage — campaign preview
+   (compact version of the campaign card on donate.html)
+   ========================================================= */
+
+.home-campaign-section{
+  padding:8px 0 6px;
+}
+
+.home-campaign-card{
+  background:
+    linear-gradient(160deg, rgba(199,104,68,.06), transparent 55%),
+    var(--paper);
+  border:1px solid #ecd9cd;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  padding:24px 26px;
+}
+
+.home-campaign-status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-bottom:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:0.8rem;
+  font-weight:700;
+}
+.home-campaign-status::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+}
+.home-campaign-status.open{
+  background:#fff0e7;
+  color:var(--terracotta);
+}
+.home-campaign-status.open::before{ background:var(--terracotta); }
+.home-campaign-status.upcoming{
+  background:#eef3f0;
+  color:var(--green);
+}
+.home-campaign-status.upcoming::before{ background:var(--green); }
+.home-campaign-status.closed{
+  background:#ece9e3;
+  color:var(--muted);
+}
+.home-campaign-status.closed::before{ background:var(--muted); }
+
+.home-campaign-main{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-bottom:16px;
+}
+.home-campaign-main h3{
+  margin:0 0 4px;
+  font-size:1.3rem;
+  font-weight:800;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+.home-campaign-dates{
+  margin:0;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+
+.home-progress-track{
+  width:100%;
+  height:12px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#e6e1d7;
+}
+.home-progress-fill{
+  width:0;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg, var(--terracotta-700), var(--terracotta));
+  transition:width 0.6s ease;
+}
+
+.home-progress-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:8px;
+  font-size:0.86rem;
+  font-weight:600;
+  color:var(--muted);
+}
+
+@media (max-width:600px){
+  .home-campaign-card{ padding:20px; }
+  .home-campaign-main{ flex-direction:column; align-items:flex-start; }
+}
+
+/* =========================================================
+   Homepage — moments from Kumi photo strip
+   ========================================================= */
+
+.moments-section{
+  padding:36px 0 42px;
+}
+
+.moments-header{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:18px;
+}
+.moments-header h3{
+  margin:0;
+  font-size:1.3rem;
+  color:var(--ink);
+}
+.moments-link{
+  font-weight:700;
+  font-size:0.92rem;
+  color:var(--terracotta);
+  white-space:nowrap;
+}
+.moments-link:hover{ color:var(--terracotta-700); }
+
+.moments-strip{
+  display:grid;
+  grid-template-columns:repeat(6, minmax(0,1fr));
+  gap:12px;
+}
+.moments-strip img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid var(--line);
+}
+
+@media (max-width:900px){
+  .moments-strip{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+}
+@media (max-width:520px){
+  .moments-strip{ grid-template-columns:repeat(2, minmax(0,1fr)); }
 }
 
 /* =========================================================

@@ -126,6 +126,35 @@
      </div>
     </section>
 
+    <!-- CAMPAIGN PREVIEW (mirrors the campaign card on donate.html) -->
+    <section class="home-campaign-section">
+      <div class="container">
+        <div class="home-campaign-card">
+
+          <div id="homeCampaignStatus" class="home-campaign-status"></div>
+
+          <div class="home-campaign-main">
+            <div>
+              <h3 id="homeCampaignTitle">Support a Child Campaign</h3>
+              <p id="homeCampaignDates" class="home-campaign-dates"></p>
+            </div>
+
+            <a href="donate.html" class="btn contrast">See campaign details</a>
+          </div>
+
+          <div class="home-progress-track">
+            <div id="homeProgressFill" class="home-progress-fill"></div>
+          </div>
+
+          <div class="home-progress-footer">
+            <span id="homeProgressLabel">0% of this year’s goal</span>
+            <span id="homeCampaignTarget">0 children goal</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- STORY + IMPACT TILES (FULL WIDTH BELOW HERO) -->
     <section class="soft-band">
       <div class="container">
@@ -144,7 +173,7 @@
           <div class="impact-tiles">
             <article class="impact card">
               <div class="impact-icon">
-                <img src="schoolbagclipart.jpg" alt="Backpack icon (Tuition)">
+                <img src="tile-tuition.jpg" alt="Children in class, hands raised, following an English lesson">
               </div>
               <h4>Tuition Covered</h4>
               <p>Direct payments to partner schools for verified students.</p>
@@ -153,7 +182,7 @@
 
             <article class="impact card">
               <div class="impact-icon">
-                <img src="schoolsuppliesclipart.jpg" alt="Supplies icon">
+                <img src="tile-supplies.jpg" alt="Children holding up their new notebooks and pens">
               </div>
               <h4>Books &amp; Supplies</h4>
               <p>Every child receives the materials they need to learn.</p>
@@ -162,7 +191,7 @@
 
             <article class="impact card">
               <div class="impact-icon">
-                <img src="classroomclipart.jpg" alt="Classroom icon">
+                <img src="classroom-build.jpg" alt="A new classroom being built at Adesso School, Kumi">
               </div>
               <h4>Classrooms Built</h4>
               <p>Safe spaces created with local teams and materials.</p>
@@ -170,6 +199,34 @@
             </article>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- MOMENTS FROM KUMI -->
+    <section class="moments-section">
+      <div class="container">
+
+        <div class="moments-header">
+          <h3>Moments from Kumi</h3>
+          <a
+            href="https://www.instagram.com/aggie.sfoundation"
+            target="_blank"
+            rel="noopener"
+            class="moments-link"
+          >
+            See more on Instagram →
+          </a>
+        </div>
+
+        <div class="moments-strip">
+          <img src="moment-1.jpg" alt="Children waving and smiling under a mango tree">
+          <img src="moment-2.jpg" alt="A boy proudly showing his new exercise books">
+          <img src="moment-3.jpg" alt="Foundation team registering families under a tree">
+          <img src="moment-4.jpg" alt="Children sitting outdoors for a school assembly">
+          <img src="moment-5.jpg" alt="Two boys playing outside near their village">
+          <img src="moment-6.jpg" alt="A full classroom of smiling students">
+        </div>
+
       </div>
     </section>
 
@@ -206,7 +263,7 @@
           </a>
         </div>
 
-        <p class="copyright">© 2025 Aggie's Foundation</p>
+        <p class="copyright">© 2026 Aggie's Foundation</p>
       </div>
 
       <div>
@@ -237,6 +294,72 @@
     burger?.addEventListener('click', () => {
       nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
     });
+  </script>
+
+  <!-- =====================================================
+       HOMEPAGE CAMPAIGN PREVIEW
+       Reads the same CHILD_CAMPAIGN object as donate.html
+       (from campaign-config.js) so the two pages never drift
+       out of sync. This is a summary only — the full campaign
+       card with amount options lives on donate.html.
+       ===================================================== -->
+  <script src="campaign-config.js"></script>
+  <script>
+    (function () {
+
+      function formatDate(dateString) {
+        return new Date(dateString).toLocaleDateString("en-GB", {
+          day: "numeric",
+          month: "long",
+          year: "numeric"
+        });
+      }
+
+      const now = new Date();
+      const start = new Date(CHILD_CAMPAIGN.start);
+      const end = new Date(CHILD_CAMPAIGN.end);
+
+      const campaignOpen = now >= start && now <= end;
+      const campaignUpcoming = now < start;
+
+      document.getElementById("homeCampaignTitle").textContent =
+        CHILD_CAMPAIGN.label;
+
+      document.getElementById("homeCampaignDates").textContent =
+        formatDate(CHILD_CAMPAIGN.start) + " – " + formatDate(CHILD_CAMPAIGN.end);
+
+      const progress =
+        CHILD_CAMPAIGN.targetChildren > 0
+          ? Math.min(
+              100,
+              Math.round(
+                (CHILD_CAMPAIGN.childrenHelped / CHILD_CAMPAIGN.targetChildren) * 100
+              )
+            )
+          : 0;
+
+      document.getElementById("homeProgressFill").style.width = progress + "%";
+
+      document.getElementById("homeProgressLabel").textContent =
+        progress + "% of this year’s goal";
+
+      document.getElementById("homeCampaignTarget").textContent =
+        CHILD_CAMPAIGN.targetChildren.toLocaleString("en-GB") + " children goal";
+
+      const status = document.getElementById("homeCampaignStatus");
+
+      if (campaignOpen) {
+        status.textContent = "Campaign open";
+        status.className = "home-campaign-status open";
+      } else if (campaignUpcoming) {
+        status.textContent = "Campaign opens soon";
+        status.className = "home-campaign-status upcoming";
+      } else {
+        status.textContent = "Campaign complete";
+        status.className = "home-campaign-status closed";
+      }
+
+    })();
   </script>
 </body>
 </html>

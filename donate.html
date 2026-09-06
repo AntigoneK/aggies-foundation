@@ -1183,40 +1183,13 @@
   <!-- =====================================================
        CAMPAIGN CONFIGURATION + LOGIC
        ===================================================== -->
+  <script src="campaign-config.js"></script>
   <script>
-
-    /*
-      ========================================================
-      ONLY CHANGE THIS BLOCK EACH YEAR
-      ========================================================
-
-      EXAMPLE / PLACEHOLDER DATA — replace before this goes live.
-
-      - start / end: campaign window (ISO date with timezone).
-      - targetChildren: this year's goal.
-      - childrenHelped / moneyRaised: update these manually as
-        donations come in. Once a real payment system exists,
-        these could be pulled from verified transactions instead.
-    */
-
-    const CHILD_CAMPAIGN = {
-      label: "2026/27 Support a Child Campaign",
-
-      // PLACEHOLDER — exact start date not yet confirmed.
-      // Best current estimate is "around Christmas" 2026.
-      // Update both dates as soon as the real dates are set.
-      start: "2026-12-20T00:00:00+01:00",
-      end: "2027-02-05T23:59:59+01:00",
-
-      targetChildren: 700,
-
-      childrenHelped: 0,
-      moneyRaised: 0
-    };
-
 
     /* ======================================================
        PAGE LOGIC — no need to edit below this line
+       CHILD_CAMPAIGN comes from campaign-config.js, shared with
+       the homepage's campaign preview.
        ====================================================== */
 
     function formatCampaignDate(dateString) {
