@@ -138,10 +138,52 @@
       margin-top: 8px;
     }
 
+    /* Meet Aggie */
+    .about-row-aggie {
+      margin-bottom: 28px;
+    }
+    .about-aggie-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 26px;
+    }
+    .about-aggie-photo {
+      flex: 0 0 200px;
+      width: 200px;
+      height: 240px;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 18px;
+    }
+    .about-aggie-inner h3 {
+      margin: 0 0 10px;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+    .about-aggie-inner p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+    .about-aggie-inner p:last-child {
+      margin-bottom: 0;
+    }
+
     /* Responsive: stack cards on small screens */
     @media (max-width: 880px) {
       .about-row-top {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about-aggie-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .about-aggie-photo {
+        width: 100%;
+        height: 220px;
+        flex: 0 0 auto;
       }
     }
   </style>
@@ -207,6 +249,38 @@
     <!-- Cards: 2 on top, 1 full-width below -->
     <section class="about-sections">
       <div class="container">
+
+        <!-- Meet Aggie -->
+        <div class="about-row-aggie" id="aggie">
+          <article class="about-card-team">
+            <div class="about-card-team-inner about-aggie-inner">
+
+              <img
+                src="meet-aggie.jpg"
+                alt="Aggie, a community leader in Ongino, Kumi"
+                class="about-aggie-photo"
+              >
+
+              <div>
+                <h3>Meet Aggie</h3>
+                <p>
+                  Aggie has been a trusted leader in the Ongino community
+                  in Kumi for many years. Before turning her attention to
+                  education, she spent years at Kumi Hospital, supporting
+                  patients and students through some of their hardest
+                  moments.
+                </p>
+                <p>
+                  Today, she works alongside other community leaders to
+                  help vulnerable children and families in Kumi get access
+                  to schooling — often the ones who need it most.
+                </p>
+              </div>
+
+            </div>
+          </article>
+        </div>
+
         <!-- Top row -->
         <div class="about-row-top">
           <!-- Our approach card with background photo -->
@@ -295,7 +369,7 @@
           </a>
         </div>
 
-        <p class="copyright">© 2025 Aggie's Foundation</p>
+        <p class="copyright">© 2026 Aggie's Foundation</p>
       </div>
 
       <div>
