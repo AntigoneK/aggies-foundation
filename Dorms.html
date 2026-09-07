@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta name="description"
-      content="Aggie's Foundation empowers education in Kumi through scholarships, school supplies, and new classrooms. Donate €7 to support a child's school year.">
-<meta name="keywords" content="charity, education, uganda, aggies foundation, donate, kumi, school, scholarship">
+      content="Aggie's Foundation is building a dormitory for 40 girls at Adesso Primary School in Kumi, Uganda.">
+<meta name="keywords" content="charity, education, uganda, aggies foundation, donate, kumi, school, dormitory">
 <meta name="robots" content="index, follow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scholarship fund • Aggie's Foundation</title>
+  <title>Girls' dormitory • Aggie's Foundation</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,55 +34,42 @@
       margin:0;
       color:var(--muted);
     }
+    .project-hero-inner p + p {
+      margin-top:1.2em;
+    }
 
-    /* Center gallery card */
-    .gallery-shell{
-      padding:32px 0 60px;
+    /* Facts row, reusing the homepage's fact-circle look */
+    .dorm-facts-section {
+      padding:8px 0 60px;
     }
-    .gallery-card{
-      max-width:900px;
-      margin:0 auto;
-      padding:18px 20px;
-      background:#fff;
-      border-radius:26px;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
+    .dorm-facts {
       display:flex;
-      align-items:center;
-      gap:16px;
-    }
-    .gallery-frame{
-      flex:1;
-      min-height:260px;
-    }
-    .gallery-frame img{
-      width:100%;
-      max-height:460px;
-      object-fit:cover;
-      border-radius:18px;
-      border:1px solid var(--line);
-      display:block;
-    }
-    .gallery-arrow{
-      border:none;
-      background:var(--terracotta);
-      color:#fff;
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      display:inline-flex;
-      align-items:center;
+      flex-wrap:wrap;
+      gap:24px;
       justify-content:center;
-      cursor:pointer;
-      font-size:1.4rem;
-      box-shadow:0 6px 16px rgba(199,104,68,.22);
+      padding:0;
+      margin:0 0 22px;
     }
-    .gallery-arrow:hover{
-      background:var(--terracotta-700);
+    .dorm-note {
+      max-width:640px;
+      margin:0 auto;
+      text-align:center;
+      color:var(--muted);
+      font-style:italic;
+      font-size:0.94rem;
+    }
+
+    @media (max-width:520px) {
+      .dorm-facts {
+        gap:16px;
+      }
+      .fact-circle {
+        --d:104px;
+      }
     }
   </style>
 </head>
-    <link rel="icon" type="image/png" href="logo-nontrans.jpg">
+  <link rel="icon" type="image/png" href="logo-nontrans.jpg">
 <body>
   <div class="top-strip"></div>
 
@@ -120,85 +107,57 @@
     <!-- Hero / intro -->
     <section class="project-hero">
       <div class="project-hero-inner">
-        <h1>Scholarship fund</h1>
-        <p>Vulnerable students are selected in collaboration with Aggie and the headteachers of the participating schools.
-          These are often children who have recently lost one or both parents, children whose parents are seriously ill, or families who simply cannot afford the fees for primary education.
-        </p>
-      </div>
-      <div>
-      </div>
-      <div class="project-hero-inner">
+        <h1>Girls' dormitory</h1>
         <p>
-          Without access to school, children spend their days helping in the village. This means they miss out on essential subjects such as English and mathematics. Without this knowledge, it becomes extremely difficult for them to build a future beyond their village or to ever find employment elsewhere.
+          Right now, many girls at Adesso Primary School have nowhere safe
+          to sleep if they need to stay at school. We're building a
+          dormitory for about 40 of them — a real roof, real beds, and a
+          space that's just theirs.
         </p>
-      </div>
-      <div>
-      </div>
-      <div class="project-hero-inner">
         <p>
-          At school, children are taught five core subjects. The school year begins in January/February and continues until the final exams in December, when students find out whether they can move on to the next grade. Primary school consists of seven years of education, from P1 to P7. </p>
+          The first materials are already on site, and construction is
+          expected to take about three months once building is in full
+          swing. Once it's finished, the dormitory becomes a permanent
+          part of Adesso Primary School, used only for student housing.
+        </p>
       </div>
     </section>
 
-    <!-- Gallery carousel -->
-    <section class="gallery-shell">
-      <div class="gallery-card">
-        <button id="g1-prev" class="gallery-arrow" type="button" aria-label="Previous photo">‹</button>
-        <div class="gallery-frame">
-          <img id="g1-photo" src="" alt="Scholarship fund photo">
-        </div>
-        <button id="g1-next" class="gallery-arrow" type="button" aria-label="Next photo">›</button>
+    <!-- Quick facts -->
+    <section class="dorm-facts-section">
+      <div class="container">
+        <ul class="dorm-facts">
+          <li class="fact">
+            <div class="fact-circle">
+              <div class="fact-number">~40</div>
+              <div class="fact-label">girls</div>
+              <div class="fact-label">housed</div>
+            </div>
+          </li>
+          <li class="fact">
+            <div class="fact-circle ring">
+              <div class="fact-number">~3</div>
+              <div class="fact-label">months</div>
+              <div class="fact-label">to build</div>
+            </div>
+          </li>
+          <li class="fact">
+            <div class="fact-circle ring">
+              <div class="fact-number">Kumi</div>
+              <div class="fact-label">Adesso PS</div>
+            </div>
+          </li>
+        </ul>
+
+        <p class="dorm-note">
+          Construction is just getting started — photos will go up here
+          as the building takes shape.
+        </p>
       </div>
     </section>
   </main>
 
-  <!-- Gallery 1 script -->
-  <script>
-    (function(){
-      const photos = [
-        "IMG_5020.jpeg",
-        "IMG_5074.jpeg",
-        "IMG_5089.jpeg",
-        "IMG_5111.jpeg",
-        "IMG_5242.jpeg",
-        "IMG_5542.jpeg",
-        "IMG_5565.jpeg",
-        "IMG_5569.jpeg",
-        "IMG_5622.jpeg",
-        "IMG_5648.jpeg",
-        "IMG_6324.jpeg",
-        "IMG_6375.jpeg",
-        "IMG_6485.jpeg",
-        "IMG_6552.jpeg",
-        "IMG_7304.jpeg",
-        "IMG_7424.jpeg"
-      ];
-
-      const img = document.getElementById('g1-photo');
-      const prev = document.getElementById('g1-prev');
-      const next = document.getElementById('g1-next');
-
-      if (!img) return;
-
-      let index = 0;
-      function show(i){
-        index = (i + photos.length) % photos.length;
-        img.src = photos[index];
-      }
-
-      prev.addEventListener('click', () => show(index - 1));
-      next.addEventListener('click', () => show(index + 1));
-
-      // initial image
-      show(0);
-    })();
-  </script>
-</body>
-</html>
-
-
-
-<!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
@@ -242,6 +201,5 @@
       </div>
     </div>
   </footer>
-
 </body>
 </html>

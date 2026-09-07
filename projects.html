@@ -87,6 +87,44 @@
         height: 220px;
       }
     }
+
+    /* New-project card with no photo yet: a bold color block instead,
+       matching the brand's Instagram-style graphic blocks */
+    .project-card-photo-alt {
+      width: 100%;
+      height: 260px;
+      border-radius: 24px 24px 0 0;
+      background: #ffbd59;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 26px;
+    }
+    .project-card-photo-alt .new-badge {
+      display: inline-flex;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: var(--terracotta);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .project-card-photo-alt strong {
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    @media (max-width: 640px) {
+      .project-card-photo-alt {
+        height: 220px;
+      }
+    }
   </style>
 </head>
     <link rel="icon" type="image/png" href="logo-nontrans.jpg">
@@ -112,6 +150,7 @@
             <a href="Scholarshipfund.html">Scholarship fund</a>
             <a href="Back-to-school kits.html">Back-to-school kits</a>
             <a href="Newclassrooms.html">New classrooms</a>
+            <a href="Dorms.html">Girls' dormitory</a>
           </div>
         </div>
 
@@ -162,6 +201,17 @@
             <h3>New classrooms</h3>
             <p>Built with local teams, creating safe spaces for learners in Kumi.</p>
             <a class="chip" href="Newclassrooms.html">Read more</a>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="card project-card">
+            <div class="project-card-photo-alt">
+              <span class="new-badge">New</span>
+              <strong>Girls' Dormitory</strong>
+            </div>
+            <h3>Girls' dormitory</h3>
+            <p>A safe place to sleep for 40 girls at Adesso Primary School — building now.</p>
+            <a class="chip" href="Dorms.html">Read more</a>
           </article>
         </div>
       </div>
