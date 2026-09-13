@@ -416,6 +416,23 @@ button,input,select,textarea{ font:inherit; }
   .hero-right{
     margin-top:28px;
   }
+
+  /* Center the headline, buttons, and fact circles when the
+     photo drops below this section */
+  .hero-left{
+    text-align:center;
+  }
+  .hero-actions{
+    align-items:center;
+  }
+  .hero-actions .cta-row{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  .hero-actions .facts{
+    justify-content:center;
+    flex-wrap:wrap;
+  }
 }
 
 /* Circles smaller on very small screens */
