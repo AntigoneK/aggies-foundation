@@ -154,10 +154,6 @@
       border-radius: 999px;
     }
 
-    .general-donation h2::after {
-      background: var(--green);
-    }
-
     .campaign-card h2::after {
       background: var(--terracotta);
     }
@@ -165,66 +161,6 @@
     .donation-card > p {
       margin: 0;
       color: var(--muted);
-    }
-
-    /* =====================================================
-       GENERAL DONATION
-       ===================================================== */
-
-    .general-donation {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .general-donation .donation-copy {
-      margin-bottom: 20px;
-    }
-
-    .donation-photo {
-      margin: 0 0 20px;
-    }
-
-    .donation-photo:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .donation-photo img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 18px;
-    }
-
-    .donation-photo figcaption {
-      margin-top: 8px;
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
-
-    .general-donation .btn {
-      margin-top: 28px;
-      align-self: flex-start;
-    }
-
-    .always-open {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-bottom: 14px;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: #e8f0eb;
-      color: var(--green);
-      font-size: 0.84rem;
-      font-weight: 700;
-    }
-
-    .always-open::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--green);
     }
 
     /* =====================================================
@@ -685,10 +621,8 @@
         <h1>Donate</h1>
 
         <p>
-          Choose how you would like to support Aggie’s Foundation.
           During our annual Support a Child campaign, €7 supports
-          one child’s school year. General donations help sustain our
-          wider work throughout the year.
+          one child’s school year.
         </p>
 
       </div>
@@ -954,128 +888,6 @@
 
           </div>
 
-          <!-- =================================================
-               GENERAL DONATION
-               ================================================= -->
-          <div class="donation-column">
-
-            <article class="donation-card general-donation">
-
-              <div>
-
-                <span class="card-kicker">General fund</span>
-
-                <div class="always-open">
-                  Available all year
-                </div>
-
-                <h2>Support Aggie’s Foundation</h2>
-
-                <div class="donation-copy">
-                  <p>
-                    General donations go directly to Aggie and her work
-                    on the ground in Kumi — keeping schools running day
-                    to day, and helping us reach our goal of building new
-                    classrooms for children who don’t have one yet.
-                  </p>
-                </div>
-
-                <figure class="donation-photo">
-                  <img
-                    src="classroom-build.jpg"
-                    alt="Children and builders constructing a new classroom in Kumi"
-                  >
-                  <figcaption>The new classroom taking shape at Adesso School, Kumi</figcaption>
-                </figure>
-
-                <figure class="donation-photo">
-                  <img
-                    src="oseera-classroom.jpg"
-                    alt="A full classroom of children waving at Oseera Primary School"
-                  >
-                  <figcaption>Students at Oseera Primary School, one of the schools we support</figcaption>
-                </figure>
-
-              </div>
-
-              <button
-                type="button"
-                id="generalDonateBtn"
-                class="btn primary"
-                aria-expanded="false"
-                aria-controls="generalPaymentPanel"
-              >
-                Make a donation
-              </button>
-
-            </article>
-
-            <!-- Revealed when "Make a donation" is clicked -->
-            <div
-              id="generalPaymentPanel"
-              class="payment-panel"
-              hidden
-            >
-
-              <h3>Choose how to complete your donation</h3>
-
-              <p>
-                Select a payment method below — we’ll let you know as soon
-                as it’s ready to use.
-              </p>
-
-              <div class="payment-method-grid">
-
-                <button type="button" class="payment-method" data-method="iDEAL | Wero">
-                  <strong>iDEAL | Wero</strong>
-                  <span>Secure payment through your Dutch or European bank.</span>
-                  <span class="method-badge">Coming soon</span>
-                </button>
-
-                <button type="button" class="payment-method" data-method="Pay by Bank">
-                  <strong>Pay by Bank</strong>
-                  <span>Direct bank-to-bank European payment.</span>
-                  <span class="method-badge">Coming soon</span>
-                </button>
-
-                <button type="button" class="payment-method" data-method="Apple Pay / Google Pay">
-                  <strong>Apple Pay / Google Pay</strong>
-                  <span>Quick mobile payment using your wallet.</span>
-                  <span class="method-badge">Coming soon</span>
-                </button>
-
-                <button type="button" class="payment-method" data-method="Credit or debit card">
-                  <strong>Credit or debit card</strong>
-                  <span>Secure card checkout through the selected payment service.</span>
-                  <span class="method-badge">Coming soon</span>
-                </button>
-
-                <button type="button" class="payment-method" data-method="PayPal">
-                  <strong>PayPal</strong>
-                  <span>Complete your donation through your PayPal account.</span>
-                  <span class="method-badge">Coming soon</span>
-                </button>
-
-              </div>
-
-              <p
-                class="method-notice"
-                id="generalMethodNotice"
-                aria-live="polite"
-                hidden
-              ></p>
-
-              <div class="payment-coming-soon">
-                Online payments aren’t active yet — we’re finishing setup
-                of our secure European Foundation account. Aggie’s
-                Foundation will never receive or store your card details
-                or online-banking credentials.
-              </div>
-
-            </div>
-
-          </div>
-
         </div>
       </div>
     </section>
@@ -1310,8 +1122,7 @@
 
         closedText.textContent =
           "This year's Support a Child campaign hasn't opened yet — check back on " +
-          formatCampaignDate(CHILD_CAMPAIGN.start) +
-          ". General donations remain open throughout the year.";
+          formatCampaignDate(CHILD_CAMPAIGN.start) + ".";
 
       } else {
 
@@ -1323,7 +1134,7 @@
 
         closedText.textContent =
           "This year's Support a Child campaign is now closed. Thank you to everyone " +
-          "who helped support children in Kumi. General donations remain open throughout the year.";
+          "who helped support children in Kumi.";
       }
     }
 
@@ -1416,8 +1227,6 @@
         }
       });
     }
-
-    setupPaymentPanelToggle("generalDonateBtn", "generalPaymentPanel");
 
     setupPaymentPanelToggle("sponsorButton", "campaignPaymentPanel", function () {
       document.getElementById("panelSponsorSummary").textContent =
