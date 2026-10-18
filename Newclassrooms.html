@@ -33,14 +33,15 @@
       margin-top:1.2em;
     }
 
-    /* Two-photo highlight grid for the finished Adesso classroom */
-    .adesso-grid {
+    /* Two-photo highlight grid, used for the Adesso and Omolokonyo
+       classroom highlight sections */
+    .project-pair-grid {
       grid-template-columns:repeat(2, minmax(0,1fr));
       max-width:720px;
       margin:0 auto;
     }
     @media (max-width:640px) {
-      .adesso-grid {
+      .project-pair-grid {
         grid-template-columns:1fr;
       }
     }
@@ -149,7 +150,7 @@
           now finished and in use.
         </p>
 
-        <div class="project-gallery-grid adesso-grid">
+        <div class="project-gallery-grid project-pair-grid">
           <figure>
             <div class="project-photo-frame">
               <img src="adesso-classroom-bricks-1.jpg" alt="Students at Adesso Primary School carrying bricks for the new classroom, finished buildings in the background">
@@ -161,6 +162,31 @@
               <img src="adesso-classroom-bricks-2.jpg" alt="The whole class and a teacher holding bricks above their heads, celebrating the new classroom at Adesso">
             </div>
             <figcaption class="project-gallery-caption">The whole class pitching in to help build it</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Underway: Omolokonyo -->
+    <section class="project-gallery-section" style="border-top:1px solid var(--line);">
+      <div class="container">
+        <h2>Underway: Omolokonyo</h2>
+        <p class="section-lead">
+          The walls are up and the columns are in — next comes the roof.
+        </p>
+
+        <div class="project-gallery-grid project-pair-grid">
+          <figure>
+            <div class="project-photo-frame">
+              <img src="omolokonyo-classroom-1.jpg" alt="Brick walls of the new classroom at Omolokonyo, columns rising for the roof, with a mound of sand in front">
+            </div>
+            <figcaption class="project-gallery-caption">Walls and columns going up at Omolokonyo</figcaption>
+          </figure>
+          <figure>
+            <div class="project-photo-frame">
+              <img src="omolokonyo-classroom-2.jpg" alt="The new classroom building at Omolokonyo seen from the corner, brick walls and columns standing, no roof yet">
+            </div>
+            <figcaption class="project-gallery-caption">Seen from the corner — ready for the roof next</figcaption>
           </figure>
         </div>
       </div>
@@ -304,8 +330,8 @@
 
       img.addEventListener('click', () => openLightboxFor(img));
 
-      // The finished-classroom highlight photos also open the lightbox
-      document.querySelectorAll('.adesso-grid img').forEach(photo => {
+      // The Adesso and Omolokonyo highlight photos also open the lightbox
+      document.querySelectorAll('.project-pair-grid img').forEach(photo => {
         photo.addEventListener('click', () => openLightboxFor(photo));
       });
 
