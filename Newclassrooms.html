@@ -18,66 +18,19 @@
   <style>
     .project-hero {
       background:#f4efe7;
-      padding:56px 0 30px;
+      padding:44px 0 30px;
     }
     .project-hero-inner {
       max-width:820px;
       margin:0 auto;
       padding:0 20px;
     }
-    .project-hero-inner h1{
-      margin:0 0 8px;
-      font-size:2.4rem;
-      color:var(--ink);
-    }
     .project-hero-inner p{
       margin:0;
       color:var(--muted);
     }
-
-    .gallery-shell{
-      padding:32px 0 60px;
-    }
-    .gallery-card{
-      max-width:900px;
-      margin:0 auto;
-      padding:18px 20px;
-      background:#fff;
-      border-radius:26px;
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      display:flex;
-      align-items:center;
-      gap:16px;
-    }
-    .gallery-frame{
-      flex:1;
-      min-height:260px;
-    }
-    .gallery-frame img{
-      width:100%;
-      max-height:460px;
-      object-fit:cover;
-      border-radius:18px;
-      border:1px solid var(--line);
-      display:block;
-    }
-    .gallery-arrow{
-      border:none;
-      background:var(--terracotta);
-      color:#fff;
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      font-size:1.4rem;
-      box-shadow:0 6px 16px rgba(199,104,68,.22);
-    }
-    .gallery-arrow:hover{
-      background:var(--terracotta-700);
+    .project-hero-inner p + p {
+      margin-top:1.2em;
     }
   </style>
 </head>
@@ -115,87 +68,101 @@
   </header>
 
   <main>
+    <!-- Full-bleed photo hero -->
+    <section class="project-photo-hero">
+      <img src="IMG_7566.jpeg" alt="Bricks being delivered for a new classroom building as students look on">
+      <div class="project-hero-overlay">
+        <div class="container">
+          <span class="project-hero-kicker">8 schools · Kumi</span>
+          <h1>Building <span class="hl">safe classrooms</span> for crowded schools</h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro -->
     <section class="project-hero">
       <div class="project-hero-inner">
-        <h1>New classrooms</h1>
-        <p>Through the foundation, we currently support children from eight different schools.
-          </p>
-      </div>
-      <div>
-      </div>
-      <div class="project-hero-inner">
         <p>
-          Because we can sponsor such a large number of students at some schools, this gives the schools additional room to invest in improving their facilities, such as building extra classrooms.
-          </p>
-      </div>
-      <div>
-      </div>
-      <div class="project-hero-inner">
+          Through the foundation, we currently support children from eight
+          different schools. Because we can sponsor such a large number of
+          students at some schools, this gives the schools additional room
+          to invest in improving their facilities, such as building extra
+          classrooms.
+        </p>
         <p>
-          In many schools, 100-200 students are taught by a single teacher, which makes learning extremely challenging. Thanks to your donations, we have already built new classroom buildings at 2 of the 8 schools, and with each year of support, we are able to expand further.  
+          In many schools, 100–200 students are taught by a single teacher,
+          which makes learning extremely challenging. Thanks to your
+          donations, we're building 3 classrooms in total across our
+          partner schools — including a finished classroom at Adesso
+          Primary School, and a new building underway at Omolokonyo. With
+          each year of support, we're able to expand further.
         </p>
       </div>
     </section>
 
-    <section class="gallery-shell">
-      <div class="gallery-card">
-        <button id="g3-prev" class="gallery-arrow" type="button" aria-label="Previous photo">‹</button>
-        <div class="gallery-frame">
-          <img id="g3-photo" src="" alt="New classrooms photo">
+    <!-- Quick facts -->
+    <section class="project-facts-section">
+      <div class="container">
+        <ul class="project-facts">
+          <li class="fact">
+            <div class="fact-circle">
+              <div class="fact-number">3</div>
+              <div class="fact-label">classrooms</div>
+              <div class="fact-label">in total</div>
+            </div>
+          </li>
+          <li class="fact">
+            <div class="fact-circle ring">
+              <div class="fact-number">8</div>
+              <div class="fact-label">schools</div>
+              <div class="fact-label">supported</div>
+            </div>
+          </li>
+          <li class="fact">
+            <div class="fact-circle ring">
+              <div class="fact-number">Kumi</div>
+              <div class="fact-label">Uganda</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Photo gallery -->
+    <section class="project-gallery-section">
+      <div class="container">
+        <h2>Building new classrooms</h2>
+        <p class="section-lead">
+          From bricks and building sites to classrooms full of students.
+        </p>
+
+        <div class="project-gallery-card">
+          <button id="g3-prev" class="project-gallery-arrow" type="button" aria-label="Previous photo">‹</button>
+          <div class="project-gallery-frame" id="g3-frame">
+            <img id="g3-photo" src="" alt="New classrooms photo">
+          </div>
+          <button id="g3-next" class="project-gallery-arrow" type="button" aria-label="Next photo">›</button>
         </div>
-        <button id="g3-next" class="gallery-arrow" type="button" aria-label="Next photo">›</button>
+        <p class="project-gallery-counter" id="g3-counter"></p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div class="cta-quote">Help us finish new classrooms for children learning under crowded conditions.</div>
+        <a href="donate.html" class="btn light">Support this project</a>
       </div>
     </section>
   </main>
 
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
 
-  <!-- Gallery 3 script -->
-  <script>
-    (function(){
-      const photos = [
-        "IMG_5142.jpeg",
-        "IMG_5245.jpeg",
-        "IMG_5344.jpeg",
-        "IMG_5411.jpeg",
-        "IMG_5479.jpeg",
-        "IMG_5550.jpeg",
-        "IMG_5600.jpeg",
-        "IMG_5605.jpeg",
-        "IMG_5613.jpeg",
-        "IMG_6321.jpeg",
-        "IMG_6434.jpeg",
-        "IMG_6645.jpeg",
-        "IMG_7335.jpeg",
-        "IMG_7566.jpeg",
-        "IMG_7569.jpeg",
-        "IMG_7575.jpeg",
-        "IMG_7578.jpeg",
-        "IMG_7581.jpeg"
-      ];
-
-      const img = document.getElementById('g3-photo');
-      const prev = document.getElementById('g3-prev');
-      const next = document.getElementById('g3-next');
-
-      if (!img) return;
-
-      let index = 0;
-      function show(i){
-        index = (i + photos.length) % photos.length;
-        img.src = photos[index];
-      }
-
-      prev.addEventListener('click', () => show(index - 1));
-      next.addEventListener('click', () => show(index + 1));
-
-      show(0);
-    })();
-  </script>
-</body>
-</html>
-
-
-<!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
@@ -240,5 +207,72 @@
     </div>
   </footer>
 
+  <!-- Gallery 3 + lightbox script -->
+  <script>
+    (function(){
+      const photos = [
+        "IMG_5142.jpeg",
+        "IMG_5245.jpeg",
+        "IMG_5344.jpeg",
+        "IMG_5411.jpeg",
+        "IMG_5479.jpeg",
+        "IMG_5550.jpeg",
+        "IMG_5600.jpeg",
+        "IMG_5605.jpeg",
+        "IMG_5613.jpeg",
+        "IMG_6321.jpeg",
+        "IMG_6434.jpeg",
+        "IMG_6645.jpeg",
+        "IMG_7335.jpeg",
+        "IMG_7566.jpeg",
+        "IMG_7569.jpeg",
+        "IMG_7575.jpeg",
+        "IMG_7578.jpeg",
+        "IMG_7581.jpeg"
+      ];
+
+      const img = document.getElementById('g3-photo');
+      const prev = document.getElementById('g3-prev');
+      const next = document.getElementById('g3-next');
+      const counter = document.getElementById('g3-counter');
+
+      if (!img) return;
+
+      let index = 0;
+      function show(i){
+        index = (i + photos.length) % photos.length;
+        img.src = photos[index];
+        counter.textContent = "Photo " + (index + 1) + " of " + photos.length;
+      }
+
+      prev.addEventListener('click', () => show(index - 1));
+      next.addEventListener('click', () => show(index + 1));
+
+      show(0);
+
+      // Click the displayed photo to see it full-size
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const closeBtn = document.getElementById('lightboxClose');
+
+      function openLightbox() {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.hidden = false;
+      }
+      function closeLightbox() {
+        lightbox.hidden = true;
+      }
+
+      img.addEventListener('click', openLightbox);
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
