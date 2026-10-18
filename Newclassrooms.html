@@ -200,14 +200,26 @@
           From bricks and building sites to classrooms full of students.
         </p>
 
-        <div class="project-gallery-card">
-          <button id="g3-prev" class="project-gallery-arrow" type="button" aria-label="Previous photo">‹</button>
-          <div class="project-gallery-frame" id="g3-frame">
-            <img id="g3-photo" src="" alt="New classrooms photo">
-          </div>
-          <button id="g3-next" class="project-gallery-arrow" type="button" aria-label="Next photo">›</button>
+        <div class="project-gallery-grid">
+          <figure><div class="project-photo-frame"><img src="IMG_5142.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5245.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5344.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5411.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5479.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5550.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5600.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5605.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5613.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_6321.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_6434.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_6645.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7335.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7566.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7569.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7575.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7578.jpeg" alt="New classrooms photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7581.jpeg" alt="New classrooms photo"></div></figure>
         </div>
-        <p class="project-gallery-counter" id="g3-counter"></p>
       </div>
     </section>
 
@@ -271,50 +283,9 @@
     </div>
   </footer>
 
-  <!-- Gallery 3 + lightbox script -->
+  <!-- Gallery lightbox script -->
   <script>
     (function(){
-      const photos = [
-        "IMG_5142.jpeg",
-        "IMG_5245.jpeg",
-        "IMG_5344.jpeg",
-        "IMG_5411.jpeg",
-        "IMG_5479.jpeg",
-        "IMG_5550.jpeg",
-        "IMG_5600.jpeg",
-        "IMG_5605.jpeg",
-        "IMG_5613.jpeg",
-        "IMG_6321.jpeg",
-        "IMG_6434.jpeg",
-        "IMG_6645.jpeg",
-        "IMG_7335.jpeg",
-        "IMG_7566.jpeg",
-        "IMG_7569.jpeg",
-        "IMG_7575.jpeg",
-        "IMG_7578.jpeg",
-        "IMG_7581.jpeg"
-      ];
-
-      const img = document.getElementById('g3-photo');
-      const prev = document.getElementById('g3-prev');
-      const next = document.getElementById('g3-next');
-      const counter = document.getElementById('g3-counter');
-
-      if (!img) return;
-
-      let index = 0;
-      function show(i){
-        index = (i + photos.length) % photos.length;
-        img.src = photos[index];
-        counter.textContent = "Photo " + (index + 1) + " of " + photos.length;
-      }
-
-      prev.addEventListener('click', () => show(index - 1));
-      next.addEventListener('click', () => show(index + 1));
-
-      show(0);
-
-      // Click the displayed photo to see it full-size
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightboxImg');
       const closeBtn = document.getElementById('lightboxClose');
@@ -328,10 +299,8 @@
         lightbox.hidden = true;
       }
 
-      img.addEventListener('click', () => openLightboxFor(img));
-
-      // The Adesso and Omolokonyo highlight photos also open the lightbox
-      document.querySelectorAll('.project-pair-grid img').forEach(photo => {
+      // Covers the Adesso, Omolokonyo, and general classrooms grids
+      document.querySelectorAll('.project-gallery-grid img').forEach(photo => {
         photo.addEventListener('click', () => openLightboxFor(photo));
       });
 

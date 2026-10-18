@@ -143,14 +143,24 @@
           Students supported by the scholarship fund, at school in Kumi.
         </p>
 
-        <div class="project-gallery-card">
-          <button id="g1-prev" class="project-gallery-arrow" type="button" aria-label="Previous photo">‹</button>
-          <div class="project-gallery-frame" id="g1-frame">
-            <img id="g1-photo" src="" alt="Scholarship fund photo">
-          </div>
-          <button id="g1-next" class="project-gallery-arrow" type="button" aria-label="Next photo">›</button>
+        <div class="project-gallery-grid">
+          <figure><div class="project-photo-frame"><img src="IMG_5020.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5074.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5089.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5111.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5242.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5542.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5565.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5569.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5622.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_5648.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_6324.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_6375.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_6485.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_6552.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7304.jpeg" alt="Scholarship fund photo"></div></figure>
+          <figure><div class="project-photo-frame"><img src="IMG_7424.jpeg" alt="Scholarship fund photo"></div></figure>
         </div>
-        <p class="project-gallery-counter" id="g1-counter"></p>
       </div>
     </section>
 
@@ -214,63 +224,26 @@
     </div>
   </footer>
 
-  <!-- Gallery 1 + lightbox script -->
+  <!-- Gallery lightbox script -->
   <script>
     (function(){
-      const photos = [
-        "IMG_5020.jpeg",
-        "IMG_5074.jpeg",
-        "IMG_5089.jpeg",
-        "IMG_5111.jpeg",
-        "IMG_5242.jpeg",
-        "IMG_5542.jpeg",
-        "IMG_5565.jpeg",
-        "IMG_5569.jpeg",
-        "IMG_5622.jpeg",
-        "IMG_5648.jpeg",
-        "IMG_6324.jpeg",
-        "IMG_6375.jpeg",
-        "IMG_6485.jpeg",
-        "IMG_6552.jpeg",
-        "IMG_7304.jpeg",
-        "IMG_7424.jpeg"
-      ];
-
-      const img = document.getElementById('g1-photo');
-      const prev = document.getElementById('g1-prev');
-      const next = document.getElementById('g1-next');
-      const counter = document.getElementById('g1-counter');
-
-      if (!img) return;
-
-      let index = 0;
-      function show(i){
-        index = (i + photos.length) % photos.length;
-        img.src = photos[index];
-        counter.textContent = "Photo " + (index + 1) + " of " + photos.length;
-      }
-
-      prev.addEventListener('click', () => show(index - 1));
-      next.addEventListener('click', () => show(index + 1));
-
-      // initial image
-      show(0);
-
-      // Click the displayed photo to see it full-size
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightboxImg');
       const closeBtn = document.getElementById('lightboxClose');
 
-      function openLightbox() {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
+      function openLightboxFor(photoEl) {
+        lightboxImg.src = photoEl.src;
+        lightboxImg.alt = photoEl.alt;
         lightbox.hidden = false;
       }
       function closeLightbox() {
         lightbox.hidden = true;
       }
 
-      img.addEventListener('click', openLightbox);
+      document.querySelectorAll('.project-gallery-grid img').forEach(photo => {
+        photo.addEventListener('click', () => openLightboxFor(photo));
+      });
+
       closeBtn.addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
