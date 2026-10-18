@@ -32,6 +32,18 @@
     .project-hero-inner p + p {
       margin-top:1.2em;
     }
+
+    /* Two-photo highlight grid for the finished Adesso classroom */
+    .adesso-grid {
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      max-width:720px;
+      margin:0 auto;
+    }
+    @media (max-width:640px) {
+      .adesso-grid {
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
     <link rel="icon" type="image/png" href="logo-nontrans.jpg">
@@ -70,7 +82,7 @@
   <main>
     <!-- Full-bleed photo hero -->
     <section class="project-photo-hero">
-      <img src="IMG_7566.jpeg" alt="Bricks being delivered for a new classroom building as students look on">
+      <img src="adesso-classroom-bricks-2.jpg" alt="Students and a teacher at Adesso Primary School celebrating with bricks for their new classroom">
       <div class="project-hero-overlay">
         <div class="container">
           <span class="project-hero-kicker">8 schools · Kumi</span>
@@ -128,8 +140,34 @@
       </div>
     </section>
 
-    <!-- Photo gallery -->
+    <!-- Finished classroom at Adesso -->
     <section class="project-gallery-section">
+      <div class="container">
+        <h2>Finished: Adesso Primary School</h2>
+        <p class="section-lead">
+          Students helped carry the bricks for their own new classroom —
+          now finished and in use.
+        </p>
+
+        <div class="project-gallery-grid adesso-grid">
+          <figure>
+            <div class="project-photo-frame">
+              <img src="adesso-classroom-bricks-1.jpg" alt="Students at Adesso Primary School carrying bricks for the new classroom, finished buildings in the background">
+            </div>
+            <figcaption class="project-gallery-caption">Students carrying bricks for the new classroom</figcaption>
+          </figure>
+          <figure>
+            <div class="project-photo-frame">
+              <img src="adesso-classroom-bricks-2.jpg" alt="The whole class and a teacher holding bricks above their heads, celebrating the new classroom at Adesso">
+            </div>
+            <figcaption class="project-gallery-caption">The whole class pitching in to help build it</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Photo gallery -->
+    <section class="project-gallery-section" style="border-top:1px solid var(--line);">
       <div class="container">
         <h2>Building new classrooms</h2>
         <p class="section-lead">
@@ -255,16 +293,22 @@
       const lightboxImg = document.getElementById('lightboxImg');
       const closeBtn = document.getElementById('lightboxClose');
 
-      function openLightbox() {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
+      function openLightboxFor(photoEl) {
+        lightboxImg.src = photoEl.src;
+        lightboxImg.alt = photoEl.alt;
         lightbox.hidden = false;
       }
       function closeLightbox() {
         lightbox.hidden = true;
       }
 
-      img.addEventListener('click', openLightbox);
+      img.addEventListener('click', () => openLightboxFor(img));
+
+      // The finished-classroom highlight photos also open the lightbox
+      document.querySelectorAll('.adesso-grid img').forEach(photo => {
+        photo.addEventListener('click', () => openLightboxFor(photo));
+      });
+
       closeBtn.addEventListener('click', closeLightbox);
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
