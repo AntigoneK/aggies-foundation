@@ -45,6 +45,16 @@
         grid-template-columns:1fr;
       }
     }
+
+    /* Olelia's 4th photo (the letter) is alone on its row in the
+       3-column grid - center it under the middle column. Below 820px
+       the shared grid drops to 2 columns, where 4 photos already fill
+       two full rows evenly, so the override is cleared there. */
+    @media (min-width:821px) {
+      .olelia-letter-figure {
+        grid-column:2;
+      }
+    }
   </style>
 </head>
     <link rel="icon" type="image/png" href="logo-nontrans.jpg">
@@ -155,13 +165,11 @@
             <div class="project-photo-frame">
               <img src="adesso-classroom-bricks-1.jpg" alt="Students at Adesso Primary School carrying bricks for the new classroom, finished buildings in the background">
             </div>
-            <figcaption class="project-gallery-caption">Students carrying bricks for the new classroom</figcaption>
           </figure>
           <figure>
             <div class="project-photo-frame">
               <img src="adesso-classroom-bricks-2.jpg" alt="The whole class and a teacher holding bricks above their heads, celebrating the new classroom at Adesso">
             </div>
-            <figcaption class="project-gallery-caption">The whole class pitching in to help build it</figcaption>
           </figure>
         </div>
       </div>
@@ -180,13 +188,11 @@
             <div class="project-photo-frame">
               <img src="omolokonyo-classroom-1.jpg" alt="Brick walls of the new classroom at Omolokonyo, columns rising for the roof, with a mound of sand in front">
             </div>
-            <figcaption class="project-gallery-caption">Walls and columns going up at Omolokonyo</figcaption>
           </figure>
           <figure>
             <div class="project-photo-frame">
               <img src="omolokonyo-classroom-2.jpg" alt="The new classroom building at Omolokonyo seen from the corner, brick walls and columns standing, no roof yet">
             </div>
-            <figcaption class="project-gallery-caption">Seen from the corner — ready for the roof next</figcaption>
           </figure>
         </div>
       </div>
@@ -201,30 +207,26 @@
           latest from the site, plus a note from the students themselves.
         </p>
 
-        <div class="project-gallery-grid">
+        <div class="project-gallery-grid olelia-photo-grid">
           <figure>
             <div class="project-photo-frame">
               <img src="olelia-classroom-1.jpg" alt="The foundation walls of the new classroom at Olelia Primary School, with a pile of bricks nearby">
             </div>
-            <figcaption class="project-gallery-caption">The foundation walls taking shape</figcaption>
           </figure>
           <figure>
             <div class="project-photo-frame">
               <img src="olelia-classroom-2.jpg" alt="A builder reinforcing the classroom walls at Olelia with steel bars and bricks">
             </div>
-            <figcaption class="project-gallery-caption">Reinforcing the walls with steel and brick</figcaption>
           </figure>
           <figure>
             <div class="project-photo-frame">
               <img src="olelia-classroom-3.jpg" alt="Builders laying bricks along the top of the rising classroom walls at Olelia">
             </div>
-            <figcaption class="project-gallery-caption">Raising the walls higher</figcaption>
           </figure>
-          <figure>
+          <figure class="olelia-letter-figure">
             <div class="project-photo-frame">
               <img src="olelia-appreciation-letter.jpg" alt="A handwritten thank-you letter from the students of Olelia Primary School to Aggie's Foundation">
             </div>
-            <figcaption class="project-gallery-caption">A thank-you note from the students of Olelia Primary School</figcaption>
           </figure>
         </div>
       </div>
