@@ -46,12 +46,13 @@
       }
     }
 
-    /* Olelia's 4th photo (the letter) is alone on its row in the
-       3-column grid - center it under the middle column. Below 820px
-       the shared grid drops to 2 columns, where 4 photos already fill
-       two full rows evenly, so the override is cleared there. */
+    /* When a section's 4th photo is alone on its row in the 3-column
+       grid, center it under the middle column. Below 820px the shared
+       grid drops to 2 columns, where 4 photos already fill two full
+       rows evenly, so the override is cleared there. */
     @media (min-width:821px) {
-      .olelia-letter-figure {
+      .olelia-letter-figure,
+      .adesso-last-figure {
         grid-column:2;
       }
     }
@@ -174,6 +175,11 @@
           <figure>
             <div class="project-photo-frame">
               <img src="adesso-mural.jpg" alt="A wall mural at the new classroom reading 'a place for children to flourish', credited to Teacher Cate and Aggie's Foundation">
+            </div>
+          </figure>
+          <figure class="adesso-last-figure">
+            <div class="project-photo-frame">
+              <img src="adesso-finished-classroom.jpg" alt="The finished classroom building at Adesso Primary School, seen from outside with its mustard walls and red roof">
             </div>
           </figure>
         </div>
