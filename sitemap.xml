@@ -6,10 +6,6 @@
   </url>
 
   <url>
-    <loc>https://aggiesfoundation.com/index.html</loc>
-  </url>
-
-  <url>
     <loc>https://aggiesfoundation.com/projects.html</loc>
   </url>
 
@@ -25,9 +21,20 @@
     <loc>https://aggiesfoundation.com/contact.html</loc>
   </url>
 
-  <!-- Add each project page as needed -->
   <url>
     <loc>https://aggiesfoundation.com/Scholarshipfund.html</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/Back-to-school%20kits.html</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/Newclassrooms.html</loc>
+  </url>
+
+  <url>
+    <loc>https://aggiesfoundation.com/Dorms.html</loc>
   </url>
 
 </urlset>
