@@ -15,6 +15,7 @@
   ]
 }
 </script>
+<script defer src="newsletter.js"></script>
 <meta name="description"
       content="Aggie's Foundation empowers education in Kumi through scholarships, school supplies, and new classrooms. Donate €7 to support a child's school year.">
 <meta name="keywords" content="charity, education, uganda, aggies foundation, donate, kumi, school, scholarship">
@@ -309,10 +310,11 @@
 
       <div>
         <h4>Stay in touch</h4>
-        <form class="inline-form" onsubmit="event.preventDefault(); alert('Thanks! We will be in touch.');">
-          <input type="email" placeholder="Email address" required />
-          <button class="btn primary">Subscribe</button>
+        <form class="inline-form" id="newsletter-form">
+          <input type="email" name="email" placeholder="Email address" required />
+          <button class="btn primary" type="submit">Subscribe</button>
         </form>
+        <p class="newsletter-status" id="newsletter-status" aria-live="polite"></p>
       </div>
     </div>
   </footer>

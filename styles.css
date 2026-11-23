@@ -1048,6 +1048,12 @@ input:focus,textarea:focus{
   gap:8px;
 }
 .inline-form input{ flex:1; }
+.newsletter-status{
+  margin:10px 0 0;
+  font-size:0.85rem;
+  color:#ffbd59;
+  min-height:1.2em;
+}
 
 /* =========================================================
    Responsive header & misc
