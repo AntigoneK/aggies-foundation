@@ -1047,7 +1047,7 @@ input:focus,textarea:focus{
   display:flex;
   gap:8px;
 }
-.inline-form input{ flex:1; }
+.inline-form input{ flex:1; min-width:0; }
 .newsletter-status{
   margin:10px 0 0;
   font-size:0.85rem;
@@ -1420,6 +1420,15 @@ input:focus,textarea:focus{
     max-width:none;
   }
   .home-newsletter-form-wrap{
+    width:100%;
+  }
+}
+
+@media (max-width:480px){
+  .home-newsletter-form-wrap .inline-form{
+    flex-direction:column;
+  }
+  .home-newsletter-form-wrap .inline-form button{
     width:100%;
   }
 }
