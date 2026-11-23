@@ -7,8 +7,7 @@
 // gets wired up independently, and each looks for its own status message
 // in the next element with class "newsletter-status".
 (function () {
-  // TODO: replace with the deployed Apps Script Web App URL (ends in /exec)
-  var ENDPOINT = 'PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzcYAISeMKPuU1xFEz6jL7T3D5MYFqweuYF4p61Hq_bDlWXt0bmmkBfWu57nhBgmvKDEQ/exec';
 
   var forms = document.querySelectorAll('.newsletter-form');
   if (!forms.length) return;
