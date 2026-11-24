@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="description"
+    content="Sign up for the Aggie's Foundation newsletter — occasional updates on new classrooms, campaigns, and stories from Kumi, Uganda.">
+<meta name="keywords" content="charity, education, uganda, aggies foundation, newsletter, kumi, school, scholarship">
+<meta name="robots" content="index, follow">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Newsletter signup • Aggie's Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="canonical" href="https://aggiesfoundation.com/newsletter.html" />
+<script defer src="newsletter.js"></script>
+
+<!-- Newsletter landing page — focused, no nav distractions -->
+<style>
+  .newsletter-landing {
+    min-height: calc(100vh - 160px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 20px;
+  }
+  .newsletter-landing-card {
+    max-width: 480px;
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .newsletter-landing-card .logo {
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .newsletter-landing-card h1 {
+    margin: 0 0 10px;
+    font-size: 1.8rem;
+    color: var(--ink);
+  }
+  .newsletter-landing-card p.lead {
+    margin: 0 0 26px;
+    color: var(--muted);
+  }
+  .newsletter-landing-card .inline-form {
+    flex-direction: column;
+  }
+  .newsletter-landing-card .inline-form input {
+    width: 100%;
+    margin-bottom: 12px;
+    background: var(--cream);
+  }
+  .newsletter-landing-card .inline-form button {
+    width: 100%;
+  }
+  .newsletter-landing-card .newsletter-status {
+    color: var(--green);
+    margin-top: 14px;
+  }
+  .newsletter-landing-back {
+    display: block;
+    margin-top: 22px;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  @media (max-width: 480px) {
+    .newsletter-landing-card {
+      padding: 32px 22px;
+    }
+  }
+</style>
+</head>
+    <link rel="icon" type="image/png" href="logo-nontrans.jpg">
+<body>
+  <!-- thin green seam -->
+  <div class="top-strip"></div>
+
+  <main class="newsletter-landing">
+    <div class="newsletter-landing-card">
+      <a href="index.html" class="logo">
+        <img src="logo.PNG" alt="Aggie's Foundation logo">
+        <span><span class="brand-accent">Aggie’s</span> <strong>Foundation</strong></span>
+      </a>
+
+      <h1>Join our newsletter</h1>
+      <p class="lead">Occasional updates on new classrooms, campaigns, and stories from Kumi — straight to your inbox.</p>
+
+      <form class="inline-form newsletter-form">
+        <input type="email" name="email" placeholder="Email address" required />
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+      <p class="newsletter-status" aria-live="polite"></p>
+
+      <a href="index.html" class="newsletter-landing-back">&larr; Back to aggiesfoundation.com</a>
+    </div>
+  </main>
+</body>
+</html>
