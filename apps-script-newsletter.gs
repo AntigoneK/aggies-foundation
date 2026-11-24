@@ -23,7 +23,11 @@ function doPost(e) {
     }
   }
 
-  sheet.appendRow([new Date(), email]);
+  // Stamped explicitly in CET/CEST, rather than relying on the
+  // spreadsheet's own timezone setting (which Google sets to GMT by
+  // default and can make timestamps look several hours off).
+  var timestamp = Utilities.formatDate(new Date(), 'Europe/Amsterdam', 'yyyy-MM-dd HH:mm:ss');
+  sheet.appendRow([timestamp, email]);
 
   return ContentService.createTextOutput(
     JSON.stringify({ result: 'success' })

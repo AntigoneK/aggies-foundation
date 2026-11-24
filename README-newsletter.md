@@ -35,3 +35,14 @@ The sheet already exists: **Newsletter Subscribers**, inside the
   for the change to take effect. Saving the code alone isn't enough.
 - The deployment URL stays the same across new versions, so no website
   change is needed when you update the script itself.
+
+## Signup timestamps
+
+Each row's timestamp is stamped by the script in Central European Time
+(Europe/Amsterdam), so it reflects when the signup actually happened in
+your timezone, regardless of the spreadsheet's own timezone setting.
+
+To pick up this fix, open the Apps Script editor, replace the code with
+the current contents of `apps-script-newsletter.gs`, and create a new
+deployment (see "Changing anything later" above). Rows recorded before
+that will keep their old (possibly off-by-a-few-hours) timestamps.
