@@ -128,29 +128,43 @@
      </div>
     </section>
 
-    <!-- CAMPAIGN PREVIEW (mirrors the campaign card on donate.html) -->
+    <!-- FUNDRAISING OVERVIEW (GoFundMe campaign) -->
     <section class="home-campaign-section">
       <div class="container">
-        <div class="home-campaign-card">
-
-          <div id="homeCampaignStatus" class="home-campaign-status"></div>
+        <div class="home-campaign-card fundraising-widget">
 
           <div class="home-campaign-main">
             <div>
-              <h3 id="homeCampaignTitle">Support a Child Campaign</h3>
-              <p id="homeCampaignDates" class="home-campaign-dates"></p>
+              <h3>Our fundraising campaign</h3>
             </div>
 
             <a href="donate.html" class="btn contrast">See campaign details</a>
           </div>
 
-          <div class="home-progress-track">
-            <div id="homeProgressFill" class="home-progress-fill"></div>
+          <div class="fw-countdown">
+            <span class="fw-kicker">Donations open in</span>
+            <div class="countdown-row">
+              <div class="countdown-unit"><strong class="fw-days">00</strong><span>days</span></div>
+              <div class="countdown-unit"><strong class="fw-hours">00</strong><span>hrs</span></div>
+              <div class="countdown-unit"><strong class="fw-minutes">00</strong><span>min</span></div>
+              <div class="countdown-unit"><strong class="fw-seconds">00</strong><span>sec</span></div>
+            </div>
+            <p class="fw-note">Our GoFundMe campaign opens on 1 December.</p>
           </div>
 
-          <div class="home-progress-footer">
-            <span id="homeProgressLabel">0% of this year’s goal</span>
-            <span id="homeCampaignTarget">0 children goal</span>
+          <div class="fw-progress" hidden>
+            <div class="home-progress-track">
+              <div class="fw-progress-fill home-progress-fill"></div>
+            </div>
+            <div class="home-progress-footer">
+              <span class="fw-raised-label">€0 raised</span>
+              <span class="fw-goal-label">of €0 goal</span>
+            </div>
+            <a href="#" target="_blank" rel="noopener" class="btn contrast fw-donate-link">Donate on GoFundMe</a>
+          </div>
+
+          <div class="fw-soon" hidden>
+            <p>Our fundraiser is launching very soon — check back shortly.</p>
           </div>
 
         </div>
@@ -348,69 +362,12 @@
   </script>
 
   <!-- =====================================================
-       HOMEPAGE CAMPAIGN PREVIEW
-       Reads the same CHILD_CAMPAIGN object as donate.html
-       (from campaign-config.js) so the two pages never drift
-       out of sync. This is a summary only — the full campaign
-       card with amount options lives on donate.html.
+       HOMEPAGE FUNDRAISING WIDGET
+       Reads the same GOFUNDME_CAMPAIGN object as donate.html
+       (from gofundme-config.js) so the two pages never drift
+       out of sync.
        ===================================================== -->
-  <script src="campaign-config.js"></script>
-  <script>
-    (function () {
-
-      function formatDate(dateString) {
-        return new Date(dateString).toLocaleDateString("en-GB", {
-          day: "numeric",
-          month: "long",
-          year: "numeric"
-        });
-      }
-
-      const now = new Date();
-      const start = new Date(CHILD_CAMPAIGN.start);
-      const end = new Date(CHILD_CAMPAIGN.end);
-
-      const campaignOpen = now >= start && now <= end;
-      const campaignUpcoming = now < start;
-
-      document.getElementById("homeCampaignTitle").textContent =
-        CHILD_CAMPAIGN.label;
-
-      document.getElementById("homeCampaignDates").textContent =
-        formatDate(CHILD_CAMPAIGN.start) + " – " + formatDate(CHILD_CAMPAIGN.end);
-
-      const progress =
-        CHILD_CAMPAIGN.targetChildren > 0
-          ? Math.min(
-              100,
-              Math.round(
-                (CHILD_CAMPAIGN.childrenHelped / CHILD_CAMPAIGN.targetChildren) * 100
-              )
-            )
-          : 0;
-
-      document.getElementById("homeProgressFill").style.width = progress + "%";
-
-      document.getElementById("homeProgressLabel").textContent =
-        progress + "% of this year’s goal";
-
-      document.getElementById("homeCampaignTarget").textContent =
-        CHILD_CAMPAIGN.targetChildren.toLocaleString("en-GB") + " children goal";
-
-      const status = document.getElementById("homeCampaignStatus");
-
-      if (campaignOpen) {
-        status.textContent = "Campaign open";
-        status.className = "home-campaign-status open";
-      } else if (campaignUpcoming) {
-        status.textContent = "Campaign opens soon";
-        status.className = "home-campaign-status upcoming";
-      } else {
-        status.textContent = "Campaign complete";
-        status.className = "home-campaign-status closed";
-      }
-
-    })();
-  </script>
+  <script src="gofundme-config.js"></script>
+  <script src="gofundme.js"></script>
 </body>
 </html>

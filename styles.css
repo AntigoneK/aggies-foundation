@@ -647,6 +647,68 @@ button,input,select,textarea{ font:inherit; }
 }
 
 /* =========================================================
+   GoFundMe fundraising widget (countdown / progress / donate)
+   shared by index.html and donate.html
+   ========================================================= */
+.fw-countdown{
+  margin-top:18px;
+}
+.fw-kicker{
+  display:block;
+  margin-bottom:10px;
+  font-size:0.84rem;
+  font-weight:700;
+  color:var(--muted);
+}
+.countdown-row{
+  display:flex;
+  gap:14px;
+  margin-bottom:12px;
+}
+.countdown-unit{
+  flex:1 1 0;
+  text-align:center;
+  background:#f8f5ef;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:10px 6px;
+}
+.countdown-unit strong{
+  display:block;
+  font-size:1.5rem;
+  font-weight:800;
+  color:var(--ink);
+  line-height:1.1;
+}
+.countdown-unit span{
+  font-size:0.72rem;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+  color:var(--muted);
+}
+.fw-note{
+  margin:0;
+  font-size:0.9rem;
+  color:var(--muted);
+}
+.fw-progress .btn{
+  margin-top:14px;
+}
+.fw-soon p{
+  margin:0;
+  padding:14px 16px;
+  border-radius:16px;
+  background:#f6f2eb;
+  color:var(--muted);
+  font-size:0.92rem;
+}
+
+@media (max-width:480px){
+  .countdown-row{ gap:8px; }
+  .countdown-unit strong{ font-size:1.2rem; }
+}
+
+/* =========================================================
    Homepage — meet the founder
    ========================================================= */
 
