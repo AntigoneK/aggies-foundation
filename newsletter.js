@@ -1,4 +1,4 @@
-// Newsletter signup — sends the submitted email to a Google Sheet via a
+// Newsletter signup, sends the submitted email to a Google Sheet via a
 // Google Apps Script Web App endpoint. See README-newsletter.md for how
 // that endpoint is set up and how to change it.
 //
@@ -31,7 +31,7 @@
       if (!email) return;
 
       if (!ENDPOINT || ENDPOINT.indexOf('PASTE_YOUR') === 0) {
-        setStatus("Signup isn't connected yet — check back soon.");
+        setStatus("Signup isn't connected yet. Check back soon.");
         return;
       }
 
@@ -53,7 +53,7 @@
           form.reset();
         })
         .catch(function () {
-          setStatus('Something went wrong — please try again.');
+          setStatus('Something went wrong. Please try again.');
         })
         .finally(function () {
           button.disabled = false;

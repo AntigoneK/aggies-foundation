@@ -5,7 +5,7 @@
 }*/
 
 /* =========================================================
-   Aggie's Foundation — Global
+   Aggie's Foundation, Global
    ========================================================= */
 
 :root {
@@ -277,7 +277,7 @@ button,input,select,textarea{ font:inherit; }
 }
 
 /* =========================================================
-   Hero — headline, circles, image
+   Hero: headline, circles, image
    ========================================================= */
 
 .hero-split{
@@ -544,7 +544,7 @@ button,input,select,textarea{ font:inherit; }
 }
 
 /* =========================================================
-   Homepage — campaign preview
+   Homepage: campaign preview
    (compact version of the campaign card on donate.html)
    ========================================================= */
 
@@ -709,7 +709,7 @@ button,input,select,textarea{ font:inherit; }
 }
 
 /* =========================================================
-   Homepage — meet the founder
+   Homepage: meet the founder
    ========================================================= */
 
 .meet-aggie-section{
@@ -774,7 +774,7 @@ button,input,select,textarea{ font:inherit; }
 }
 
 /* =========================================================
-   Homepage — moments from Kumi photo strip
+   Homepage: moments from Kumi photo strip
    ========================================================= */
 
 .moments-section{
@@ -1156,7 +1156,7 @@ input:focus,textarea:focus{
   }
 
   /* On mobile there's no hover, so the Projects dropdown can't rely
-     on :hover/:focus-within — show its links inline instead of as an
+     on :hover/:focus-within, show its links inline instead of as an
      absolutely-positioned panel, which was getting clipped by the
      screen edge. */
   .nav-item-projects .nav-dropdown{
@@ -1221,7 +1221,7 @@ input:focus,textarea:focus{
 /* =====================================================
    PROJECT SUB-PAGE SHARED STYLES
    Full-bleed photo hero, facts row, photo gallery, and
-   lightbox — shared visual language across every project
+   lightbox, shared visual language across every project
    detail page (Scholarship fund, Back-to-school kits,
    New classrooms, Girls' dormitory).
    ===================================================== */

@@ -1,6 +1,6 @@
 /*
   ========================================================
-  GOFUNDME CAMPAIGN CONFIG — used by index.html and donate.html
+  GOFUNDME CAMPAIGN CONFIG, used by index.html and donate.html
   ========================================================
 
   Fill in gofundmeUrl once the GoFundMe campaign is live, then push
@@ -12,7 +12,7 @@
   progress bar to reflect the latest GoFundMe total. Once the
   campaign is live, GoFundMe also offers its own embeddable widget
   (campaign dashboard > Share > Embed) that updates itself with no
-  manual work — ask Claude to swap that in instead if you'd rather
+  manual work. Ask Claude to swap that in instead if you'd rather
   not update these two numbers by hand.
 */
 

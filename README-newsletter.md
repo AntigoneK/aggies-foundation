@@ -1,4 +1,4 @@
-# Newsletter signup — one-time setup
+# Newsletter signup setup (one time)
 
 The "Stay in touch" form in the site footer collects an email address and
 sends it to a Google Sheet, via a small Google Apps Script "Web App"
@@ -19,11 +19,11 @@ The sheet already exists: **Newsletter Subscribers**, inside the
 6. Set:
    - **Execute as:** Me (your Google account)
    - **Who has access:** Anyone
-7. Click **Deploy**. Google will ask you to authorize the script —
-   this is the one step only you can do; it's a security check Google
+7. Click **Deploy**. Google will ask you to authorize the script.
+   This is the one step only you can do. It's a security check Google
    requires for any script that becomes a public endpoint.
 8. Copy the **Web app URL** it gives you (ends in `/exec`).
-9. Send that URL back — it gets pasted into one line of `newsletter.js`
+9. Send that URL back. It gets pasted into one line of `newsletter.js`
    (the `ENDPOINT` constant near the top), and the signup form goes live
    on the next deploy.
 
@@ -32,6 +32,6 @@ The sheet already exists: **Newsletter Subscribers**, inside the
 - To see subscribers: just open the Newsletter Subscribers sheet.
 - If you ever edit the Apps Script code, you need to create a **new
   deployment** (Deploy → Manage deployments → pencil icon → New version)
-  for the change to take effect — saving the code alone isn't enough.
+  for the change to take effect. Saving the code alone isn't enough.
 - The deployment URL stays the same across new versions, so no website
   change is needed when you update the script itself.

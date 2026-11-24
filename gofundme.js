@@ -1,4 +1,4 @@
-// GoFundMe countdown / progress / donate widget — shared by index.html
+// GoFundMe countdown / progress / donate widget, shared by index.html
 // and donate.html. Reads GOFUNDME_CAMPAIGN from gofundme-config.js.
 //
 // Each ".fundraising-widget" on the page shows exactly one of three
