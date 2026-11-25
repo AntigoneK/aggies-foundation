@@ -46,3 +46,39 @@ To pick up this fix, open the Apps Script editor, replace the code with
 the current contents of `apps-script-newsletter.gs`, and create a new
 deployment (see "Changing anything later" above). Rows recorded before
 that will keep their old (possibly off-by-a-few-hours) timestamps.
+
+## Thank-you email (sends automatically on signup)
+
+Every new subscriber now also gets an automatic "Thanks for subscribing"
+email, styled to match the site (logo, colors, a photo, a button back to
+aggiesfoundation.com). The design lives in `newsletter-thank-you-email.html`
+in this same folder, in case you want to preview or tweak it. It's also
+copied into `apps-script-newsletter.gs` as the `WELCOME_EMAIL_HTML`
+constant, since that's what the script actually sends. If you change one,
+change the other to match.
+
+The email is sent **from contact@aggiesfoundation.com**, not from your
+personal Google account. For that to work, contact@aggiesfoundation.com
+needs to already be set up as a verified **"Send mail as"** alias inside
+the Gmail settings of the personal Google account that runs this script
+(the one that owns the Newsletter Subscribers sheet):
+
+1. In that Gmail account, go to the gear icon → **See all settings**.
+2. Open the **Accounts and Import** tab.
+3. Under **Send mail as**, check whether `contact@aggiesfoundation.com`
+   is already listed and verified.
+   - **If it's already there and verified:** nothing else to do here.
+   - **If it's not:** click **Add another email address**, enter
+     "Aggie's Foundation" and `contact@aggiesfoundation.com`, and follow
+     the verification step (Google emails a confirmation link to
+     contact@aggiesfoundation.com, which you'll need to open).
+4. Paste the current `apps-script-newsletter.gs` into the Apps Script
+   editor and create a **new deployment** (see "Changing anything
+   later" above).
+5. The first time this runs, Google will ask you to re-authorize the
+   script, this time for permission to send email. This is the same
+   kind of one-time consent click as the original setup.
+
+If the alias isn't verified yet, signups still work and still get saved
+to the sheet. The welcome email just silently fails to send until the
+alias is set up, so nothing breaks in the meantime.
