@@ -57,28 +57,36 @@ copied into `apps-script-newsletter.gs` as the `WELCOME_EMAIL_HTML`
 constant, since that's what the script actually sends. If you change one,
 change the other to match.
 
-The email is sent **from contact@aggiesfoundation.com**, not from your
-personal Google account. For that to work, contact@aggiesfoundation.com
-needs to already be set up as a verified **"Send mail as"** alias inside
-the Gmail settings of the personal Google account that runs this script
-(the one that owns the Newsletter Subscribers sheet):
+The email is sent **from contact@aggiesfoundation.com**. For that to
+happen automatically, the script itself needs to run as that account,
+not your personal one. That means sharing the sheet with
+contact@aggiesfoundation.com and deploying from inside that account:
 
-1. In that Gmail account, go to the gear icon → **See all settings**.
-2. Open the **Accounts and Import** tab.
-3. Under **Send mail as**, check whether `contact@aggiesfoundation.com`
-   is already listed and verified.
-   - **If it's already there and verified:** nothing else to do here.
-   - **If it's not:** click **Add another email address**, enter
-     "Aggie's Foundation" and `contact@aggiesfoundation.com`, and follow
-     the verification step (Google emails a confirmation link to
-     contact@aggiesfoundation.com, which you'll need to open).
-4. Paste the current `apps-script-newsletter.gs` into the Apps Script
-   editor and create a **new deployment** (see "Changing anything
-   later" above).
-5. The first time this runs, Google will ask you to re-authorize the
-   script, this time for permission to send email. This is the same
-   kind of one-time consent click as the original setup.
+1. Open the **Newsletter Subscribers** spreadsheet from your personal
+   account (as usual) and click **Share**. Add
+   `contact@aggiesfoundation.com` with **Editor** access, then send.
+2. Log into Google as `contact@aggiesfoundation.com` (use a private/
+   incognito window, or sign out of your personal account first).
+3. Still signed in as contact@, open the same **Newsletter Subscribers**
+   spreadsheet (it now shows up under "Shared with me," or search for
+   it). Go to **Extensions → Apps Script**. You'll see the same script
+   code already there, since it belongs to the spreadsheet, not to
+   either account. If you want to double check, it should match the
+   current contents of `apps-script-newsletter.gs`.
+4. Click **Deploy → New deployment → Web app**, and set:
+   - **Execute as:** Me (this time, "Me" is contact@aggiesfoundation.com)
+   - **Who has access:** Anyone
+5. Click **Deploy**. Google will ask contact@ to authorize the script,
+   including permission to send email as that account. This is the
+   one-time consent click, same idea as the original setup, just done
+   under the contact@ login this time.
+6. Copy the new **Web app URL** (ends in `/exec`) and send it over so
+   `newsletter.js` can be pointed at it.
 
-If the alias isn't verified yet, signups still work and still get saved
-to the sheet. The welcome email just silently fails to send until the
-alias is set up, so nothing breaks in the meantime.
+The old deployment (the one created under your personal account) can
+just be left alone or archived later. It's not doing any harm sitting
+there unused.
+
+If this step hasn't been done yet, signups still work and still get
+saved to the sheet. The welcome email just doesn't send until the new
+deployment exists, so nothing breaks in the meantime.

@@ -43,14 +43,13 @@ function doPost(e) {
 }
 
 
-// Sends the "thanks for subscribing" email, from contact@aggiesfoundation.com.
-// That address must already be set up as a verified "Send mail as" alias in
-// the Gmail settings of the Google account that runs this script (Gmail >
-// Settings > Accounts and Import > Send mail as). See README-newsletter.md.
+// Sends the "thanks for subscribing" email. This script must be deployed
+// from the contact@aggiesfoundation.com Google account itself (not your
+// personal one) so the email comes from that address automatically, with
+// no alias setup needed. See README-newsletter.md.
 function sendWelcomeEmail(email) {
-  GmailApp.sendEmail(email, "Thanks for subscribing to Aggie's Foundation", '', {
+  MailApp.sendEmail(email, "Thanks for subscribing to Aggie's Foundation", '', {
     htmlBody: WELCOME_EMAIL_HTML,
-    from: 'contact@aggiesfoundation.com',
     name: "Aggie's Foundation"
   });
 }
